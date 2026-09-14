@@ -20,9 +20,7 @@ jobs:
       - name: Render metrics into assets/metrics.svg
         uses: lowlighter/metrics@latest
         with:
-          # Classic PAT with the "public_repo" scope, stored as a repository secret.
           token: ${{ secrets.METRICS_TOKEN }}
-          # Auto-generated token, only used to commit the result back into this repo.
           committer_token: ${{ secrets.GITHUB_TOKEN }}
           committer_branch: main
           filename: assets/metrics.svg
@@ -32,8 +30,15 @@ jobs:
           base: header, activity, community, repositories, metadata
           base_indepth: yes
           config_timezone: Europe/Berlin
-          config_theme: dark
           config_animations: no
+          extras_css: |
+            body, .background { background-color: #0D1B2A !important; }
+            h2, .title { color: #38BDF8 !important; }
+            h2 { border-bottom-color: #24405A !important; }
+            .field, .value, .username, p, span, li, td { color: #E6EDF3 !important; }
+            .details, .meta, .light { color: #8BA3B8 !important; }
+            text, tspan { fill: #E6EDF3 !important; }
+            a { color: #38BDF8 !important; }
 
           plugin_languages: yes
           plugin_languages_limit: 8
