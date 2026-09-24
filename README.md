@@ -115,6 +115,12 @@ Free proxies that actually work. Scrapes HTTP/SOCKS4/SOCKS5 proxies from 700+ so
 ### Recent activity
 
 <!--START_SECTION:activity-->
+1. 🎉 Merged PR [#115](https://github.com/vario2k/achievement-farm/pull/115) in [vario2k/achievement-farm](https://github.com/vario2k/achievement-farm)
+2. 💪 Opened PR [#115](https://github.com/vario2k/achievement-farm/pull/115) in [vario2k/achievement-farm](https://github.com/vario2k/achievement-farm)
+3. 🎉 Merged PR [#114](https://github.com/vario2k/achievement-farm/pull/114) in [vario2k/achievement-farm](https://github.com/vario2k/achievement-farm)
+4. 💪 Opened PR [#114](https://github.com/vario2k/achievement-farm/pull/114) in [vario2k/achievement-farm](https://github.com/vario2k/achievement-farm)
+5. 🎉 Merged PR [#113](https://github.com/vario2k/achievement-farm/pull/113) in [vario2k/achievement-farm](https://github.com/vario2k/achievement-farm)
+6. 💪 Opened PR [#113](https://github.com/vario2k/achievement-farm/pull/113) in [vario2k/achievement-farm](https://github.com/vario2k/achievement-farm)
 <!--END_SECTION:activity-->
 
 ---
