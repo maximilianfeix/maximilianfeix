@@ -112,17 +112,6 @@ Free proxies that actually work. Scrapes HTTP/SOCKS4/SOCKS5 proxies from 700+ so
   <img src="./assets/projects.svg" alt="More repositories: AxonPHPCLI, Mini-Laravel, C++ template for macOS, CurrentlyFreeDomains" width="100%">
 </p>
 
-### Recent activity
-
-<!--START_SECTION:activity-->
-1. 🎉 Merged PR [#115](https://github.com/vario2k/achievement-farm/pull/115) in [vario2k/achievement-farm](https://github.com/vario2k/achievement-farm)
-2. 💪 Opened PR [#115](https://github.com/vario2k/achievement-farm/pull/115) in [vario2k/achievement-farm](https://github.com/vario2k/achievement-farm)
-3. 🎉 Merged PR [#114](https://github.com/vario2k/achievement-farm/pull/114) in [vario2k/achievement-farm](https://github.com/vario2k/achievement-farm)
-4. 💪 Opened PR [#114](https://github.com/vario2k/achievement-farm/pull/114) in [vario2k/achievement-farm](https://github.com/vario2k/achievement-farm)
-5. 🎉 Merged PR [#113](https://github.com/vario2k/achievement-farm/pull/113) in [vario2k/achievement-farm](https://github.com/vario2k/achievement-farm)
-6. 💪 Opened PR [#113](https://github.com/vario2k/achievement-farm/pull/113) in [vario2k/achievement-farm](https://github.com/vario2k/achievement-farm)
-<!--END_SECTION:activity-->
-
 ---
 
 ## Activity
@@ -161,5 +150,5 @@ Free proxies that actually work. Scrapes HTTP/SOCKS4/SOCKS5 proxies from 700+ so
 ---
 
 <p align="center">
-  <sub>Banner and diagrams are hand-built and live in this repository. Stats, the snake and the activity feed refresh themselves via GitHub Actions.</sub>
+  <sub>Banner and diagrams are hand-built and live in this repository. Stats, project cards and the snake refresh themselves every night via GitHub Actions.</sub>
 </p>
