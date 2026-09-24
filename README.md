@@ -143,12 +143,12 @@ flowchart TD
 ## 🚀 Recently shipped
 
 <!--SHIPPED:start-->
+- 🔀 Merged [README: banner, highlights, recipes and acknowledgements](https://github.com/maximilianfeix/proxy-scraper/pull/34) in **proxy-scraper** <sub>· 24 Sep 2026</sub>
 - 🏷️ Released **[proxy-scraper v1.3.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.3.0)** <sub>· 24 Sep 2026</sub>
 - 🔀 Merged [Release 1.3.0](https://github.com/maximilianfeix/proxy-scraper/pull/32) in **proxy-scraper** <sub>· 24 Sep 2026</sub>
 - 🔀 Merged [English README, community files and issue forms](https://github.com/maximilianfeix/proxy-scraper/pull/31) in **proxy-scraper** <sub>· 24 Sep 2026</sub>
 - 🔀 Merged [Polish the terminal UI](https://github.com/maximilianfeix/proxy-scraper/pull/30) in **proxy-scraper** <sub>· 24 Sep 2026</sub>
 - 🔀 Merged [Installable proxy-scraper command, releases on tags](https://github.com/maximilianfeix/proxy-scraper/pull/29) in **proxy-scraper** <sub>· 24 Sep 2026</sub>
-- 🏷️ Released **[proxy-scraper v1.2.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.2.0)** <sub>· 24 Sep 2026</sub>
 <!--SHIPPED:end-->
 
 ## 📂 More projects
