@@ -1,0 +1,25 @@
+name: Link check
+
+on:
+  schedule:
+    - cron: "12 6 * * 1"   # Mondays
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ["README.md"]
+
+jobs:
+  lychee:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check links in the README
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --no-progress
+            --max-retries 3
+            --accept 200,204,206,429
+            --exclude "^https://github.com/.*/(stargazers|pulls\\?)"
+            README.md
+          fail: true

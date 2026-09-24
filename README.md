@@ -140,6 +140,17 @@ flowchart TD
 </tr>
 </table>
 
+## 🚀 Recently shipped
+
+<!--SHIPPED:start-->
+- 🏷️ Released **[proxy-scraper v1.3.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.3.0)** <sub>· 24 Sep 2026</sub>
+- 🔀 Merged [Release 1.3.0](https://github.com/maximilianfeix/proxy-scraper/pull/32) in **proxy-scraper** <sub>· 24 Sep 2026</sub>
+- 🔀 Merged [English README, community files and issue forms](https://github.com/maximilianfeix/proxy-scraper/pull/31) in **proxy-scraper** <sub>· 24 Sep 2026</sub>
+- 🔀 Merged [Polish the terminal UI](https://github.com/maximilianfeix/proxy-scraper/pull/30) in **proxy-scraper** <sub>· 24 Sep 2026</sub>
+- 🔀 Merged [Installable proxy-scraper command, releases on tags](https://github.com/maximilianfeix/proxy-scraper/pull/29) in **proxy-scraper** <sub>· 24 Sep 2026</sub>
+- 🏷️ Released **[proxy-scraper v1.2.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.2.0)** <sub>· 24 Sep 2026</sub>
+<!--SHIPPED:end-->
+
 ## 📂 More projects
 
 <p align="center">
@@ -160,9 +171,20 @@ flowchart TD
   </picture>
 </p>
 
+## ⚙️ Powered by GitHub Actions
+
+This profile keeps itself up to date:
+
+| Workflow | Status | What it does | When |
+|---|---|---|---|
+| [Profile](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/profile.yml) | [![Profile](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/profile.yml/badge.svg)](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/profile.yml) | renders the banner with live data and the *Recently shipped* list ([script](scripts/build_profile.py)) | every 3 hours |
+| [Metrics](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/metrics.yml) | [![Metrics](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/metrics.yml/badge.svg)](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/metrics.yml) | activity, languages, calendar and project cards via [lowlighter/metrics](https://github.com/lowlighter/metrics) | nightly |
+| [Contribution snake](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/main.yml) | [![Snake](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/main.yml/badge.svg)](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/main.yml) | turns the contribution graph into the snake above | nightly |
+| [Link check](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/links.yml) | [![Link check](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/links.yml/badge.svg)](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/links.yml) | makes sure every link in this README still works | weekly |
+
 ---
 
 <p align="center">
   <sub>Open to interesting backend and infrastructure work – the easiest way to reach me is an issue or discussion on one of my repositories.</sub><br>
-  <sub>Banner and diagrams live in this repository · metrics, project cards and the snake refresh nightly via GitHub Actions</sub>
+  <sub>Banner, project cards and stats are generated in this repository by GitHub Actions.</sub>
 </p>
