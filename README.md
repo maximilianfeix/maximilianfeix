@@ -133,7 +133,7 @@ Free proxies that actually work. Scrapes HTTP/SOCKS4/SOCKS5 proxies from 700+ so
 ### In numbers
 
 <p align="center">
-  <img src="./assets/metrics.svg" alt="GitHub metrics: activity, languages, contribution calendar and habits" width="100%">
+  <img src="./assets/metrics.svg" alt="GitHub metrics: activity, community, repositories, languages and contribution calendar">
 </p>
 
 <details>
