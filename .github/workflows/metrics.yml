@@ -32,7 +32,8 @@ jobs:
           config_timezone: Europe/Berlin
           config_animations: no
           extras_css: |
-            body, .background { background-color: #0D1B2A !important; }
+            svg, body, .background { background-color: #0D1B2A !important; }
+            svg { border-radius: 12px; }
             h2, .title { color: #38BDF8 !important; }
             h2 { border-bottom-color: #24405A !important; }
             .field, .value, .username, p, span, li, td { color: #E6EDF3 !important; }
@@ -69,7 +70,8 @@ jobs:
           config_animations: no
           config_display: large
           extras_css: |
-            body, .background { background-color: #0D1B2A !important; }
+            svg, body, .background { background-color: #0D1B2A !important; }
+            svg { border-radius: 12px; }
             h2, .title { color: #38BDF8 !important; }
             h2 { border-bottom-color: #24405A !important; }
             .field, .value, .username, p, span, li, td { color: #E6EDF3 !important; }
