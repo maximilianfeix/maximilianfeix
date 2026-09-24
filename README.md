@@ -1,9 +1,3 @@
-<!--
-  Profile README for github.com/maximilianfeix
-  Assets live in /assets, automation in /.github/workflows
-  Search for "TODO" to find the spots you should personalise.
--->
-
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./assets/header-dark.svg">
@@ -13,8 +7,6 @@
 </p>
 
 <p align="center">
-  <a href="https://discord.gg/0d6v"><img src="https://img.shields.io/badge/Discord-5865F2?style=flat-square&logo=discord&logoColor=white" alt="Discord"></a>
-  <a href="mailto:TODO@example.com"><img src="https://img.shields.io/badge/Email-0D1B2A?style=flat-square&logo=maildotru&logoColor=38BDF8" alt="Email"></a>
   <a href="https://github.com/maximilianfeix?tab=repositories"><img src="https://img.shields.io/badge/Repositories-0D1B2A?style=flat-square&logo=github&logoColor=38BDF8" alt="Repositories"></a>
   <img src="https://komarev.com/ghpvc/?username=maximilianfeix&style=flat-square&color=38BDF8&label=views" alt="Profile views">
 </p>
@@ -28,9 +20,9 @@ Software developer from Germany, working at a hosting company. Most of my time g
 - Building backend services in **Node.js** and **PHP**, with **Vue** on the front where a UI is needed
 - Comfortable in the ops half of the job: **Apache**, **Redis**, **MariaDB**, cron and shell glue
 - Interested in reliability, sensible defaults and scripts that remove repetitive work
-- Currently digging deeper into **TODO: z. B. containers, Go, observability**
+- Currently building **devprofile.dev** and digging deeper into **microservices**
 
-> Open to interesting backend or infrastructure projects. The fastest way to reach me is Discord.
+> Open to interesting backend or infrastructure projects – the easiest way to reach me is an issue or discussion on one of my repositories.
 
 ---
 
@@ -97,33 +89,37 @@ flowchart TD
 
 ## Projects
 
-<!-- TODO: Ersetze REPO_1 / REPO_2 durch echte Repository-Namen. Karten ohne gültiges Repo zeigen einen Fehler. -->
+### ⚡ [proxy-scraper](https://github.com/maximilianfeix/proxy-scraper)
+
+Free proxies that actually work. Scrapes HTTP/SOCKS4/SOCKS5 proxies from 700+ sources, checks about a million candidates in under half a minute with hand-written handshakes on `asyncio`, filters out honeypots, tests HTTPS with verified TLS – and learns with every run which sources are worth it. Comes with a live dashboard, a setup wizard and a rotating local proxy server.
+
+<p>
+  <a href="https://github.com/maximilianfeix/proxy-scraper/actions/workflows/tests.yml"><img src="https://github.com/maximilianfeix/proxy-scraper/actions/workflows/tests.yml/badge.svg" alt="tests"></a>
+  <a href="https://github.com/maximilianfeix/proxy-scraper/releases/latest"><img src="https://img.shields.io/github/v/release/maximilianfeix/proxy-scraper?style=flat-square&color=38BDF8" alt="release"></a>
+  <a href="https://github.com/maximilianfeix/proxy-scraper/tree/proxy-list"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fmaximilianfeix%2Fproxy-scraper%2Fproxy-list%2Fbadges%2Ftotal.json&style=flat-square" alt="live proxies"></a>
+  <img src="https://img.shields.io/github/stars/maximilianfeix/proxy-scraper?style=flat-square&color=FBBF24" alt="stars">
+</p>
+
+<a href="https://github.com/maximilianfeix/proxy-scraper"><img src="https://raw.githubusercontent.com/maximilianfeix/proxy-scraper/main/docs/demo.svg" alt="proxy-scraper demo" width="100%"></a>
 
 <p align="center">
-  <a href="https://github.com/maximilianfeix/REPO_1">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=maximilianfeix&repo=REPO_1&theme=tokyonight&hide_border=true&bg_color=0D1B2A&title_color=38BDF8&text_color=8BA3B8&icon_color=34D399" alt="Project 1">
-  </a>
-  <a href="https://github.com/maximilianfeix/REPO_2">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=maximilianfeix&repo=REPO_2&theme=tokyonight&hide_border=true&bg_color=0D1B2A&title_color=38BDF8&text_color=8BA3B8&icon_color=34D399" alt="Project 2">
-  </a>
+  <sub>Python · asyncio · rich · GitHub Actions publishes a fresh proxy list every 6 hours</sub>
 </p>
+
+### More
+
+<p align="center">
+  <img src="./assets/projects.svg" alt="More repositories: AxonPHPCLI, Mini-Laravel, C++ template for macOS, CurrentlyFreeDomains" width="100%">
+</p>
+
+### Recent activity
+
+<!--START_SECTION:activity-->
+<!--END_SECTION:activity-->
 
 ---
 
 ## Activity
-
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=maximilianfeix&show_icons=true&include_all_commits=true&hide_border=true&hide_title=true&bg_color=0D1B2A&text_color=8BA3B8&icon_color=38BDF8&ring_color=34D399">
-    <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api?username=maximilianfeix&show_icons=true&include_all_commits=true&hide_border=true&hide_title=true&bg_color=F6F9FC&text_color=43647E&icon_color=0284C7&ring_color=10B981">
-    <img src="https://github-readme-stats.vercel.app/api?username=maximilianfeix&show_icons=true&include_all_commits=true&hide_border=true" alt="GitHub stats" height="170">
-  </picture>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=maximilianfeix&layout=compact&langs_count=8&hide_border=true&hide_title=true&bg_color=0D1B2A&text_color=8BA3B8&title_color=38BDF8">
-    <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=maximilianfeix&layout=compact&langs_count=8&hide_border=true&hide_title=true&bg_color=F6F9FC&text_color=43647E&title_color=0284C7">
-    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=maximilianfeix&layout=compact&langs_count=8&hide_border=true" alt="Top languages" height="170">
-  </picture>
-</p>
 
 <p align="center">
   <img src="https://streak-stats.demolab.com?user=maximilianfeix&hide_border=true&background=0D1B2A&stroke=24405A&ring=38BDF8&fire=34D399&currStreakLabel=8BA3B8&sideLabels=8BA3B8&dates=5E7B94&currStreakNum=E6EDF3&sideNums=E6EDF3" alt="Contribution streak" height="170">
@@ -139,16 +135,11 @@ flowchart TD
   </picture>
 </p>
 
-<details>
-<summary><b>Detailed metrics</b> (generated daily, served from this repo)</summary>
-
-<br>
+### In numbers
 
 <p align="center">
-  <img src="./assets/metrics.svg" alt="Detailed GitHub metrics" width="100%">
+  <img src="./assets/metrics.svg" alt="GitHub metrics: activity, languages, contribution calendar and habits" width="100%">
 </p>
-
-</details>
 
 <details>
 <summary><b>GitAnimals</b></summary>
@@ -164,5 +155,5 @@ flowchart TD
 ---
 
 <p align="center">
-  <sub>Banner and diagrams are hand-built and live in this repository. Stats and the snake refresh themselves every night via GitHub Actions.</sub>
+  <sub>Banner and diagrams are hand-built and live in this repository. Stats, the snake and the activity feed refresh themselves via GitHub Actions.</sub>
 </p>
