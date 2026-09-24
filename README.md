@@ -7,38 +7,72 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/maximilianfeix?tab=repositories"><img src="https://img.shields.io/badge/Repositories-0D1B2A?style=flat-square&logo=github&logoColor=38BDF8" alt="Repositories"></a>
-  <img src="https://komarev.com/ghpvc/?username=maximilianfeix&style=flat-square&color=38BDF8&label=views" alt="Profile views">
+  <a href="https://github.com/maximilianfeix/proxy-scraper"><img src="https://img.shields.io/badge/featured-proxy--scraper-38BDF8?style=flat-square&logo=python&logoColor=white&labelColor=0D1B2A" alt="Featured project: proxy-scraper"></a>
+  <a href="https://github.com/maximilianfeix?tab=repositories"><img src="https://img.shields.io/badge/repositories-browse-34D399?style=flat-square&logo=github&logoColor=white&labelColor=0D1B2A" alt="Repositories"></a>
+  <img src="https://img.shields.io/badge/based_in-Germany-8BA3B8?style=flat-square&labelColor=0D1B2A" alt="Based in Germany">
 </p>
 
----
-
-## About
+## 👋 About
 
 Software developer from Germany, working at a hosting company. Most of my time goes into the parts users never see: APIs, deployment pipelines, database schemas and the automation that keeps all of it running without me.
 
-- Building backend services in **Node.js** and **PHP**, with **Vue** on the front where a UI is needed
-- Comfortable in the ops half of the job: **Apache**, **Redis**, **MariaDB**, cron and shell glue
-- Interested in reliability, sensible defaults and scripts that remove repetitive work
-- Currently building **devprofile.dev** and digging deeper into **microservices**
+<table>
+<tr>
+<td width="50%" valign="top">
 
-> Open to interesting backend or infrastructure projects – the easiest way to reach me is an issue or discussion on one of my repositories.
+**What I do**
 
----
+- Backend services in **Node.js**, **TypeScript** and **PHP**, with **Vue** where a UI is needed
+- The ops half of the job: **Linux**, **Apache**, **Redis**, **MariaDB**, cron and shell glue
+- Automation that removes repetitive work – CI pipelines, scripts, bots
 
-## Stack
+</td>
+<td width="50%" valign="top">
 
-| | |
+**Right now**
+
+- 🔨 Building **devprofile.dev**
+- 📚 Learning **microservices** – service boundaries, messaging, observability
+- ⚡ Maintaining **[proxy-scraper](https://github.com/maximilianfeix/proxy-scraper)**
+
+</td>
+</tr>
+</table>
+
+## 🧰 Tech stack
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=ts,js,php,py,java,cpp,html,css&theme=light&perline=12">
+    <img src="https://skillicons.dev/icons?i=ts,js,php,py,java,cpp,html,css&theme=dark&perline=12" alt="TypeScript, JavaScript, PHP, Python, Java, C++, HTML, CSS" height="44">
+  </picture>
+</p>
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=nodejs,vue,vite,mysql,mongodb,redis,sqlite&theme=light&perline=12">
+    <img src="https://skillicons.dev/icons?i=nodejs,vue,vite,mysql,mongodb,redis,sqlite&theme=dark&perline=12" alt="Node.js, Vue, Vite, MySQL, MongoDB, Redis, SQLite" height="44">
+  </picture>
+</p>
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=linux,bash,githubactions,git,gitlab,figma,ps,ae,blender&theme=light&perline=12">
+    <img src="https://skillicons.dev/icons?i=linux,bash,githubactions,git,gitlab,figma,ps,ae,blender&theme=dark&perline=12" alt="Linux, Bash, GitHub Actions, Git, GitLab, Figma, Photoshop, After Effects, Blender" height="44">
+  </picture>
+</p>
+
+## 🛠️ How I work
+
+| Principle | In practice |
 |---|---|
-| **Languages** | ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) ![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white) ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white) |
-| **Runtime & frameworks** | ![Node.js](https://img.shields.io/badge/Node.js-5FA04E?style=flat-square&logo=nodedotjs&logoColor=white) ![Vue.js](https://img.shields.io/badge/Vue.js-4FC08D?style=flat-square&logo=vuedotjs&logoColor=white) ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white) |
-| **Data** | ![MariaDB](https://img.shields.io/badge/MariaDB-003545?style=flat-square&logo=mariadb&logoColor=white) ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white) ![Redis](https://img.shields.io/badge/Redis-FF4438?style=flat-square&logo=redis&logoColor=white) ![SQLite](https://img.shields.io/badge/SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white) |
-| **Infrastructure** | ![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black) ![Apache](https://img.shields.io/badge/Apache-D22128?style=flat-square&logo=apache&logoColor=white) ![GitHub Actions](https://img.shields.io/badge/Actions-2088FF?style=flat-square&logo=githubactions&logoColor=white) ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white) ![GitLab](https://img.shields.io/badge/GitLab-FC6D26?style=flat-square&logo=gitlab&logoColor=white) |
-| **Design** | ![Figma](https://img.shields.io/badge/Figma-F24E1E?style=flat-square&logo=figma&logoColor=white) ![Photoshop](https://img.shields.io/badge/Photoshop-31A8FF?style=flat-square&logo=adobephotoshop&logoColor=white) ![Illustrator](https://img.shields.io/badge/Illustrator-FF9A00?style=flat-square&logo=adobeillustrator&logoColor=white) ![After Effects](https://img.shields.io/badge/After_Effects-9999FF?style=flat-square&logo=adobeaftereffects&logoColor=black) ![Blender](https://img.shields.io/badge/Blender-E87D0D?style=flat-square&logo=blender&logoColor=white) |
+| **Tested** | Tests that run offline and in CI – [proxy-scraper](https://github.com/maximilianfeix/proxy-scraper/actions/workflows/tests.yml) runs 240+ of them on Linux, macOS and Windows, against fake proxies and honeypots on `localhost` |
+| **Reviewed** | Changes start as an issue and land through a reviewed pull request – see the [proxy-scraper history](https://github.com/maximilianfeix/proxy-scraper/pulls?q=is%3Apr+is%3Amerged) |
+| **Automated** | Lint, CodeQL, Dependabot, tagged releases and scheduled jobs on GitHub Actions – this profile updates itself too |
+| **Documented** | READMEs with a quick start, a changelog, contributing and security guides |
 
----
+<details>
+<summary><b>From commit to production – and which tool for which job</b></summary>
 
-## How a change reaches production
+<br>
 
 ```mermaid
 flowchart LR
@@ -58,10 +92,7 @@ flowchart LR
     class cache,db store
 ```
 
-<details>
-<summary><b>What I reach for, and when</b></summary>
-
-<br>
+**What I reach for, and when**
 
 ```mermaid
 flowchart TD
@@ -85,42 +116,41 @@ flowchart TD
 
 </details>
 
----
+## ⭐ Featured project
 
-## Projects
+<table>
+<tr>
+<td>
 
 ### ⚡ [proxy-scraper](https://github.com/maximilianfeix/proxy-scraper)
 
-Free proxies that actually work. Scrapes HTTP/SOCKS4/SOCKS5 proxies from 700+ sources, checks about a million candidates in under half a minute with hand-written handshakes on `asyncio`, filters out honeypots, tests HTTPS with verified TLS – and learns with every run which sources are worth it. Comes with a live dashboard, a setup wizard and a rotating local proxy server.
+**Free proxies that actually work.** Scrapes HTTP/SOCKS4/SOCKS5 proxies from 700+ sources, verifies every hit – honeypot filter, HTTPS with verified TLS, anonymity, country – and learns with every run which sources are worth it. Setup wizard, live dashboard and a rotating local proxy server included.
 
-<p>
-  <a href="https://github.com/maximilianfeix/proxy-scraper/actions/workflows/tests.yml"><img src="https://github.com/maximilianfeix/proxy-scraper/actions/workflows/tests.yml/badge.svg" alt="tests"></a>
-  <a href="https://github.com/maximilianfeix/proxy-scraper/releases/latest"><img src="https://img.shields.io/github/v/release/maximilianfeix/proxy-scraper?style=flat-square&color=38BDF8" alt="release"></a>
-  <a href="https://github.com/maximilianfeix/proxy-scraper/tree/proxy-list"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fmaximilianfeix%2Fproxy-scraper%2Fproxy-list%2Fbadges%2Ftotal.json&style=flat-square" alt="live proxies"></a>
-  <img src="https://img.shields.io/github/stars/maximilianfeix/proxy-scraper?style=flat-square&color=FBBF24" alt="stars">
-</p>
+<a href="https://github.com/maximilianfeix/proxy-scraper/actions/workflows/tests.yml"><img src="https://github.com/maximilianfeix/proxy-scraper/actions/workflows/tests.yml/badge.svg" alt="tests"></a> <a href="https://github.com/maximilianfeix/proxy-scraper/releases/latest"><img src="https://img.shields.io/github/v/release/maximilianfeix/proxy-scraper?style=flat-square&color=38BDF8" alt="release"></a> <a href="https://github.com/maximilianfeix/proxy-scraper/tree/proxy-list"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fmaximilianfeix%2Fproxy-scraper%2Fproxy-list%2Fbadges%2Ftotal.json&style=flat-square" alt="live proxies"></a> <a href="https://github.com/maximilianfeix/proxy-scraper/stargazers"><img src="https://img.shields.io/github/stars/maximilianfeix/proxy-scraper?style=flat-square&color=FBBF24" alt="stars"></a>
 
-<a href="https://github.com/maximilianfeix/proxy-scraper"><img src="https://raw.githubusercontent.com/maximilianfeix/proxy-scraper/main/docs/demo.svg" alt="proxy-scraper demo" width="100%"></a>
+| 700+ | ~1M | 25 s | 3 OS |
+|:---:|:---:|:---:|:---:|
+| sources | candidates per run | to check them | Linux · macOS · Windows |
 
-<p align="center">
-  <sub>Python · asyncio · rich · GitHub Actions publishes a fresh proxy list every 6 hours</sub>
-</p>
+<a href="https://github.com/maximilianfeix/proxy-scraper"><img src="https://raw.githubusercontent.com/maximilianfeix/proxy-scraper/main/docs/dashboard.svg" alt="proxy-scraper live dashboard while checking proxies" width="100%"></a>
 
-### More
+<sub>Python · asyncio · rich · a GitHub Actions job publishes a freshly verified proxy list every 6 hours</sub>
+
+</td>
+</tr>
+</table>
+
+## 📂 More projects
 
 <p align="center">
   <img src="./assets/projects.svg" alt="More repositories: AxonPHPCLI, Mini-Laravel, C++ template for macOS, CurrentlyFreeDomains" width="100%">
 </p>
 
----
-
-## Activity
+## 📈 GitHub activity
 
 <p align="center">
-  <img src="https://streak-stats.demolab.com?user=maximilianfeix&hide_border=true&background=0D1B2A&stroke=24405A&ring=38BDF8&fire=34D399&currStreakLabel=8BA3B8&sideLabels=8BA3B8&dates=5E7B94&currStreakNum=E6EDF3&sideNums=E6EDF3" alt="Contribution streak" height="170">
+  <img src="./assets/metrics.svg" alt="GitHub metrics: activity, community, repositories, languages and contribution calendar">
 </p>
-
-### Contribution graph
 
 <p align="center">
   <picture>
@@ -130,25 +160,9 @@ Free proxies that actually work. Scrapes HTTP/SOCKS4/SOCKS5 proxies from 700+ so
   </picture>
 </p>
 
-### In numbers
-
-<p align="center">
-  <img src="./assets/metrics.svg" alt="GitHub metrics: activity, community, repositories, languages and contribution calendar">
-</p>
-
-<details>
-<summary><b>GitAnimals</b></summary>
-
-<br>
-
-<p align="center">
-  <a href="https://github.com/devxb/gitanimals"><img src="https://render.gitanimals.org/lines/maximilianfeix" alt="GitAnimals"></a>
-</p>
-
-</details>
-
 ---
 
 <p align="center">
-  <sub>Banner and diagrams are hand-built and live in this repository. Stats, project cards and the snake refresh themselves every night via GitHub Actions.</sub>
+  <sub>Open to interesting backend and infrastructure work – the easiest way to reach me is an issue or discussion on one of my repositories.</sub><br>
+  <sub>Banner and diagrams live in this repository · metrics, project cards and the snake refresh nightly via GitHub Actions</sub>
 </p>
