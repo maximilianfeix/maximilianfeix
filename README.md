@@ -145,12 +145,12 @@ flowchart TD
 ## 🚀 Recently shipped
 
 <!--SHIPPED:start-->
-- 🔀 Merged [README in the new design](https://github.com/maximilianfeix/proxy-scraper/pull/78) in **proxy-scraper** <sub>· 25 Sep 2026</sub>
-- 🔀 Merged [Discord bot for the live list, deployed by GitHub Actions](https://github.com/maximilianfeix/proxy-scraper/pull/77) in **proxy-scraper** <sub>· 25 Sep 2026</sub>
-- 🔀 Merged [Translate the whole repository to English](https://github.com/maximilianfeix/proxy-scraper/pull/76) in **proxy-scraper** <sub>· 25 Sep 2026</sub>
-- 🔀 Merged [New website design and logo](https://github.com/maximilianfeix/proxy-scraper/pull/71) in **proxy-scraper** <sub>· 25 Sep 2026</sub>
-- 🏷️ Released **[proxy-scraper v1.5.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.5.0)** <sub>· 25 Sep 2026</sub>
-- 🔀 Merged [Release 1.5.0](https://github.com/maximilianfeix/proxy-scraper/pull/69) in **proxy-scraper** <sub>· 25 Sep 2026</sub>
+- 🔀 Merged [Website: blocklist in the route's last step](https://github.com/maximilianfeix/proxy-scraper/pull/108) in **proxy-scraper** <sub>· 25 Sep 2026</sub>
+- 🔀 Merged [-o - for piping the hits](https://github.com/maximilianfeix/proxy-scraper/pull/106) in **proxy-scraper** <sub>· 25 Sep 2026</sub>
+- 🔀 Merged [Optional password for the proxy server](https://github.com/maximilianfeix/proxy-scraper/pull/104) in **proxy-scraper** <sub>· 25 Sep 2026</sub>
+- 🔀 Merged [Bot: blocklist filter for /proxies and status in /proxy](https://github.com/maximilianfeix/proxy-scraper/pull/100) in **proxy-scraper** <sub>· 25 Sep 2026</sub>
+- 🔀 Merged [Architecture doc for everything since 1.5, one Dependabot entry for pip](https://github.com/maximilianfeix/proxy-scraper/pull/99) in **proxy-scraper** <sub>· 25 Sep 2026</sub>
+- 🔀 Merged [Terminal: datacenter and blocklist shares in the report, cleaner wizard title](https://github.com/maximilianfeix/proxy-scraper/pull/96) in **proxy-scraper** <sub>· 25 Sep 2026</sub>
 <!--SHIPPED:end-->
 
 ## 📂 More projects
