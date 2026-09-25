@@ -124,7 +124,9 @@ flowchart TD
 
 ### ⚡ [proxy-scraper](https://github.com/maximilianfeix/proxy-scraper)
 
-**Free proxies that actually work.** Scrapes HTTP/SOCKS4/SOCKS5 proxies from 700+ sources, verifies every hit – honeypot filter, HTTPS with verified TLS, anonymity, country – and learns with every run which sources are worth it. Setup wizard, live dashboard and a rotating local proxy server included.
+**Free proxies that actually work.** Scrapes HTTP/SOCKS4/SOCKS5 proxies from 700+ sources and verifies every hit: honeypot filter, catches proxies that inject scripts (one in five does), HTTPS with verified TLS, anonymity, country and provider. It learns with every run which sources are worth it. Comes with a setup wizard, a live dashboard, a rotating proxy server (SOCKS5 + HTTP, sticky sessions, country per request) and a Python API.
+
+**→ [Browse the live list](https://maximilianfeix.github.io/proxy-scraper/)**, re-checked every 6 hours by GitHub Actions.
 
 <a href="https://github.com/maximilianfeix/proxy-scraper/actions/workflows/tests.yml"><img src="https://github.com/maximilianfeix/proxy-scraper/actions/workflows/tests.yml/badge.svg" alt="tests"></a> <a href="https://github.com/maximilianfeix/proxy-scraper/releases/latest"><img src="https://img.shields.io/github/v/release/maximilianfeix/proxy-scraper?style=flat-square&color=38BDF8" alt="release"></a> <a href="https://github.com/maximilianfeix/proxy-scraper/tree/proxy-list"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fmaximilianfeix%2Fproxy-scraper%2Fproxy-list%2Fbadges%2Ftotal.json&style=flat-square" alt="live proxies"></a> <a href="https://github.com/maximilianfeix/proxy-scraper/stargazers"><img src="https://img.shields.io/github/stars/maximilianfeix/proxy-scraper?style=flat-square&color=FBBF24" alt="stars"></a>
 
@@ -132,9 +134,9 @@ flowchart TD
 |:---:|:---:|:---:|:---:|
 | sources | candidates per run | to check them | Linux · macOS · Windows |
 
-<a href="https://github.com/maximilianfeix/proxy-scraper"><img src="https://raw.githubusercontent.com/maximilianfeix/proxy-scraper/main/docs/dashboard.svg" alt="proxy-scraper live dashboard while checking proxies" width="100%"></a>
+<a href="https://maximilianfeix.github.io/proxy-scraper/"><img src="https://raw.githubusercontent.com/maximilianfeix/proxy-scraper/main/docs/website.png" alt="The live proxy list website" width="100%"></a>
 
-<sub>Python · asyncio · rich · a GitHub Actions job publishes a freshly verified proxy list every 6 hours</sub>
+<sub>Python · asyncio · rich · Docker · GitHub Actions + Pages · 400+ offline tests on three operating systems</sub>
 
 </td>
 </tr>
