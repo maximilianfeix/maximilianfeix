@@ -64,7 +64,7 @@ Software developer from Germany, working at a hosting company. Most of my time g
 
 | Principle | In practice |
 |---|---|
-| **Tested** | Tests that run offline and in CI – [proxy-scraper](https://github.com/maximilianfeix/proxy-scraper/actions/workflows/tests.yml) runs 450+ of them on Linux, macOS and Windows, against fake proxies and honeypots on `localhost` |
+| **Tested** | Tests that run offline and in CI – [proxy-scraper](https://github.com/maximilianfeix/proxy-scraper/actions/workflows/tests.yml) runs almost 500 of them on Linux, macOS and Windows, against fake proxies and honeypots on `localhost` |
 | **Reviewed** | Changes start as an issue and land through a reviewed pull request – see the [proxy-scraper history](https://github.com/maximilianfeix/proxy-scraper/pulls?q=is%3Apr+is%3Amerged) |
 | **Automated** | Lint, CodeQL, Dependabot, tagged releases and scheduled jobs on GitHub Actions – this profile updates itself too |
 | **Documented** | READMEs with a quick start, a changelog, contributing and security guides |
@@ -124,7 +124,7 @@ flowchart TD
 
 ### ⚡ [proxy-scraper](https://github.com/maximilianfeix/proxy-scraper)
 
-**Free proxies that actually work.** Scrapes HTTP/SOCKS4/SOCKS5 proxies from 700+ sources and verifies every hit: honeypot filter, catches proxies that inject scripts (one in five does), HTTPS with verified TLS, anonymity, country and provider. It learns with every run which sources are worth it. Comes with a setup wizard, a live dashboard, a rotating proxy server (SOCKS5 + HTTP, sticky sessions, country per request, Prometheus metrics), a Python API and shell completion.
+**Free proxies that actually work.** Scrapes HTTP/SOCKS4/SOCKS5 proxies from 700+ sources and verifies every hit: honeypot filter, catches proxies that inject scripts (one in five does), HTTPS with verified TLS, anonymity, country, provider and spam blocklists. It learns with every run which sources are worth it. Comes with a setup wizard, a live dashboard, a rotating proxy server (SOCKS5 + HTTP, sticky sessions, country per request, optional password, refills itself while it runs, Prometheus metrics), a Discord bot, a Python API and shell completion.
 
 **→ [Browse the live list](https://maximilianfeix.github.io/proxy-scraper/)**, re-checked every 6 hours by GitHub Actions.
 
@@ -136,7 +136,7 @@ flowchart TD
 
 <a href="https://maximilianfeix.github.io/proxy-scraper/"><img src="https://raw.githubusercontent.com/maximilianfeix/proxy-scraper/main/docs/website.png" alt="The live proxy list website" width="100%"></a>
 
-<sub>Python · asyncio · rich · Docker · GitHub Actions + Pages · 400+ offline tests on three operating systems</sub>
+<sub>Python · asyncio · rich · Docker · GitHub Actions + Pages · ~500 offline tests on three operating systems</sub>
 
 </td>
 </tr>
