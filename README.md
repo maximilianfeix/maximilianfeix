@@ -145,12 +145,12 @@ flowchart TD
 ## 🚀 Recently shipped
 
 <!--SHIPPED:start-->
+- 🔀 Merged [README in the new design](https://github.com/maximilianfeix/proxy-scraper/pull/78) in **proxy-scraper** <sub>· 25 Sep 2026</sub>
+- 🔀 Merged [Discord bot for the live list, deployed by GitHub Actions](https://github.com/maximilianfeix/proxy-scraper/pull/77) in **proxy-scraper** <sub>· 25 Sep 2026</sub>
+- 🔀 Merged [Translate the whole repository to English](https://github.com/maximilianfeix/proxy-scraper/pull/76) in **proxy-scraper** <sub>· 25 Sep 2026</sub>
+- 🔀 Merged [New website design and logo](https://github.com/maximilianfeix/proxy-scraper/pull/71) in **proxy-scraper** <sub>· 25 Sep 2026</sub>
 - 🏷️ Released **[proxy-scraper v1.5.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.5.0)** <sub>· 25 Sep 2026</sub>
 - 🔀 Merged [Release 1.5.0](https://github.com/maximilianfeix/proxy-scraper/pull/69) in **proxy-scraper** <sub>· 25 Sep 2026</sub>
-- 🔀 Merged [Shell completion for bash, zsh and fish](https://github.com/maximilianfeix/proxy-scraper/pull/65) in **proxy-scraper** <sub>· 25 Sep 2026</sub>
-- 🔀 Merged [Python API and architecture doc](https://github.com/maximilianfeix/proxy-scraper/pull/59) in **proxy-scraper** <sub>· 25 Sep 2026</sub>
-- 🔀 Merged [Prometheus metrics for the proxy server](https://github.com/maximilianfeix/proxy-scraper/pull/68) in **proxy-scraper** <sub>· 25 Sep 2026</sub>
-- 🔀 Merged [Stable proxies on the live list](https://github.com/maximilianfeix/proxy-scraper/pull/64) in **proxy-scraper** <sub>· 25 Sep 2026</sub>
 <!--SHIPPED:end-->
 
 ## 📂 More projects
