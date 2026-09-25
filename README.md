@@ -145,12 +145,12 @@ flowchart TD
 ## 🚀 Recently shipped
 
 <!--SHIPPED:start-->
-- 🏷️ Released **[proxy-scraper v1.4.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.4.0)** <sub>· 25 Sep 2026</sub>
-- 🔀 Merged [Release 1.4.0](https://github.com/maximilianfeix/proxy-scraper/pull/45) in **proxy-scraper** <sub>· 25 Sep 2026</sub>
-- 🔀 Merged [Stricter lint rules and small cleanups](https://github.com/maximilianfeix/proxy-scraper/pull/41) in **proxy-scraper** <sub>· 25 Sep 2026</sub>
-- 🔀 Merged [Proxies with credentials](https://github.com/maximilianfeix/proxy-scraper/pull/37) in **proxy-scraper** <sub>· 25 Sep 2026</sub>
-- 🔀 Merged [Offline country lookup](https://github.com/maximilianfeix/proxy-scraper/pull/40) in **proxy-scraper** <sub>· 24 Sep 2026</sub>
-- 🔀 Merged [Fallback check targets](https://github.com/maximilianfeix/proxy-scraper/pull/38) in **proxy-scraper** <sub>· 24 Sep 2026</sub>
+- 🔀 Merged [--serve-host for Docker](https://github.com/maximilianfeix/proxy-scraper/pull/57) in **proxy-scraper** <sub>· 25 Sep 2026</sub>
+- 🔀 Merged [Website: provider column and datacenter filter](https://github.com/maximilianfeix/proxy-scraper/pull/58) in **proxy-scraper** <sub>· 25 Sep 2026</sub>
+- 🔀 Merged [Provider per proxy and --no-datacenter](https://github.com/maximilianfeix/proxy-scraper/pull/56) in **proxy-scraper** <sub>· 25 Sep 2026</sub>
+- 🔀 Merged [Proxy server v2: strategies, sessions, SOCKS5, status](https://github.com/maximilianfeix/proxy-scraper/pull/55) in **proxy-scraper** <sub>· 25 Sep 2026</sub>
+- 🔀 Merged [Live list website](https://github.com/maximilianfeix/proxy-scraper/pull/52) in **proxy-scraper** <sub>· 25 Sep 2026</sub>
+- 🔀 Merged [Catch proxies that inject scripts](https://github.com/maximilianfeix/proxy-scraper/pull/51) in **proxy-scraper** <sub>· 25 Sep 2026</sub>
 <!--SHIPPED:end-->
 
 ## 📂 More projects
