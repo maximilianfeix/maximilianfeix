@@ -145,12 +145,12 @@ flowchart TD
 ## 🚀 Recently shipped
 
 <!--SHIPPED:start-->
+- 🔀 Merged [Website: sieve hero, agents section, star cta](https://github.com/maximilianfeix/proxy-scraper/pull/137) in **proxy-scraper** <sub>· 26 Sep 2026</sub>
+- 🏷️ Released **[proxy-scraper v1.7.1](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.7.1)** <sub>· 26 Sep 2026</sub>
+- 🔀 Merged [Release 1.7.1](https://github.com/maximilianfeix/proxy-scraper/pull/135) in **proxy-scraper** <sub>· 26 Sep 2026</sub>
+- 🔀 Merged [PyPI (proxy-scraper-cli) and the official MCP registry](https://github.com/maximilianfeix/proxy-scraper/pull/134) in **proxy-scraper** <sub>· 26 Sep 2026</sub>
 - 🏷️ Released **[proxy-scraper v1.7.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.7.0)** <sub>· 26 Sep 2026</sub>
 - 🔀 Merged [Release 1.7.0](https://github.com/maximilianfeix/proxy-scraper/pull/133) in **proxy-scraper** <sub>· 26 Sep 2026</sub>
-- 🔀 Merged [Website cleanup](https://github.com/maximilianfeix/proxy-scraper/pull/132) in **proxy-scraper** <sub>· 26 Sep 2026</sub>
-- 🔀 Merged [MCP server: working proxies and proxied fetches for AI agents](https://github.com/maximilianfeix/proxy-scraper/pull/130) in **proxy-scraper** <sub>· 26 Sep 2026</sub>
-- 🔀 Merged [More sources: daily discovery that keeps what it found, 28 new lists](https://github.com/maximilianfeix/proxy-scraper/pull/128) in **proxy-scraper** <sub>· 26 Sep 2026</sub>
-- 🔀 Merged [Search Console meta tag](https://github.com/maximilianfeix/proxy-scraper/pull/126) in **proxy-scraper** <sub>· 26 Sep 2026</sub>
 <!--SHIPPED:end-->
 
 ## 📂 More projects
