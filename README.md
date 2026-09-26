@@ -145,12 +145,12 @@ flowchart TD
 ## 🚀 Recently shipped
 
 <!--SHIPPED:start-->
+- 🔀 Merged [More sources: daily discovery that keeps what it found, 28 new lists](https://github.com/maximilianfeix/proxy-scraper/pull/128) in **proxy-scraper** <sub>· 26 Sep 2026</sub>
 - 🔀 Merged [Search Console meta tag](https://github.com/maximilianfeix/proxy-scraper/pull/126) in **proxy-scraper** <sub>· 26 Sep 2026</sub>
 - 🔀 Merged [Search Console verification](https://github.com/maximilianfeix/proxy-scraper/pull/125) in **proxy-scraper** <sub>· 26 Sep 2026</sub>
 - 🏷️ Released **[proxy-scraper v1.6.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.6.0)** <sub>· 26 Sep 2026</sub>
 - 🔀 Merged [Release 1.6.0](https://github.com/maximilianfeix/proxy-scraper/pull/123) in **proxy-scraper** <sub>· 26 Sep 2026</sub>
 - 🔀 Merged [Static pages per protocol and country for search engines](https://github.com/maximilianfeix/proxy-scraper/pull/122) in **proxy-scraper** <sub>· 26 Sep 2026</sub>
-- 🔀 Merged [Refresh the live list every hour](https://github.com/maximilianfeix/proxy-scraper/pull/112) in **proxy-scraper** <sub>· 26 Sep 2026</sub>
 <!--SHIPPED:end-->
 
 ## 📂 More projects
