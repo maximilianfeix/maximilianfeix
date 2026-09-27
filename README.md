@@ -145,12 +145,12 @@ flowchart TD
 ## 🚀 Recently shipped
 
 <!--SHIPPED:start-->
-- 🔀 Merged [Report: tiny shares don't read as 0.0 %](https://github.com/maximilianfeix/proxy-scraper/pull/170) in **proxy-scraper** <sub>· 27 Sep 2026</sub>
-- 🔀 Merged [Amazon check: cut-off pages aren't blocks](https://github.com/maximilianfeix/proxy-scraper/pull/169) in **proxy-scraper** <sub>· 27 Sep 2026</sub>
-- 🔀 Merged [Amazon check: a 200 isn't enough anymore](https://github.com/maximilianfeix/proxy-scraper/pull/168) in **proxy-scraper** <sub>· 27 Sep 2026</sub>
-- 🔀 Merged [Make the README sharper and replace the synthetic preview](https://github.com/maximilianfeix/repoatlas/pull/15) in **repoatlas** <sub>· 27 Sep 2026</sub>
-- 🏷️ Released **[proxy-scraper v1.9.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.9.0)** <sub>· 27 Sep 2026</sub>
-- 🔀 Merged [release 1.9.0](https://github.com/maximilianfeix/proxy-scraper/pull/167) in **proxy-scraper** <sub>· 27 Sep 2026</sub>
+- 🔀 Merged [PowerShell completion](https://github.com/maximilianfeix/proxy-scraper/pull/175) in **proxy-scraper** <sub>· 27 Sep 2026</sub>
+- 🔀 Merged [Fuzz tests for the parser](https://github.com/maximilianfeix/proxy-scraper/pull/174) in **proxy-scraper** <sub>· 27 Sep 2026</sub>
+- 🔀 Merged [Proxy server: count a failure when uvloop reports a closed connection](https://github.com/maximilianfeix/proxy-scraper/pull/173) in **proxy-scraper** <sub>· 27 Sep 2026</sub>
+- 🔀 Merged [--export singbox](https://github.com/maximilianfeix/proxy-scraper/pull/172) in **proxy-scraper** <sub>· 27 Sep 2026</sub>
+- 🔀 Merged [Add transitive dependency impact map](https://github.com/maximilianfeix/repoatlas/pull/17) in **repoatlas** <sub>· 27 Sep 2026</sub>
+- 🔀 Merged [--list-sources --json](https://github.com/maximilianfeix/proxy-scraper/pull/171) in **proxy-scraper** <sub>· 27 Sep 2026</sub>
 <!--SHIPPED:end-->
 
 ## 📂 More projects
