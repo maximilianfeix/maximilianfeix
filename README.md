@@ -145,12 +145,12 @@ flowchart TD
 ## 🚀 Recently shipped
 
 <!--SHIPPED:start-->
-- 🔀 Merged [Website: sieve hero, agents section, star cta](https://github.com/maximilianfeix/proxy-scraper/pull/137) in **proxy-scraper** <sub>· 26 Sep 2026</sub>
-- 🏷️ Released **[proxy-scraper v1.7.1](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.7.1)** <sub>· 26 Sep 2026</sub>
-- 🔀 Merged [Release 1.7.1](https://github.com/maximilianfeix/proxy-scraper/pull/135) in **proxy-scraper** <sub>· 26 Sep 2026</sub>
-- 🔀 Merged [PyPI (proxy-scraper-cli) and the official MCP registry](https://github.com/maximilianfeix/proxy-scraper/pull/134) in **proxy-scraper** <sub>· 26 Sep 2026</sub>
-- 🏷️ Released **[proxy-scraper v1.7.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.7.0)** <sub>· 26 Sep 2026</sub>
-- 🔀 Merged [Release 1.7.0](https://github.com/maximilianfeix/proxy-scraper/pull/133) in **proxy-scraper** <sub>· 26 Sep 2026</sub>
+- 🏷️ Released **[proxy-scraper v1.8.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.8.0)** <sub>· 26 Sep 2026</sub>
+- 🔀 Merged [release 1.8.0](https://github.com/maximilianfeix/proxy-scraper/pull/152) in **proxy-scraper** <sub>· 26 Sep 2026</sub>
+- 🔀 Merged [Which proxies get through to Google, Reddit and Amazon](https://github.com/maximilianfeix/proxy-scraper/pull/150) in **proxy-scraper** <sub>· 26 Sep 2026</sub>
+- 🔀 Merged [Flaky test: aborted upload can be a RuntimeError](https://github.com/maximilianfeix/proxy-scraper/pull/151) in **proxy-scraper** <sub>· 26 Sep 2026</sub>
+- 🔀 Merged [live_proxies(): the hourly list from Python](https://github.com/maximilianfeix/proxy-scraper/pull/149) in **proxy-scraper** <sub>· 26 Sep 2026</sub>
+- 🔀 Merged [Website: smoother theme switch and filtering](https://github.com/maximilianfeix/proxy-scraper/pull/148) in **proxy-scraper** <sub>· 26 Sep 2026</sub>
 <!--SHIPPED:end-->
 
 ## 📂 More projects
