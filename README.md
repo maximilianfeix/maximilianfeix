@@ -169,12 +169,12 @@ npx --yes --package=github:maximilianfeix/repoatlas -- repoatlas https://github.
 ## Recently shipped
 
 <!--SHIPPED:start-->
-- 🔀 Merged [GitHub Action: working proxies in any workflow](https://github.com/maximilianfeix/proxy-scraper/pull/179) in **proxy-scraper** <sub>· 27 Sep 2026</sub>
-- 🏷️ Released **[repoatlas v0.2.0](https://github.com/maximilianfeix/repoatlas/releases/tag/v0.2.0)** <sub>· 27 Sep 2026</sub>
-- 🔀 Merged [Prepare the v0.2.0 feature release](https://github.com/maximilianfeix/repoatlas/pull/21) in **repoatlas** <sub>· 27 Sep 2026</sub>
-- 🔀 Merged [Add circular dependency insights and cycle map](https://github.com/maximilianfeix/repoatlas/pull/19) in **repoatlas** <sub>· 27 Sep 2026</sub>
-- 🔀 Merged [Website: world map and live refresh](https://github.com/maximilianfeix/proxy-scraper/pull/177) in **proxy-scraper** <sub>· 27 Sep 2026</sub>
-- 🔀 Merged [PowerShell completion](https://github.com/maximilianfeix/proxy-scraper/pull/175) in **proxy-scraper** <sub>· 27 Sep 2026</sub>
+- 🏷️ Released **[repoatlas v1.3.0](https://github.com/maximilianfeix/repoatlas/releases/tag/v1.3.0)** <sub>· 27 Sep 2026</sub>
+- 🔀 Merged [feat: optionally analyze JavaScript modules](https://github.com/maximilianfeix/repoatlas/pull/47) in **repoatlas** <sub>· 27 Sep 2026</sub>
+- 🏷️ Released **[repoatlas v1.2.0](https://github.com/maximilianfeix/repoatlas/releases/tag/v1.2.0)** <sub>· 27 Sep 2026</sub>
+- 🔀 Merged [feat: annotate architecture violations in GitHub Actions](https://github.com/maximilianfeix/repoatlas/pull/45) in **repoatlas** <sub>· 27 Sep 2026</sub>
+- 🏷️ Released **[repoatlas v1.1.0](https://github.com/maximilianfeix/repoatlas/releases/tag/v1.1.0)** <sub>· 27 Sep 2026</sub>
+- 🔀 Merged [feat: add clustering and navigation overview for large maps](https://github.com/maximilianfeix/repoatlas/pull/43) in **repoatlas** <sub>· 27 Sep 2026</sub>
 <!--SHIPPED:end-->
 
 ## More projects
