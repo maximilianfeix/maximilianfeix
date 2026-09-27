@@ -145,12 +145,12 @@ flowchart TD
 ## 🚀 Recently shipped
 
 <!--SHIPPED:start-->
-- 🔀 Merged [Website: shareable filters and country names](https://github.com/maximilianfeix/proxy-scraper/pull/155) in **proxy-scraper** <sub>· 27 Sep 2026</sub>
-- 🔀 Merged [feat: launch RepoAtlas TypeScript architecture maps](https://github.com/maximilianfeix/repoatlas/pull/1) in **repoatlas** <sub>· 27 Sep 2026</sub>
-- 🔀 Merged [Discovery: mine other scrapers' source lists](https://github.com/maximilianfeix/proxy-scraper/pull/154) in **proxy-scraper** <sub>· 27 Sep 2026</sub>
-- 🏷️ Released **[proxy-scraper v1.8.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.8.0)** <sub>· 26 Sep 2026</sub>
-- 🔀 Merged [release 1.8.0](https://github.com/maximilianfeix/proxy-scraper/pull/152) in **proxy-scraper** <sub>· 26 Sep 2026</sub>
-- 🔀 Merged [Which proxies get through to Google, Reddit and Amazon](https://github.com/maximilianfeix/proxy-scraper/pull/150) in **proxy-scraper** <sub>· 26 Sep 2026</sub>
+- 🔀 Merged [Report: tiny shares don't read as 0.0 %](https://github.com/maximilianfeix/proxy-scraper/pull/170) in **proxy-scraper** <sub>· 27 Sep 2026</sub>
+- 🔀 Merged [Amazon check: cut-off pages aren't blocks](https://github.com/maximilianfeix/proxy-scraper/pull/169) in **proxy-scraper** <sub>· 27 Sep 2026</sub>
+- 🔀 Merged [Amazon check: a 200 isn't enough anymore](https://github.com/maximilianfeix/proxy-scraper/pull/168) in **proxy-scraper** <sub>· 27 Sep 2026</sub>
+- 🔀 Merged [Make the README sharper and replace the synthetic preview](https://github.com/maximilianfeix/repoatlas/pull/15) in **repoatlas** <sub>· 27 Sep 2026</sub>
+- 🏷️ Released **[proxy-scraper v1.9.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.9.0)** <sub>· 27 Sep 2026</sub>
+- 🔀 Merged [release 1.9.0](https://github.com/maximilianfeix/proxy-scraper/pull/167) in **proxy-scraper** <sub>· 27 Sep 2026</sub>
 <!--SHIPPED:end-->
 
 ## 📂 More projects
