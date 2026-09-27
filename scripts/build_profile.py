@@ -2,6 +2,7 @@
 """Build the dynamic parts of the profile.
 
 - assets/header-dark.svg / header-light.svg: banner with a live status panel
+- assets/card-<repo>-dark.svg / -light.svg: featured project cards with live numbers
 - README.md: the "Recently shipped" list between the SHIPPED markers
 
 Only public data is used. Runs in GitHub Actions (see .github/workflows/profile.yml),
@@ -22,6 +23,7 @@ from pathlib import Path
 
 USER = "maximilianfeix"
 FEATURED = "proxy-scraper"
+ATLAS = "repoatlas"
 SKIP_REPOS = {"community-content", USER}
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -46,6 +48,8 @@ class Profile:
     followers: int = 0
     release: str = ""
     live_proxies: str = ""
+    repo_stars: dict = field(default_factory=dict)
+    atlas_release: str = ""
     shipped: list = field(default_factory=list)
     now: datetime = field(default_factory=lambda: datetime.now(timezone.utc))
 
@@ -58,9 +62,14 @@ def collect() -> Profile:
     p.repos = len(repos)
     public = {r["name"] for r in repos}
     p.stars = sum(r["stargazers_count"] for r in repos)
+    p.repo_stars = {r["name"]: r["stargazers_count"] for r in repos}
 
     try:
         p.release = get(f"https://api.github.com/repos/{USER}/{FEATURED}/releases/latest")["tag_name"]
+    except Exception:
+        pass
+    try:
+        p.atlas_release = get(f"https://api.github.com/repos/{USER}/{ATLAS}/releases/latest")["tag_name"]
     except Exception:
         pass
     try:
@@ -88,10 +97,10 @@ def collect() -> Profile:
 
 THEMES = {
     "dark": dict(bg1="#0B1622", bg2="#0F2233", grid="#16293B", glow="#38BDF8", text="#E6EDF3", muted="#8BA3B8",
-                 faint="#5E7B94", accent="#38BDF8", green="#34D399", amber="#FBBF24", panel="#0D1B2A",
+                 faint="#5E7B94", accent="#38BDF8", green="#34D399", amber="#FBBF24", violet="#B8A9EF", panel="#0D1B2A",
                  panel_top="#132638", border="#24405A", chip="#132638"),
     "light": dict(bg1="#F6F9FC", bg2="#EAF2F8", grid="#DCE7F0", glow="#0284C7", text="#10243A", muted="#43647E",
-                  faint="#6B879E", accent="#0284C7", green="#10B981", amber="#B45309", panel="#FFFFFF",
+                  faint="#6B879E", accent="#0284C7", green="#047857", amber="#B45309", violet="#6D55C9", panel="#FFFFFF",
                   panel_top="#F1F6FA", border="#D3E1EC", chip="#FFFFFF"),
 }
 
@@ -110,6 +119,7 @@ def render_header(p: Profile, theme: str) -> str:
         ("building", BUILDING, c["text"]),
         ("learning", LEARNING, c["text"]),
         ("shipping", f"{FEATURED} {p.release}".strip(), c["accent"]),
+        ("mapping", f"{ATLAS} {p.atlas_release}".strip(), c["violet"]),
     ]
     if p.live_proxies:
         lines.append(("live list", f"{p.live_proxies} verified proxies", c["green"]))
@@ -118,17 +128,17 @@ def render_header(p: Profile, theme: str) -> str:
         stats.insert(1, f"{fmt_int(p.stars)} stars")
     lines.append(("github", " · ".join(stats), c["text"]))
 
-    px, py, pw = 690, 44, 450
-    ph = 84 + 30 * len(lines) + 20
+    px, py, pw, step = 690, 24, 450, 28
+    ph = 84 + step * len(lines) + 40
     rows = []
     for i, (label, value, color) in enumerate(lines):
-        y = py + 108 + 30 * i
+        y = py + 108 + step * i
         rows.append(
             f'<g class="line" style="animation-delay:{0.35 + 0.18 * (i + 1):.2f}s">'
             f'<text x="{px + 28}" y="{y}" fill="{c["faint"]}" font-family="{mono}" font-size="15">{escape(label)}</text>'
             f'<text x="{px + 140}" y="{y}" fill="{color}" font-family="{mono}" font-size="15">{escape(value)}</text></g>'
         )
-    cursor_y = py + 108 + 30 * len(lines)
+    cursor_y = py + 108 + step * len(lines)
 
     chips, x = [], 64
     for name in STACK:
@@ -203,6 +213,123 @@ def render_header(p: Profile, theme: str) -> str:
 """
 
 
+@dataclass
+class Card:
+    slug: str
+    title: str
+    tagline: list  # one or two lines
+    accent: str  # theme key
+    stats: list  # (value, label)
+    tags: list
+    cta: str
+
+
+def cards(p: Profile) -> list[Card]:
+    ps_stars = p.repo_stars.get(FEATURED, 0)
+    ra_stars = p.repo_stars.get(ATLAS, 0)
+    return [
+        Card(FEATURED, FEATURED,
+             ["Free proxies that actually work. 700+ sources,", "every hit verified, a fresh list every hour."],
+             "accent",
+             [(p.live_proxies or "1,000+", "verified right now"), ("700+", "sources"),
+              (p.release or "latest", f"release · {ps_stars}★")],
+             ["Python", "asyncio", "MCP", "Docker"],
+             "live list  →"),
+        Card(ATLAS, "RepoAtlas",
+             ["Map any TypeScript repo in one HTML file.", "Every connection links to its source line."],
+             "violet",
+             [("1 file", "offline, shareable"), ("0", "installs · runs via npx"),
+              (p.atlas_release or "latest", f"release · {ra_stars}★")],
+             ["TypeScript", "Compiler API", "Actions"],
+             "interactive demo  →"),
+    ]
+
+
+def mark(card: Card, c: dict, x: int, y: int) -> str:
+    a = c[card.accent]
+    if card.slug == ATLAS:  # RepoAtlas mark: two modules joined through a verified import
+        return (f'<g transform="translate({x} {y}) scale(.75)" fill="none" stroke-width="2.5">'
+                f'<rect x="2" y="2" width="60" height="60" rx="16" fill="{c["chip"]}" stroke="{c["border"]}" stroke-width="1.5"/>'
+                f'<path d="M26 19h7v13h7M26 45h7V32" stroke="{c["green"]}"/>'
+                f'<rect x="13.5" y="13" width="12.5" height="12.5" rx="2.5" stroke="{c["green"]}"/>'
+                f'<rect x="13.5" y="38.5" width="12.5" height="12.5" rx="2.5" stroke="{c["green"]}"/>'
+                f'<rect x="40" y="25.75" width="12.5" height="12.5" rx="2.5" stroke="{a}"/>'
+                f'<circle cx="33" cy="32" r="2.5" fill="{c["text"]}" stroke="none"/></g>')
+    # proxy-scraper: a source fanning out through a verifier into working exits
+    return (f'<g transform="translate({x} {y}) scale(.75)" fill="none" stroke-width="2.5" stroke-linecap="round">'
+            f'<rect x="2" y="2" width="60" height="60" rx="16" fill="{c["chip"]}" stroke="{c["border"]}" stroke-width="1.5"/>'
+            f'<path d="M16 20h10M16 32h10M16 44h10" stroke="{c["faint"]}"/>'
+            f'<path d="M26 20l8 12M26 44l8-12M26 32h8" stroke="{a}"/>'
+            f'<circle cx="37" cy="32" r="4" fill="{a}" stroke="none"/>'
+            f'<path d="M41 32h9M46 27l5 5-5 5" stroke="{c["green"]}"/></g>')
+
+
+def render_card(card: Card, theme: str) -> str:
+    c = THEMES[theme]
+    a = c[card.accent]
+    mono = "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+    sans = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
+    w, h = 600, 300
+
+    tagline = "".join(
+        f'<text x="32" y="{112 + 24 * i}" fill="{c["muted"]}" font-family="{sans}" font-size="17">{escape(t)}</text>'
+        for i, t in enumerate(card.tagline))
+
+    tiles, tw, gap = [], 172, 14
+    for i, (value, label) in enumerate(card.stats):
+        x = 32 + i * (tw + gap)
+        color = c["green"] if i == 0 else c["text"]
+        tiles.append(
+            f'<rect x="{x}" y="164" width="{tw}" height="62" rx="10" fill="{c["panel"]}" stroke="{c["border"]}"/>'
+            f'<text x="{x + 16}" y="193" fill="{color}" font-family="{mono}" font-size="20" font-weight="700">{escape(value)}</text>'
+            f'<text x="{x + 16}" y="214" fill="{c["faint"]}" font-family="{sans}" font-size="12.5">{escape(label)}</text>')
+    pulse = (f'<circle class="pulse" cx="{32 + tw - 16}" cy="187" r="4" fill="{c["green"]}"/>'
+             if card.slug == FEATURED and card.stats[0][0] else "")
+
+    chips, x = [], 32
+    for tag in card.tags:
+        cw = 16 + 7.4 * len(tag)
+        chips.append(
+            f'<rect x="{x}" y="250" width="{cw:.0f}" height="26" rx="13" fill="{c["chip"]}" stroke="{c["border"]}"/>'
+            f'<text x="{x + cw / 2:.0f}" y="267" text-anchor="middle" fill="{c["muted"]}" font-family="{mono}" '
+            f'font-size="12">{escape(tag)}</text>')
+        x += cw + 8
+
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}" role="img" aria-label="{escape(card.title)}: {escape(' '.join(card.tagline))}">
+  <style>
+    .pulse {{ animation: pulse 2.4s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }}
+    @keyframes pulse {{ 0%, 100% {{ opacity: 1; transform: scale(1); }} 50% {{ opacity: .35; transform: scale(1.8); }} }}
+    @media (prefers-reduced-motion: reduce) {{ .pulse {{ animation: none; }} }}
+  </style>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="{c["bg1"]}"/><stop offset="1" stop-color="{c["bg2"]}"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.95" cy="0" r="0.7">
+      <stop offset="0" stop-color="{a}" stop-opacity=".18"/><stop offset="1" stop-color="{a}" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M24 0H0V24" fill="none" stroke="{c["grid"]}" stroke-width="1"/>
+    </pattern>
+    <clipPath id="frame"><rect x=".5" y=".5" width="{w - 1}" height="{h - 1}" rx="16"/></clipPath>
+  </defs>
+  <g clip-path="url(#frame)">
+    <rect width="{w}" height="{h}" fill="url(#bg)"/>
+    <rect width="{w}" height="{h}" fill="url(#grid)" opacity=".45"/>
+    <rect width="{w}" height="{h}" fill="url(#glow)"/>
+    <rect width="{w}" height="4" fill="{a}"/>
+  </g>
+  <rect x=".5" y=".5" width="{w - 1}" height="{h - 1}" rx="16" fill="none" stroke="{c["border"]}"/>
+  {mark(card, c, 32, 30)}
+  <text x="92" y="66" fill="{c["text"]}" font-family="{sans}" font-size="28" font-weight="800" letter-spacing="-.6">{escape(card.title)}</text>
+  <text x="{w - 32}" y="62" text-anchor="end" fill="{a}" font-family="{mono}" font-size="13">{escape(card.cta)}</text>
+  {tagline}
+  {"".join(tiles)}{pulse}
+  {"".join(chips)}
+</svg>
+"""
+
+
 def render_shipped(p: Profile) -> str:
     if not p.shipped:
         return "_Nothing new this week._"
@@ -224,10 +351,12 @@ def main() -> int:
     p = collect()
     for theme in THEMES:
         (ROOT / "assets" / f"header-{theme}.svg").write_text(render_header(p, theme), encoding="utf-8")
+        for card in cards(p):
+            (ROOT / "assets" / f"card-{card.slug}-{theme}.svg").write_text(render_card(card, theme), encoding="utf-8")
     readme = ROOT / "README.md"
     readme.write_text(replace_section(readme.read_text(encoding="utf-8"), "SHIPPED", render_shipped(p)), encoding="utf-8")
     print(f"repos={p.repos} stars={p.stars} followers={p.followers} release={p.release} "
-          f"live={p.live_proxies} shipped={len(p.shipped)}")
+          f"atlas={p.atlas_release} live={p.live_proxies} shipped={len(p.shipped)}")
     return 0
 
 

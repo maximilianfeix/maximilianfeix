@@ -8,6 +8,7 @@
 
 <p align="center">
   <a href="https://github.com/maximilianfeix/proxy-scraper"><img src="https://img.shields.io/badge/featured-proxy--scraper-38BDF8?style=flat-square&logo=python&logoColor=white&labelColor=0D1B2A" alt="Featured project: proxy-scraper"></a>
+  <a href="https://github.com/maximilianfeix/repoatlas"><img src="https://img.shields.io/badge/featured-RepoAtlas-B8A9EF?style=flat-square&logo=typescript&logoColor=white&labelColor=0D1B2A" alt="Featured project: RepoAtlas"></a>
   <a href="https://github.com/maximilianfeix?tab=repositories"><img src="https://img.shields.io/badge/repositories-browse-34D399?style=flat-square&logo=github&logoColor=white&labelColor=0D1B2A" alt="Repositories"></a>
   <img src="https://img.shields.io/badge/based_in-Germany-8BA3B8?style=flat-square&labelColor=0D1B2A" alt="Based in Germany">
 </p>
@@ -34,6 +35,7 @@ Software developer from Germany, working at a hosting company. Most of my time g
 - 🔨 Building **devprofile.dev**
 - 📚 Learning **microservices** – service boundaries, messaging, observability
 - ⚡ Maintaining **[proxy-scraper](https://github.com/maximilianfeix/proxy-scraper)**
+- 🗺️ Shipping **[RepoAtlas](https://github.com/maximilianfeix/repoatlas)** – architecture maps for TypeScript repos
 
 </td>
 </tr>
@@ -116,17 +118,28 @@ flowchart TD
 
 </details>
 
-## ⭐ Featured project
+## ⭐ Featured projects
 
-<table>
-<tr>
-<td>
+<p align="center">
+  <a href="https://github.com/maximilianfeix/proxy-scraper"><picture>
+    <source media="(prefers-color-scheme: light)" srcset="./assets/card-proxy-scraper-light.svg">
+    <img src="./assets/card-proxy-scraper-dark.svg" alt="proxy-scraper: free proxies that actually work, with the live number of verified proxies" width="49%">
+  </picture></a>
+  <a href="https://github.com/maximilianfeix/repoatlas"><picture>
+    <source media="(prefers-color-scheme: light)" srcset="./assets/card-repoatlas-light.svg">
+    <img src="./assets/card-repoatlas-dark.svg" alt="RepoAtlas: map any TypeScript repo in one HTML file, every connection links to its source line" width="49%">
+  </picture></a>
+</p>
 
-### ⚡ [proxy-scraper](https://github.com/maximilianfeix/proxy-scraper)
+<p align="center"><sub>Numbers on the cards are live – regenerated every 3 hours by this repository's workflow.</sub></p>
 
-**Free proxies that actually work.** Scrapes HTTP/SOCKS4/SOCKS5 proxies from 700+ sources and verifies every hit: honeypot filter, catches proxies that inject scripts (one in five does), HTTPS with verified TLS, anonymity, country, provider and spam blocklists. It learns with every run which sources are worth it. Comes with a setup wizard, a live dashboard, a rotating proxy server (SOCKS5 + HTTP, sticky sessions, country per request, optional password, refills itself while it runs, Prometheus metrics), an MCP server so AI agents like Claude Code get working proxies and can load pages through them, a Discord bot, a Python API and shell completion.
+### ⚡ [proxy-scraper](https://github.com/maximilianfeix/proxy-scraper) &nbsp;<sub>Python</sub>
 
-**→ [Browse the live list](https://maximilianfeix.github.io/proxy-scraper/)**, re-checked every hour by GitHub Actions.
+**Free proxies that actually work.** Scrapes HTTP/SOCKS4/SOCKS5 proxies from 700+ sources and verifies every hit: honeypot filter, catches proxies that inject scripts (one in five does), HTTPS with verified TLS, anonymity, country, provider and spam blocklists – and learns with every run which sources are worth it.
+
+- **Rotating proxy server** – SOCKS5 + HTTP, sticky sessions, country per request, refills itself, Prometheus metrics
+- **MCP server** – AI agents like Claude Code get working proxies and can load pages through them
+- **Everything around it** – setup wizard, live dashboard, Discord bot, Python API, Docker, shell completion
 
 <a href="https://github.com/maximilianfeix/proxy-scraper/actions/workflows/tests.yml"><img src="https://github.com/maximilianfeix/proxy-scraper/actions/workflows/tests.yml/badge.svg" alt="tests"></a> <a href="https://github.com/maximilianfeix/proxy-scraper/releases/latest"><img src="https://img.shields.io/github/v/release/maximilianfeix/proxy-scraper?style=flat-square&color=38BDF8" alt="release"></a> <a href="https://github.com/maximilianfeix/proxy-scraper/tree/proxy-list"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fmaximilianfeix%2Fproxy-scraper%2Fproxy-list%2Fbadges%2Ftotal.json&style=flat-square" alt="live proxies"></a> <a href="https://github.com/maximilianfeix/proxy-scraper/stargazers"><img src="https://img.shields.io/github/stars/maximilianfeix/proxy-scraper?style=flat-square&color=FBBF24" alt="stars"></a>
 
@@ -134,23 +147,47 @@ flowchart TD
 |:---:|:---:|:---:|:---:|
 | sources | candidates per run | to check them | Linux · macOS · Windows |
 
+**→ [Browse the live list](https://maximilianfeix.github.io/proxy-scraper/)**, re-checked every hour by GitHub Actions.
+
+<details>
+<summary><b>Screenshot of the live list</b></summary>
+<br>
 <a href="https://maximilianfeix.github.io/proxy-scraper/"><img src="https://raw.githubusercontent.com/maximilianfeix/proxy-scraper/main/docs/website.png" alt="The live proxy list website" width="100%"></a>
+</details>
 
-<sub>Python · asyncio · rich · Docker · GitHub Actions + Pages · ~500 offline tests on three operating systems</sub>
+### 🗺️ [RepoAtlas](https://github.com/maximilianfeix/repoatlas) &nbsp;<sub>TypeScript</sub>
 
-</td>
-</tr>
-</table>
+**Understand any TypeScript repo in one interactive map.** RepoAtlas parses every import with the TypeScript compiler API and turns a project into a standalone architecture map – entry points, modules, dependencies. Unlike a diagram guessed from prose, every connection links to the exact import statement and line that proves it.
+
+- **Evidence, not guesses** – click any edge to see the source line, with a commit-pinned GitHub link
+- **Assess change** – Focus map for direct neighbours, Impact map for everything that transitively depends on a module, circular import groups isolated edge by edge
+- **Zero setup** – one `npx` command, no clone, no API key; the output is a single offline HTML file (or JSON), also as a [GitHub Action](https://github.com/maximilianfeix/repoatlas#github-actions)
+
+```sh
+npx --yes --package=github:maximilianfeix/repoatlas -- repoatlas https://github.com/pmndrs/zustand -o zustand-map.html
+```
+
+<a href="https://github.com/maximilianfeix/repoatlas/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/maximilianfeix/repoatlas/ci.yml?branch=main&label=tests&style=flat-square" alt="tests"></a> <a href="https://github.com/maximilianfeix/repoatlas/actions/workflows/codeql.yml"><img src="https://img.shields.io/github/actions/workflow/status/maximilianfeix/repoatlas/codeql.yml?branch=main&label=CodeQL&style=flat-square" alt="CodeQL"></a> <a href="https://github.com/maximilianfeix/repoatlas/releases/latest"><img src="https://img.shields.io/github/v/release/maximilianfeix/repoatlas?style=flat-square&color=B8A9EF" alt="release"></a> <a href="https://github.com/maximilianfeix/repoatlas/stargazers"><img src="https://img.shields.io/github/stars/maximilianfeix/repoatlas?style=flat-square&color=FBBF24" alt="stars"></a>
+
+| Try it on | Modules | Connections |
+|---|:---:|:---:|
+| [**Zustand** – open map](https://maximilianfeix.github.io/repoatlas/examples/zustand.html) | 18 | 23 |
+| [**Ky** – open map](https://maximilianfeix.github.io/repoatlas/examples/ky.html) | 51 | 93 |
+| [**Hono** – open map](https://maximilianfeix.github.io/repoatlas/examples/hono.html) | 247 | 676 |
+
+<a href="https://maximilianfeix.github.io/repoatlas/examples/hono.html"><img src="https://raw.githubusercontent.com/maximilianfeix/repoatlas/main/docs/assets/architecture-map-preview.png" alt="RepoAtlas isolating a six-module circular dependency group in Hono" width="100%"></a>
+
+<sub>TypeScript 6 compiler API · Node.js 22+ · no network requests from the viewer · hash-based CSP · tests + CodeQL on every push</sub>
 
 ## 🚀 Recently shipped
 
 <!--SHIPPED:start-->
+- 🔀 Merged [Add circular dependency insights and cycle map](https://github.com/maximilianfeix/repoatlas/pull/19) in **repoatlas** <sub>· 27 Sep 2026</sub>
+- 🔀 Merged [Website: world map and live refresh](https://github.com/maximilianfeix/proxy-scraper/pull/177) in **proxy-scraper** <sub>· 27 Sep 2026</sub>
 - 🔀 Merged [PowerShell completion](https://github.com/maximilianfeix/proxy-scraper/pull/175) in **proxy-scraper** <sub>· 27 Sep 2026</sub>
 - 🔀 Merged [Fuzz tests for the parser](https://github.com/maximilianfeix/proxy-scraper/pull/174) in **proxy-scraper** <sub>· 27 Sep 2026</sub>
 - 🔀 Merged [Proxy server: count a failure when uvloop reports a closed connection](https://github.com/maximilianfeix/proxy-scraper/pull/173) in **proxy-scraper** <sub>· 27 Sep 2026</sub>
 - 🔀 Merged [--export singbox](https://github.com/maximilianfeix/proxy-scraper/pull/172) in **proxy-scraper** <sub>· 27 Sep 2026</sub>
-- 🔀 Merged [Add transitive dependency impact map](https://github.com/maximilianfeix/repoatlas/pull/17) in **repoatlas** <sub>· 27 Sep 2026</sub>
-- 🔀 Merged [--list-sources --json](https://github.com/maximilianfeix/proxy-scraper/pull/171) in **proxy-scraper** <sub>· 27 Sep 2026</sub>
 <!--SHIPPED:end-->
 
 ## 📂 More projects
@@ -179,7 +216,7 @@ This profile keeps itself up to date:
 
 | Workflow | Status | What it does | When |
 |---|---|---|---|
-| [Profile](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/profile.yml) | [![Profile](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/profile.yml/badge.svg)](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/profile.yml) | renders the banner with live data and the *Recently shipped* list ([script](scripts/build_profile.py)) | every 3 hours |
+| [Profile](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/profile.yml) | [![Profile](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/profile.yml/badge.svg)](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/profile.yml) | renders the banner and project cards with live data and the *Recently shipped* list ([script](scripts/build_profile.py)) | every 3 hours |
 | [Metrics](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/metrics.yml) | [![Metrics](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/metrics.yml/badge.svg)](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/metrics.yml) | activity, languages, calendar and project cards via [lowlighter/metrics](https://github.com/lowlighter/metrics) | nightly |
 | [Contribution snake](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/main.yml) | [![Snake](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/main.yml/badge.svg)](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/main.yml) | turns the contribution graph into the snake above | nightly |
 | [Link check](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/links.yml) | [![Link check](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/links.yml/badge.svg)](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/links.yml) | makes sure every link in this README still works | weekly |
