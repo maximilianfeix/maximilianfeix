@@ -2,7 +2,7 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./assets/header-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="./assets/header-light.svg">
-    <img src="./assets/header-dark.svg" alt="Maximilian Feix — backend, infrastructure, automation" width="100%">
+    <img src="./assets/header-dark.svg" alt="Maximilian Feix. Backend and infrastructure at a hosting company in Germany. Currently shipping proxy-scraper and RepoAtlas." width="100%">
   </picture>
 </p>
 
@@ -169,12 +169,12 @@ npx --yes --package=github:maximilianfeix/repoatlas -- repoatlas https://github.
 ## Recently shipped
 
 <!--SHIPPED:start-->
+- 🔀 Merged [GitHub Action: working proxies in any workflow](https://github.com/maximilianfeix/proxy-scraper/pull/179) in **proxy-scraper** <sub>· 27 Sep 2026</sub>
+- 🏷️ Released **[repoatlas v0.2.0](https://github.com/maximilianfeix/repoatlas/releases/tag/v0.2.0)** <sub>· 27 Sep 2026</sub>
+- 🔀 Merged [Prepare the v0.2.0 feature release](https://github.com/maximilianfeix/repoatlas/pull/21) in **repoatlas** <sub>· 27 Sep 2026</sub>
 - 🔀 Merged [Add circular dependency insights and cycle map](https://github.com/maximilianfeix/repoatlas/pull/19) in **repoatlas** <sub>· 27 Sep 2026</sub>
 - 🔀 Merged [Website: world map and live refresh](https://github.com/maximilianfeix/proxy-scraper/pull/177) in **proxy-scraper** <sub>· 27 Sep 2026</sub>
 - 🔀 Merged [PowerShell completion](https://github.com/maximilianfeix/proxy-scraper/pull/175) in **proxy-scraper** <sub>· 27 Sep 2026</sub>
-- 🔀 Merged [Fuzz tests for the parser](https://github.com/maximilianfeix/proxy-scraper/pull/174) in **proxy-scraper** <sub>· 27 Sep 2026</sub>
-- 🔀 Merged [Proxy server: count a failure when uvloop reports a closed connection](https://github.com/maximilianfeix/proxy-scraper/pull/173) in **proxy-scraper** <sub>· 27 Sep 2026</sub>
-- 🔀 Merged [--export singbox](https://github.com/maximilianfeix/proxy-scraper/pull/172) in **proxy-scraper** <sub>· 27 Sep 2026</sub>
 <!--SHIPPED:end-->
 
 ## More projects

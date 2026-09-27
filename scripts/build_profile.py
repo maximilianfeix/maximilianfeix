@@ -40,13 +40,6 @@ def get(url: str):
         return json.load(resp)
 
 
-def graphql(query: str):
-    req = urllib.request.Request("https://api.github.com/graphql", data=json.dumps({"query": query}).encode(),
-                                 headers={"Authorization": f"Bearer {os.environ['GITHUB_TOKEN']}", "User-Agent": USER})
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        return json.load(resp)["data"]
-
-
 @dataclass
 class Profile:
     repos: int = 0
@@ -56,8 +49,6 @@ class Profile:
     live_proxies: str = ""
     repo_stars: dict = field(default_factory=dict)
     atlas_release: str = ""
-    weeks: list = field(default_factory=list)
-    week_starts: list = field(default_factory=list)
     shipped: list = field(default_factory=list)
     now: datetime = field(default_factory=lambda: datetime.now(timezone.utc))
 
@@ -85,16 +76,6 @@ def collect() -> Profile:
         p.live_proxies = badge["message"]
     except Exception:
         pass
-
-    try:
-        cal = graphql("{user(login: \"%s\") {contributionsCollection {contributionCalendar "
-                      "{weeks {contributionDays {date contributionCount}}}}}}" % USER)
-        for w in cal["user"]["contributionsCollection"]["contributionCalendar"]["weeks"]:
-            days = w["contributionDays"]
-            p.weeks.append(sum(d["contributionCount"] for d in days))
-            p.week_starts.append(days[0]["date"])
-    except Exception as e:
-        print(f"contribution calendar unavailable: {e}", file=sys.stderr)
 
     items = []
     for r in repos:
@@ -178,12 +159,12 @@ def spans(parts: list, x: float, y: float, size: float) -> str:
 # ---------------------------------------------------------------- header
 
 THEMES = {
-    "light": dict(bg="#FBFBFA", ink="#16171A", muted="#5C5F66", faint="#8E9198", rule="#E3E3DF",
-                  bar="#C9CBCF", accent="#4D7C0F", border="#E3E3DF"),
-    "dark": dict(bg="#141416", ink="#EDEBE4", muted="#A3A29D", faint="#6F6E6A", rule="#2B2B2F",
-                 bar="#4A4A4F", accent="#C6F36B", border="#26262A"),
+    # no background: the header sits on GitHub's own page colour, like a masthead
+    "light": dict(ink="#121113", muted="#57564F", faint="#7E7D77", rule="#D0D7DE", signal="#3F5A00"),
+    "dark": dict(ink="#EDEBE6", muted="#A6A59F", faint="#7D7C77", rule="#30363D", signal="#D4F77A"),
 }
-SANS, SANS_B, MONO, MONO_M = "IBMPlexSans-Regular", "IBMPlexSans-SemiBold", "IBMPlexMono-Regular", "IBMPlexMono-Medium"
+DISPLAY, SANS, SANS_B = "Geist-SemiBold", "Geist-Regular", "Geist-SemiBold"
+MONO, MONO_M = "GeistMono-Regular", "GeistMono-Regular"
 
 
 def fmt_int(n: int) -> str:
@@ -192,51 +173,28 @@ def fmt_int(n: int) -> str:
 
 def render_header(p: Profile, theme: str) -> str:
     c = THEMES[theme]
-    W, H = 1200, 300
-    out = [f'<rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="10" fill="{c["bg"]}" stroke="{c["border"]}"/>']
+    W, H = 1200, 340
+    out = []
 
-    # left: who, what, with what
-    out.append(text("Maximilian Feix", 56, 112, SANS_B, 54, c["ink"], tracking=-0.4))
-    out.append(text("Backend and infrastructure at a hosting company in Germany.", 57, 160, SANS, 21, c["muted"]))
-    out.append(spans([("Author of ", SANS, c["muted"]), ("proxy-scraper", SANS_B, c["ink"]),
+    # the name, set like the proxy-scraper site's headline
+    name, size = "Maximilian Feix", 128
+    out.append(text(name, -4, 128, DISPLAY, size, c["ink"], tracking=-5.2))
+    out.append(text(".", -4 + text_width(name, DISPLAY, size, -5.2) + 1, 128, DISPLAY, size, c["signal"]))
+
+    out.append(text("Backend and infrastructure at a hosting company in Germany.", 0, 196, SANS, 28, c["muted"]))
+    out.append(spans([("Currently shipping ", SANS, c["muted"]), ("proxy-scraper", SANS_B, c["ink"]),
                       (" and ", SANS, c["muted"]), ("RepoAtlas", SANS_B, c["ink"]), (".", SANS, c["muted"])],
-                     57, 190, 21))
-    out.append(f'<line x1="57" y1="228" x2="560" y2="228" stroke="{c["rule"]}"/>')
-    out.append(text("   ".join(STACK), 57, 256, MONO, 14, c["faint"]))
+                     0, 236, 28))
 
-    # right: the last year of real activity, one bar per week
-    weeks = p.weeks or [0] * 53
-    cx, cw, top, base = 660, 484, 92, 214
-    n = len(weeks)
-    gap = 2.2
-    bw = (cw - gap * (n - 1)) / n
-    peak = max(weeks) or 1
-    total = sum(weeks)
-    out.append(spans([(fmt_int(total), MONO_M, c["ink"]), (" contributions in the last year", MONO, c["faint"])],
-                     cx, 64, 14))
-    for i, v in enumerate(weeks):
-        h = (base - top) * (v / peak) ** 0.5 if v else 0  # square root, so quiet weeks stay visible
-        x = cx + i * (bw + gap)
-        fill = c["accent"] if i == n - 1 else c["bar"]
-        if h:
-            out.append(f'<rect x="{x:.1f}" y="{base - max(h, 2):.1f}" width="{bw:.1f}" height="{max(h, 2):.1f}" fill="{fill}"/>')
-        else:
-            out.append(f'<rect x="{x:.1f}" y="{base - 1:.1f}" width="{bw:.1f}" height="1" fill="{c["rule"]}"/>')
-    out.append(f'<line x1="{cx}" y1="{base + .5}" x2="{cx + cw}" y2="{base + .5}" stroke="{c["rule"]}"/>')
-    # quarter ticks from the calendar's own dates
-    last_month = None
-    for i, d in enumerate(p.week_starts):
-        m = d[5:7]
-        if m != last_month and m in ("01", "04", "07", "10") and 0 < i < n - 3:
-            label = datetime.strptime(d, "%Y-%m-%d").strftime("%b")
-            out.append(text(label, cx + i * (bw + gap), base + 22, MONO, 12, c["faint"]))
-        last_month = m
-    out.append(text("weekly, square-root scale", cx + cw, 256, MONO, 12, c["faint"], anchor="end"))
-    updated = p.now.strftime("%d %b %Y")
-    out.append(text(f"updated {updated}", cx, 256, MONO, 12, c["faint"]))
+    out.append(f'<rect y="282" width="{W}" height="1" fill="{c["rule"]}"/>')
+    out.append(text("   ".join(STACK), 0, 320, MONO, 17, c["faint"]))
+    if p.live_proxies:
+        live = f"{p.live_proxies} proxies verified this hour"
+        out.append(text(live, W, 320, MONO, 17, c["muted"], anchor="end"))
+        out.append(f'<circle cx="{W - text_width(live, MONO, 17) - 15}" cy="314.5" r="4" fill="{c["signal"]}"/>')
 
-    label = (f"Maximilian Feix. Backend and infrastructure at a hosting company in Germany. "
-             f"Author of proxy-scraper and RepoAtlas. {fmt_int(total)} contributions in the last year.")
+    label = ("Maximilian Feix. Backend and infrastructure at a hosting company in Germany. "
+             "Currently shipping proxy-scraper and RepoAtlas.")
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
             f'role="img" aria-label="{escape(label)}">\n' + "\n".join(out) + "\n</svg>\n")
 
