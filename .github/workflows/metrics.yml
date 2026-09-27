@@ -32,14 +32,14 @@ jobs:
           config_timezone: Europe/Berlin
           config_animations: no
           extras_css: |
-            svg, body, .background { background-color: #0D1B2A !important; }
+            svg, body, .background { background-color: #141416 !important; }
             svg { border-radius: 12px; }
-            h2, .title { color: #38BDF8 !important; }
-            h2 { border-bottom-color: #24405A !important; }
-            .field, .value, .username, p, span, li, td { color: #E6EDF3 !important; }
-            .details, .meta, .light { color: #8BA3B8 !important; }
-            text, tspan { fill: #E6EDF3 !important; }
-            a { color: #38BDF8 !important; }
+            h2, .title { color: #C6F36B !important; }
+            h2 { border-bottom-color: #2B2B2F !important; }
+            .field, .value, .username, p, span, li, td { color: #EDEBE4 !important; }
+            .details, .meta, .light { color: #A3A29D !important; }
+            text, tspan { fill: #EDEBE4 !important; }
+            a { color: #C6F36B !important; }
 
           plugin_languages: yes
           plugin_languages_limit: 8
@@ -66,14 +66,14 @@ jobs:
           config_animations: no
           config_display: large
           extras_css: |
-            svg, body, .background { background-color: #0D1B2A !important; }
+            svg, body, .background { background-color: #141416 !important; }
             svg { border-radius: 12px; }
-            h2, .title { color: #38BDF8 !important; }
-            h2 { border-bottom-color: #24405A !important; }
-            .field, .value, .username, p, span, li, td { color: #E6EDF3 !important; }
-            .details, .meta, .light { color: #8BA3B8 !important; }
-            text, tspan { fill: #E6EDF3 !important; }
-            a { color: #38BDF8 !important; }
+            h2, .title { color: #C6F36B !important; }
+            h2 { border-bottom-color: #2B2B2F !important; }
+            .field, .value, .username, p, span, li, td { color: #EDEBE4 !important; }
+            .details, .meta, .light { color: #A3A29D !important; }
+            text, tspan { fill: #EDEBE4 !important; }
+            a { color: #C6F36B !important; }
 
           plugin_repositories: yes
           plugin_repositories_featured: AxonPHPCLI, Mini-Laravel, C--Template-fr-Mac, CurrentlyFreeDomains

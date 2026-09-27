@@ -6,14 +6,7 @@
   </picture>
 </p>
 
-<p align="center">
-  <a href="https://github.com/maximilianfeix/proxy-scraper"><img src="https://img.shields.io/badge/featured-proxy--scraper-38BDF8?style=flat-square&logo=python&logoColor=white&labelColor=0D1B2A" alt="Featured project: proxy-scraper"></a>
-  <a href="https://github.com/maximilianfeix/repoatlas"><img src="https://img.shields.io/badge/featured-RepoAtlas-B8A9EF?style=flat-square&logo=typescript&logoColor=white&labelColor=0D1B2A" alt="Featured project: RepoAtlas"></a>
-  <a href="https://github.com/maximilianfeix?tab=repositories"><img src="https://img.shields.io/badge/repositories-browse-34D399?style=flat-square&logo=github&logoColor=white&labelColor=0D1B2A" alt="Repositories"></a>
-  <img src="https://img.shields.io/badge/based_in-Germany-8BA3B8?style=flat-square&labelColor=0D1B2A" alt="Based in Germany">
-</p>
-
-## 👋 About
+## About
 
 Software developer from Germany, working at a hosting company. Most of my time goes into the parts users never see: APIs, deployment pipelines, database schemas and the automation that keeps all of it running without me.
 
@@ -41,7 +34,7 @@ Software developer from Germany, working at a hosting company. Most of my time g
 </tr>
 </table>
 
-## 🧰 Tech stack
+## Tech stack
 
 <p align="center">
   <picture>
@@ -62,7 +55,7 @@ Software developer from Germany, working at a hosting company. Most of my time g
   </picture>
 </p>
 
-## 🛠️ How I work
+## How I work
 
 | Principle | In practice |
 |---|---|
@@ -88,8 +81,8 @@ flowchart LR
     web --> obs["Logs, metrics,<br/>alerting"]
     obs -.->|"something broke"| dev
 
-    classDef node fill:#152A3D,stroke:#38BDF8,stroke-width:1px,color:#E6EDF3
-    classDef store fill:#0F2233,stroke:#34D399,stroke-width:1px,color:#E6EDF3
+    classDef node fill:#1C1C1F,stroke:#C6F36B,stroke-width:1px,color:#EDEBE4
+    classDef store fill:#161618,stroke:#A3A29D,stroke-width:1px,color:#EDEBE4
     class dev,push,ci,art,web,api,obs node
     class cache,db store
 ```
@@ -110,30 +103,24 @@ flowchart TD
     d1 -->|"hot, short-lived"| r["Redis"]
     d1 -->|"single file, embedded"| s["SQLite"]
 
-    classDef node fill:#152A3D,stroke:#38BDF8,stroke-width:1px,color:#E6EDF3
-    classDef decision fill:#0F2233,stroke:#8BA3B8,stroke-width:1px,color:#E6EDF3
+    classDef node fill:#1C1C1F,stroke:#C6F36B,stroke-width:1px,color:#EDEBE4
+    classDef decision fill:#161618,stroke:#A3A29D,stroke-width:1px,color:#EDEBE4
     class n,p,py,v,m,mo,r,s node
     class q,d1 decision
 ```
 
 </details>
 
-## ⭐ Featured projects
+## Featured projects
 
 <p align="center">
-  <a href="https://github.com/maximilianfeix/proxy-scraper"><picture>
-    <source media="(prefers-color-scheme: light)" srcset="./assets/card-proxy-scraper-light.svg">
-    <img src="./assets/card-proxy-scraper-dark.svg" alt="proxy-scraper: free proxies that actually work, with the live number of verified proxies" width="49%">
-  </picture></a>
-  <a href="https://github.com/maximilianfeix/repoatlas"><picture>
-    <source media="(prefers-color-scheme: light)" srcset="./assets/card-repoatlas-light.svg">
-    <img src="./assets/card-repoatlas-dark.svg" alt="RepoAtlas: map any TypeScript repo in one HTML file, every connection links to its source line" width="49%">
-  </picture></a>
+  <a href="https://github.com/maximilianfeix/proxy-scraper"><img src="./assets/card-proxy-scraper.svg" alt="proxy-scraper: free proxies that actually work, with the live number of verified proxies" width="49%"></a>
+  <a href="https://github.com/maximilianfeix/repoatlas"><img src="./assets/card-repoatlas.svg" alt="RepoAtlas: map any TypeScript repo in one HTML file, every connection links to its source line" width="49%"></a>
 </p>
 
-<p align="center"><sub>Numbers on the cards are live – regenerated every 3 hours by this repository's workflow.</sub></p>
+<p align="center"><sub>Real screenshots, live numbers – rebuilt every 3 hours by this repository's workflow.</sub></p>
 
-### ⚡ [proxy-scraper](https://github.com/maximilianfeix/proxy-scraper) &nbsp;<sub>Python</sub>
+### [proxy-scraper](https://github.com/maximilianfeix/proxy-scraper) &nbsp;<sub>Python</sub>
 
 **Free proxies that actually work.** Scrapes HTTP/SOCKS4/SOCKS5 proxies from 700+ sources and verifies every hit: honeypot filter, catches proxies that inject scripts (one in five does), HTTPS with verified TLS, anonymity, country, provider and spam blocklists – and learns with every run which sources are worth it.
 
@@ -155,7 +142,7 @@ flowchart TD
 <a href="https://maximilianfeix.github.io/proxy-scraper/"><img src="https://raw.githubusercontent.com/maximilianfeix/proxy-scraper/main/docs/website.png" alt="The live proxy list website" width="100%"></a>
 </details>
 
-### 🗺️ [RepoAtlas](https://github.com/maximilianfeix/repoatlas) &nbsp;<sub>TypeScript</sub>
+### [RepoAtlas](https://github.com/maximilianfeix/repoatlas) &nbsp;<sub>TypeScript</sub>
 
 **Understand any TypeScript repo in one interactive map.** RepoAtlas parses every import with the TypeScript compiler API and turns a project into a standalone architecture map – entry points, modules, dependencies. Unlike a diagram guessed from prose, every connection links to the exact import statement and line that proves it.
 
@@ -179,7 +166,7 @@ npx --yes --package=github:maximilianfeix/repoatlas -- repoatlas https://github.
 
 <sub>TypeScript 6 compiler API · Node.js 22+ · no network requests from the viewer · hash-based CSP · tests + CodeQL on every push</sub>
 
-## 🚀 Recently shipped
+## Recently shipped
 
 <!--SHIPPED:start-->
 - 🔀 Merged [Add circular dependency insights and cycle map](https://github.com/maximilianfeix/repoatlas/pull/19) in **repoatlas** <sub>· 27 Sep 2026</sub>
@@ -190,13 +177,13 @@ npx --yes --package=github:maximilianfeix/repoatlas -- repoatlas https://github.
 - 🔀 Merged [--export singbox](https://github.com/maximilianfeix/proxy-scraper/pull/172) in **proxy-scraper** <sub>· 27 Sep 2026</sub>
 <!--SHIPPED:end-->
 
-## 📂 More projects
+## More projects
 
 <p align="center">
   <img src="./assets/projects.svg" alt="More repositories: AxonPHPCLI, Mini-Laravel, C++ template for macOS, CurrentlyFreeDomains" width="100%">
 </p>
 
-## 📈 GitHub activity
+## GitHub activity
 
 <p align="center">
   <img src="./assets/metrics.svg" alt="GitHub metrics: activity, community, repositories, languages and contribution calendar">
@@ -210,7 +197,7 @@ npx --yes --package=github:maximilianfeix/repoatlas -- repoatlas https://github.
   </picture>
 </p>
 
-## ⚙️ Powered by GitHub Actions
+## Powered by GitHub Actions
 
 This profile keeps itself up to date:
 
