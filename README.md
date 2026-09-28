@@ -169,12 +169,12 @@ npx --yes --package=github:maximilianfeix/repoatlas -- repoatlas https://github.
 ## Recently shipped
 
 <!--SHIPPED:start-->
-- 🏷️ Released **[proxy-scraper v1.20.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.20.0)** <sub>· 27 Sep 2026</sub>
-- 🔀 Merged [release 1.20.0](https://github.com/maximilianfeix/proxy-scraper/pull/217) in **proxy-scraper** <sub>· 27 Sep 2026</sub>
-- 🔀 Merged [proxy_url() for requests, httpx, Playwright](https://github.com/maximilianfeix/proxy-scraper/pull/216) in **proxy-scraper** <sub>· 27 Sep 2026</sub>
-- 🏷️ Released **[proxy-scraper v1.19.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.19.0)** <sub>· 27 Sep 2026</sub>
-- 🔀 Merged [release 1.19.0](https://github.com/maximilianfeix/proxy-scraper/pull/214) in **proxy-scraper** <sub>· 27 Sep 2026</sub>
-- 🔀 Merged [Best first everywhere](https://github.com/maximilianfeix/proxy-scraper/pull/213) in **proxy-scraper** <sub>· 27 Sep 2026</sub>
+- 🔀 Merged [release 0.3.0](https://github.com/maximilianfeix/spillage/pull/22) in **spillage** <sub>· 28 Sep 2026</sub>
+- 🔀 Merged [spillage repo, GitHub Action, pre-commit](https://github.com/maximilianfeix/spillage/pull/21) in **spillage** <sub>· 28 Sep 2026</sub>
+- 🏷️ Released **[repoatlas v2.6.0](https://github.com/maximilianfeix/repoatlas/releases/tag/v2.6.0)** <sub>· 28 Sep 2026</sub>
+- 🔀 Merged [feat: analyze local TypeScript folders in browser](https://github.com/maximilianfeix/repoatlas/pull/81) in **repoatlas** <sub>· 28 Sep 2026</sub>
+- 🏷️ Released **[repoatlas v2.5.0](https://github.com/maximilianfeix/repoatlas/releases/tag/v2.5.0)** <sub>· 28 Sep 2026</sub>
+- 🔀 Merged [feat: analyze public TypeScript repos in browser](https://github.com/maximilianfeix/repoatlas/pull/79) in **repoatlas** <sub>· 28 Sep 2026</sub>
 <!--SHIPPED:end-->
 
 ## More projects
