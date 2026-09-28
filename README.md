@@ -169,12 +169,12 @@ npx --yes --package=github:maximilianfeix/repoatlas -- repoatlas https://github.
 ## Recently shipped
 
 <!--SHIPPED:start-->
-- 🔀 Merged [Look for the exact values from your .env files](https://github.com/maximilianfeix/spillage/pull/35) in **spillage** <sub>· 28 Sep 2026</sub>
-- 🏷️ Released **[repoatlas v2.15.0](https://github.com/maximilianfeix/repoatlas/releases/tag/v2.15.0)** <sub>· 28 Sep 2026</sub>
-- 🔀 Merged [Search exported symbols in the architecture map](https://github.com/maximilianfeix/repoatlas/pull/102) in **repoatlas** <sub>· 28 Sep 2026</sub>
-- 🏷️ Released **[repoatlas v2.14.0](https://github.com/maximilianfeix/repoatlas/releases/tag/v2.14.0)** <sub>· 28 Sep 2026</sub>
-- 🔀 Merged [Compare TypeScript export surfaces in architecture diffs](https://github.com/maximilianfeix/repoatlas/pull/99) in **repoatlas** <sub>· 28 Sep 2026</sub>
-- 🏷️ Released **[repoatlas v2.13.0](https://github.com/maximilianfeix/repoatlas/releases/tag/v2.13.0)** <sub>· 28 Sep 2026</sub>
+- 🏷️ Released **[repoatlas v2.32.0](https://github.com/maximilianfeix/repoatlas/releases/tag/v2.32.0)** <sub>· 28 Sep 2026</sub>
+- 🔀 Merged [improve: put repository mapping first in the hero](https://github.com/maximilianfeix/repoatlas/pull/139) in **repoatlas** <sub>· 28 Sep 2026</sub>
+- 🏷️ Released **[repoatlas v2.31.0](https://github.com/maximilianfeix/repoatlas/releases/tag/v2.31.0)** <sub>· 28 Sep 2026</sub>
+- 🔀 Merged [design: make the GitHub star action visible](https://github.com/maximilianfeix/repoatlas/pull/137) in **repoatlas** <sub>· 28 Sep 2026</sub>
+- 🏷️ Released **[repoatlas v2.30.0](https://github.com/maximilianfeix/repoatlas/releases/tag/v2.30.0)** <sub>· 28 Sep 2026</sub>
+- 🔀 Merged [design: add restrained reduced-motion landing transitions](https://github.com/maximilianfeix/repoatlas/pull/135) in **repoatlas** <sub>· 28 Sep 2026</sub>
 <!--SHIPPED:end-->
 
 ## More projects
