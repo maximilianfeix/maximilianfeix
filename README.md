@@ -169,12 +169,12 @@ npx --yes --package=github:maximilianfeix/repoatlas -- repoatlas https://github.
 ## Recently shipped
 
 <!--SHIPPED:start-->
+- 🏷️ Released **[repoatlas v2.41.0](https://github.com/maximilianfeix/repoatlas/releases/tag/v2.41.0)** <sub>· 28 Sep 2026</sub>
+- 🔀 Merged [Add README-ready Mermaid architecture reports](https://github.com/maximilianfeix/repoatlas/pull/166) in **repoatlas** <sub>· 28 Sep 2026</sub>
 - 🔀 Merged [Polish RepoAtlas visual identity](https://github.com/maximilianfeix/repoatlas/pull/164) in **repoatlas** <sub>· 28 Sep 2026</sub>
 - 🏷️ Released **[repoatlas v2.40.2](https://github.com/maximilianfeix/repoatlas/releases/tag/v2.40.2)** <sub>· 28 Sep 2026</sub>
 - 🔀 Merged [fix: version browser worker cache by release](https://github.com/maximilianfeix/repoatlas/pull/162) in **repoatlas** <sub>· 28 Sep 2026</sub>
 - 🏷️ Released **[repoatlas v2.40.1](https://github.com/maximilianfeix/repoatlas/releases/tag/v2.40.1)** <sub>· 28 Sep 2026</sub>
-- 🔀 Merged [fix: parse browser tsconfig as JSONC](https://github.com/maximilianfeix/repoatlas/pull/160) in **repoatlas** <sub>· 28 Sep 2026</sub>
-- 🏷️ Released **[repoatlas v2.40.0](https://github.com/maximilianfeix/repoatlas/releases/tag/v2.40.0)** <sub>· 28 Sep 2026</sub>
 <!--SHIPPED:end-->
 
 ## More projects
