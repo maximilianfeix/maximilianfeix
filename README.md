@@ -169,12 +169,12 @@ npx --yes --package=github:maximilianfeix/repoatlas -- repoatlas https://github.
 ## Recently shipped
 
 <!--SHIPPED:start-->
-- 🏷️ Released **[repoatlas v2.41.0](https://github.com/maximilianfeix/repoatlas/releases/tag/v2.41.0)** <sub>· 28 Sep 2026</sub>
-- 🔀 Merged [Add README-ready Mermaid architecture reports](https://github.com/maximilianfeix/repoatlas/pull/166) in **repoatlas** <sub>· 28 Sep 2026</sub>
-- 🔀 Merged [Polish RepoAtlas visual identity](https://github.com/maximilianfeix/repoatlas/pull/164) in **repoatlas** <sub>· 28 Sep 2026</sub>
-- 🏷️ Released **[repoatlas v2.40.2](https://github.com/maximilianfeix/repoatlas/releases/tag/v2.40.2)** <sub>· 28 Sep 2026</sub>
-- 🔀 Merged [fix: version browser worker cache by release](https://github.com/maximilianfeix/repoatlas/pull/162) in **repoatlas** <sub>· 28 Sep 2026</sub>
-- 🏷️ Released **[repoatlas v2.40.1](https://github.com/maximilianfeix/repoatlas/releases/tag/v2.40.1)** <sub>· 28 Sep 2026</sub>
+- 🔀 Merged [Scan agent settings: MCP servers, allowed commands, old prompt history](https://github.com/maximilianfeix/spillage/pull/51) in **spillage** <sub>· 28 Sep 2026</sub>
+- 🏷️ Released **[proxy-scraper v1.21.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.21.0)** <sub>· 28 Sep 2026</sub>
+- 🔀 Merged [README: star history, Discussions, stars badge](https://github.com/maximilianfeix/proxy-scraper/pull/220) in **proxy-scraper** <sub>· 28 Sep 2026</sub>
+- 🔀 Merged [Proxy pool API on the --serve port (proxy_pool compatible)](https://github.com/maximilianfeix/proxy-scraper/pull/218) in **proxy-scraper** <sub>· 28 Sep 2026</sub>
+- 🔀 Merged [--source and --only-sources: your own proxy lists](https://github.com/maximilianfeix/proxy-scraper/pull/219) in **proxy-scraper** <sub>· 28 Sep 2026</sub>
+- 🔀 Merged [release 1.21.0](https://github.com/maximilianfeix/proxy-scraper/pull/221) in **proxy-scraper** <sub>· 28 Sep 2026</sub>
 <!--SHIPPED:end-->
 
 ## More projects
