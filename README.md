@@ -169,12 +169,12 @@ npx --yes --package=github:maximilianfeix/repoatlas -- repoatlas https://github.
 ## Recently shipped
 
 <!--SHIPPED:start-->
+- 🏷️ Released **[proxy-scraper v1.22.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.22.0)** <sub>· 29 Sep 2026</sub>
+- 🔀 Merged [release 1.22.0](https://github.com/maximilianfeix/proxy-scraper/pull/226) in **proxy-scraper** <sub>· 29 Sep 2026</sub>
 - 🔀 Merged [site: pick the format for copy and download; roadmap up to date](https://github.com/maximilianfeix/proxy-scraper/pull/225) in **proxy-scraper** <sub>· 29 Sep 2026</sub>
 - 🔀 Merged [One-time star hint in the CLI, and what 3.6 million checks found](https://github.com/maximilianfeix/proxy-scraper/pull/223) in **proxy-scraper** <sub>· 29 Sep 2026</sub>
 - 🔀 Merged [site: the proxy table fits the page on every screen size](https://github.com/maximilianfeix/proxy-scraper/pull/222) in **proxy-scraper** <sub>· 29 Sep 2026</sub>
 - 🔀 Merged [SARIF output for GitHub code scanning](https://github.com/maximilianfeix/spillage/pull/52) in **spillage** <sub>· 29 Sep 2026</sub>
-- 🏷️ Released **[gha-preview v0.3.1](https://github.com/maximilianfeix/gha-preview/releases/tag/v0.3.1)** <sub>· 28 Sep 2026</sub>
-- 🔀 Merged [fix: retain comparison colors in SVG exports](https://github.com/maximilianfeix/gha-preview/pull/13) in **gha-preview** <sub>· 28 Sep 2026</sub>
 <!--SHIPPED:end-->
 
 ## More projects
