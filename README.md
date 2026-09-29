@@ -136,12 +136,12 @@ Try it on real projects: [**Zustand**](https://maximilianfeix.github.io/repoatla
 **Recently shipped**
 
 <!--SHIPPED:start-->
+- 🔀 Merged [Share image, social preview and favicon](https://github.com/maximilianfeix/actions-guard/pull/6) in **actions-guard** <sub>· 29 Sep 2026</sub>
+- 🔀 Merged [Website: a landing page that shows the app at work](https://github.com/maximilianfeix/actions-guard/pull/5) in **actions-guard** <sub>· 29 Sep 2026</sub>
 - 🔀 Merged [The hourly lists in a repository of their own (free-proxy-list)](https://github.com/maximilianfeix/proxy-scraper/pull/227) in **proxy-scraper** <sub>· 29 Sep 2026</sub>
 - 🏷️ Released **[proxy-scraper v1.22.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.22.0)** <sub>· 29 Sep 2026</sub>
 - 🔀 Merged [SARIF output for GitHub code scanning](https://github.com/maximilianfeix/spillage/pull/52) in **spillage** <sub>· 29 Sep 2026</sub>
 - 🏷️ Released **[gha-preview v0.3.1](https://github.com/maximilianfeix/gha-preview/releases/tag/v0.3.1)** <sub>· 28 Sep 2026</sub>
-- 🔀 Merged [fix: retain comparison colors in SVG exports](https://github.com/maximilianfeix/gha-preview/pull/13) in **gha-preview** <sub>· 28 Sep 2026</sub>
-- 🔀 Merged [Scan agent settings: MCP servers, allowed commands, old prompt history](https://github.com/maximilianfeix/spillage/pull/51) in **spillage** <sub>· 28 Sep 2026</sub>
 <!--SHIPPED:end-->
 
 </td>
@@ -151,9 +151,9 @@ Try it on real projects: [**Zustand**](https://maximilianfeix.github.io/repoatla
 
 <!--CONTRIB:start-->
 - **[semantica-agi/semantica](https://github.com/semantica-agi/semantica)** <sub>★ 13.5k</sub><br><sub>[1 merged PR](https://github.com/semantica-agi/semantica/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
-- **[MakazhanAlpamys/Soup](https://github.com/MakazhanAlpamys/Soup)** <sub>★ 7.5k</sub><br><sub>[5 merged PRs](https://github.com/MakazhanAlpamys/Soup/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
+- **[MakazhanAlpamys/Soup](https://github.com/MakazhanAlpamys/Soup)** <sub>★ 7.6k</sub><br><sub>[5 merged PRs](https://github.com/MakazhanAlpamys/Soup/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
 - **[hetzneronline/community-content](https://github.com/hetzneronline/community-content)** <sub>★ 462</sub><br><sub>[3 merged PRs](https://github.com/hetzneronline/community-content/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
-- **[ldbumble/taskuary](https://github.com/ldbumble/taskuary)** <sub>★ 128</sub><br><sub>[11 merged PRs](https://github.com/ldbumble/taskuary/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
+- **[ldbumble/taskuary](https://github.com/ldbumble/taskuary)** <sub>★ 128</sub><br><sub>[12 merged PRs](https://github.com/ldbumble/taskuary/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
 - **[intuit/stunt-double](https://github.com/intuit/stunt-double)** <sub>★ 15</sub><br><sub>[4 merged PRs](https://github.com/intuit/stunt-double/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
 <!--CONTRIB:end-->
 
