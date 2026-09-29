@@ -169,12 +169,12 @@ npx --yes --package=github:maximilianfeix/repoatlas -- repoatlas https://github.
 ## Recently shipped
 
 <!--SHIPPED:start-->
+- 🔀 Merged [SARIF output for GitHub code scanning](https://github.com/maximilianfeix/spillage/pull/52) in **spillage** <sub>· 29 Sep 2026</sub>
 - 🏷️ Released **[gha-preview v0.3.1](https://github.com/maximilianfeix/gha-preview/releases/tag/v0.3.1)** <sub>· 28 Sep 2026</sub>
 - 🔀 Merged [fix: retain comparison colors in SVG exports](https://github.com/maximilianfeix/gha-preview/pull/13) in **gha-preview** <sub>· 28 Sep 2026</sub>
 - 🏷️ Released **[gha-preview v0.3.0](https://github.com/maximilianfeix/gha-preview/releases/tag/v0.3.0)** <sub>· 28 Sep 2026</sub>
 - 🔀 Merged [feat: compare workflow revisions before a push](https://github.com/maximilianfeix/gha-preview/pull/11) in **gha-preview** <sub>· 28 Sep 2026</sub>
 - 🏷️ Released **[gha-preview v0.2.1](https://github.com/maximilianfeix/gha-preview/releases/tag/v0.2.1)** <sub>· 28 Sep 2026</sub>
-- 🔀 Merged [fix: align the default demo with the README](https://github.com/maximilianfeix/gha-preview/pull/10) in **gha-preview** <sub>· 28 Sep 2026</sub>
 <!--SHIPPED:end-->
 
 ## More projects
