@@ -2,13 +2,21 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./assets/header-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="./assets/header-light.svg">
-    <img src="./assets/header-dark.svg" alt="Maximilian Feix. Backend and infrastructure at a hosting company in Germany. Currently shipping proxy-scraper and RepoAtlas." width="100%">
+    <img src="./assets/header-dark.svg" alt="Maximilian Feix. Backend and infrastructure at a hosting company in Germany. Currently shipping proxy-scraper, spillage and RepoAtlas." width="100%">
   </picture>
 </p>
 
-## About
+<p align="center">
+  <samp>
+    <a href="#projects">projects</a> ·
+    <a href="#open-source">open source</a> ·
+    <a href="#how-i-work">how i work</a> ·
+    <a href="#stack">stack</a> ·
+    <a href="#activity">activity</a>
+  </samp>
+</p>
 
-Software developer from Germany, working at a hosting company. Most of my time goes into the parts users never see: APIs, deployment pipelines, database schemas and the automation that keeps all of it running without me.
+Software developer from Germany, working at a hosting company. Most of my time goes into the parts users never see: APIs, deployment pipelines, database schemas and the automation that keeps all of it running without me. In my own time I build developer tools that do one job properly and show their work – tested, documented, released.
 
 <table>
 <tr>
@@ -16,7 +24,7 @@ Software developer from Germany, working at a hosting company. Most of my time g
 
 **What I do**
 
-- Backend services in **Node.js**, **TypeScript** and **PHP**, with **Vue** where a UI is needed
+- Backend services in **Node.js**, **TypeScript**, **PHP** and **Python**, with **Vue** where a UI is needed
 - The ops half of the job: **Linux**, **Apache**, **Redis**, **MariaDB**, cron and shell glue
 - Automation that removes repetitive work – CI pipelines, scripts, bots
 
@@ -25,35 +33,134 @@ Software developer from Germany, working at a hosting company. Most of my time g
 
 **Right now**
 
+- 🔐 Shipping **[spillage](https://github.com/maximilianfeix/spillage)** – secret scanning for coding-agent logs
+- ⚡ Maintaining **[proxy-scraper](https://github.com/maximilianfeix/proxy-scraper)** and **[RepoAtlas](https://github.com/maximilianfeix/repoatlas)**
 - 🔨 Building **devprofile.dev**
 - 📚 Learning **microservices** – service boundaries, messaging, observability
-- ⚡ Maintaining **[proxy-scraper](https://github.com/maximilianfeix/proxy-scraper)**
-- 🗺️ Shipping **[RepoAtlas](https://github.com/maximilianfeix/repoatlas)** – architecture maps for TypeScript repos
 
 </td>
 </tr>
 </table>
 
-## Tech stack
+<a id="projects"></a>
+
+## Projects
 
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=ts,js,php,py,java,cpp,html,css&theme=light&perline=12">
-    <img src="https://skillicons.dev/icons?i=ts,js,php,py,java,cpp,html,css&theme=dark&perline=12" alt="TypeScript, JavaScript, PHP, Python, Java, C++, HTML, CSS" height="44">
-  </picture>
+  <a href="#proxy-scraper"><img src="./assets/card-proxy-scraper.svg" alt="proxy-scraper: scrapes 700+ sources and keeps only proxies that pass real checks, with the live number of verified proxies" width="49%"></a>
+  <a href="#spillage"><img src="./assets/card-spillage.svg" alt="spillage: finds the API keys your coding agents spilled into their logs" width="49%"></a>
 </p>
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=nodejs,vue,vite,mysql,mongodb,redis,sqlite&theme=light&perline=12">
-    <img src="https://skillicons.dev/icons?i=nodejs,vue,vite,mysql,mongodb,redis,sqlite&theme=dark&perline=12" alt="Node.js, Vue, Vite, MySQL, MongoDB, Redis, SQLite" height="44">
-  </picture>
+  <a href="#repoatlas"><img src="./assets/card-repoatlas.svg" alt="RepoAtlas: an architecture map of any TypeScript repo, every import traced to its line" width="49%"></a>
+  <a href="#gha-preview"><img src="./assets/card-gha-preview.svg" alt="gha-preview: see a GitHub Actions run as a job graph before you push" width="49%"></a>
 </p>
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=linux,bash,githubactions,git,gitlab,figma,ps,ae,blender&theme=light&perline=12">
-    <img src="https://skillicons.dev/icons?i=linux,bash,githubactions,git,gitlab,figma,ps,ae,blender&theme=dark&perline=12" alt="Linux, Bash, GitHub Actions, Git, GitLab, Figma, Photoshop, After Effects, Blender" height="44">
-  </picture>
-</p>
+
+<p align="center"><sub>Real screenshots, live numbers – rebuilt every 3 hours by this repository's workflow.</sub></p>
+
+<a id="proxy-scraper"></a>
+
+### [proxy-scraper](https://github.com/maximilianfeix/proxy-scraper) &nbsp;<sub>Python</sub>
+
+**Free proxies that actually work.** Scrapes HTTP/SOCKS4/SOCKS5 proxies from 700+ sources and verifies every hit: honeypot filter, catches proxies that inject scripts (one in five does), HTTPS with verified TLS, anonymity, country, provider and spam blocklists – and learns with every run which sources are worth it. Comes with a rotating proxy server (SOCKS5 + HTTP, sticky sessions, Prometheus metrics), an MCP server for AI agents, a live dashboard and a Discord bot.
+
+<a href="https://github.com/maximilianfeix/proxy-scraper/actions/workflows/tests.yml"><img src="https://github.com/maximilianfeix/proxy-scraper/actions/workflows/tests.yml/badge.svg" alt="tests"></a> <a href="https://github.com/maximilianfeix/proxy-scraper/releases/latest"><img src="https://img.shields.io/github/v/release/maximilianfeix/proxy-scraper?style=flat-square&color=C6F36B&labelColor=141416" alt="release"></a> <a href="https://github.com/maximilianfeix/proxy-scraper/tree/proxy-list"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fmaximilianfeix%2Fproxy-scraper%2Fproxy-list%2Fbadges%2Ftotal.json&style=flat-square&labelColor=141416" alt="live proxies"></a> <a href="https://github.com/maximilianfeix/proxy-scraper/stargazers"><img src="https://img.shields.io/github/stars/maximilianfeix/proxy-scraper?style=flat-square&color=C6F36B&labelColor=141416" alt="stars"></a>
+
+| 700+ | ~1M | 25 s | ~500 |
+|:---:|:---:|:---:|:---:|
+| sources | candidates per run | to check them | tests on Linux · macOS · Windows |
+
+**→ [Browse the live list](https://maximilianfeix.github.io/proxy-scraper/)**, re-checked every hour by GitHub Actions.
+
+<a id="spillage"></a>
+
+### [spillage](https://github.com/maximilianfeix/spillage) &nbsp;<sub>Python</sub>
+
+**Find the API keys your coding agents spilled into their logs.** Claude Code, Codex, Gemini CLI, Cursor and the rest keep every conversation on disk as plain text – including each `.env` they read and every key you pasted "just to test". spillage reads the logs of thirteen agents, tells you which keys leaked and *how* (you pasted it, a tool printed it, the model repeated it), links to the page where you rotate each one, scrubs them without breaking `--resume`, and installs hooks that block the next leak.
+
+- **56 rules** that know each key's exact shape – GitHub tokens are checked against their CRC32, JWTs have to decode, placeholders are skipped
+- **Zero dependencies, zero network** – standard library only, secrets are only ever shown masked
+- **Fits into CI** – HTML, JSON, Markdown and SARIF reports, a GitHub Action and a pre-commit hook
+
+```sh
+brew install maximilianfeix/tap/spillage && spillage
+```
+
+<a href="https://github.com/maximilianfeix/spillage/releases/latest"><img src="https://img.shields.io/github/v/release/maximilianfeix/spillage?style=flat-square&color=FF6B4A&labelColor=0E0F13" alt="release"></a> <img src="https://img.shields.io/badge/dependencies-0-FF6B4A?style=flat-square&labelColor=0E0F13" alt="zero dependencies"> <a href="https://maximilianfeix.github.io/spillage/"><img src="https://img.shields.io/badge/website-live-FF6B4A?style=flat-square&labelColor=0E0F13" alt="website"></a>
+
+<a id="repoatlas"></a>
+
+### [RepoAtlas](https://github.com/maximilianfeix/repoatlas) &nbsp;<sub>TypeScript</sub>
+
+**Understand any TypeScript repo in one interactive map.** RepoAtlas parses every import with the TypeScript compiler API and turns a project into a standalone architecture map. Unlike a diagram guessed from prose, every connection links to the exact import statement and line that proves it – with a Focus map for direct neighbours, an Impact map for everything that transitively depends on a module, and circular import groups isolated edge by edge.
+
+```sh
+npx --yes --package=github:maximilianfeix/repoatlas -- repoatlas https://github.com/pmndrs/zustand -o zustand-map.html
+```
+
+<a href="https://github.com/maximilianfeix/repoatlas/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/maximilianfeix/repoatlas/ci.yml?branch=main&label=tests&style=flat-square&labelColor=101722" alt="tests"></a> <a href="https://github.com/maximilianfeix/repoatlas/actions/workflows/codeql.yml"><img src="https://img.shields.io/github/actions/workflow/status/maximilianfeix/repoatlas/codeql.yml?branch=main&label=CodeQL&style=flat-square&labelColor=101722" alt="CodeQL"></a> <a href="https://github.com/maximilianfeix/repoatlas/releases/latest"><img src="https://img.shields.io/github/v/release/maximilianfeix/repoatlas?style=flat-square&color=8BDEC1&labelColor=101722" alt="release"></a>
+
+Try it on real projects: [**Zustand**](https://maximilianfeix.github.io/repoatlas/examples/zustand.html) <sub>18 modules</sub> · [**Ky**](https://maximilianfeix.github.io/repoatlas/examples/ky.html) <sub>51 modules</sub> · [**Hono**](https://maximilianfeix.github.io/repoatlas/examples/hono.html) <sub>247 modules, 676 connections</sub>
+
+<a id="gha-preview"></a>
+
+### [gha-preview](https://github.com/maximilianfeix/gha-preview) &nbsp;<sub>TypeScript</sub>
+
+**See the run before the run.** Paste a GitHub Actions workflow and explore it as a job graph: which jobs a `push` or `pull_request` would start, what a matrix expands to, how a proposed change reshapes the pipeline – and jump from any job straight back to its YAML line. Everything is parsed in the browser; no account, no upload.
+
+<a href="https://github.com/maximilianfeix/gha-preview/actions/workflows/ci.yml"><img src="https://github.com/maximilianfeix/gha-preview/actions/workflows/ci.yml/badge.svg" alt="checks"></a> <a href="https://github.com/maximilianfeix/gha-preview/releases/latest"><img src="https://img.shields.io/github/v/release/maximilianfeix/gha-preview?style=flat-square&color=2E6B43" alt="release"></a> <a href="https://maximilianfeix.github.io/gha-preview/"><img src="https://img.shields.io/badge/try_it-live-2E6B43?style=flat-square" alt="live demo"></a>
+
+<details>
+<summary><b>Smaller things</b></summary>
+
+<br>
+
+| Repository | What it is |
+|---|---|
+| [free-proxy-list](https://github.com/maximilianfeix/free-proxy-list) | The hourly proxy list from proxy-scraper, per country, as JSON and CSV |
+| [homebrew-tap](https://github.com/maximilianfeix/homebrew-tap) | Homebrew formulae – `brew install maximilianfeix/tap/spillage` |
+| [AxonPHPCLI](https://github.com/maximilianfeix/AxonPHPCLI) | Tiny PHP CLI that generates GitHub Actions CI/CD configuration for PHP projects |
+| [Mini-Laravel](https://github.com/maximilianfeix/Mini-Laravel) | Laravel-style PHP framework from scratch: router, DI container, controllers, middleware |
+| [CurrentlyFreeDomains](https://github.com/maximilianfeix/CurrentlyFreeDomains) | Currently free `.de` domains |
+| [C++ template for macOS](https://github.com/maximilianfeix/C--Template-fr-Mac) · [vocational school C++](https://github.com/maximilianfeix/Berufsschule-Anwendungsentwicklung-C-) | Starter template with VS Code tasks, and exercises from my apprenticeship |
+
+</details>
+
+<a id="open-source"></a>
+
+## Open source
+
+<table>
+<tr>
+<td width="55%" valign="top">
+
+**Recently shipped**
+
+<!--SHIPPED:start-->
+- 🔀 Merged [The hourly lists in a repository of their own (free-proxy-list)](https://github.com/maximilianfeix/proxy-scraper/pull/227) in **proxy-scraper** <sub>· 29 Sep 2026</sub>
+- 🏷️ Released **[proxy-scraper v1.22.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.22.0)** <sub>· 29 Sep 2026</sub>
+- 🔀 Merged [SARIF output for GitHub code scanning](https://github.com/maximilianfeix/spillage/pull/52) in **spillage** <sub>· 29 Sep 2026</sub>
+- 🏷️ Released **[gha-preview v0.3.1](https://github.com/maximilianfeix/gha-preview/releases/tag/v0.3.1)** <sub>· 28 Sep 2026</sub>
+- 🔀 Merged [fix: retain comparison colors in SVG exports](https://github.com/maximilianfeix/gha-preview/pull/13) in **gha-preview** <sub>· 28 Sep 2026</sub>
+- 🔀 Merged [Scan agent settings: MCP servers, allowed commands, old prompt history](https://github.com/maximilianfeix/spillage/pull/51) in **spillage** <sub>· 28 Sep 2026</sub>
+<!--SHIPPED:end-->
+
+</td>
+<td width="45%" valign="top">
+
+**Contributions to other projects**
+
+<!--CONTRIB:start-->
+- **[semantica-agi/semantica](https://github.com/semantica-agi/semantica)** <sub>★ 13.5k</sub><br><sub>[1 merged PR](https://github.com/semantica-agi/semantica/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
+- **[MakazhanAlpamys/Soup](https://github.com/MakazhanAlpamys/Soup)** <sub>★ 7.5k</sub><br><sub>[5 merged PRs](https://github.com/MakazhanAlpamys/Soup/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
+- **[ldbumble/taskuary](https://github.com/ldbumble/taskuary)** <sub>★ 128</sub><br><sub>[11 merged PRs](https://github.com/ldbumble/taskuary/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
+- **[intuit/stunt-double](https://github.com/intuit/stunt-double)** <sub>★ 15</sub><br><sub>[4 merged PRs](https://github.com/intuit/stunt-double/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
+<!--CONTRIB:end-->
+
+</td>
+</tr>
+</table>
+
+<a id="how-i-work"></a>
 
 ## How I work
 
@@ -62,6 +169,7 @@ Software developer from Germany, working at a hosting company. Most of my time g
 | **Tested** | Tests that run offline and in CI – [proxy-scraper](https://github.com/maximilianfeix/proxy-scraper/actions/workflows/tests.yml) runs almost 500 of them on Linux, macOS and Windows, against fake proxies and honeypots on `localhost` |
 | **Reviewed** | Changes start as an issue and land through a reviewed pull request – see the [proxy-scraper history](https://github.com/maximilianfeix/proxy-scraper/pulls?q=is%3Apr+is%3Amerged) |
 | **Automated** | Lint, CodeQL, Dependabot, tagged releases and scheduled jobs on GitHub Actions – this profile updates itself too |
+| **Minimal** | As few dependencies as the job allows – spillage has none, because it's a tool you point at your secrets |
 | **Documented** | READMEs with a quick start, a changelog, contributing and security guides |
 
 <details>
@@ -94,7 +202,7 @@ flowchart TD
     q{"What kind of job?"}
     q -->|"HTTP API, realtime"| n["Node.js"]
     q -->|"classic web app, CMS"| p["PHP"]
-    q -->|"scripting, glue, tooling"| py["Python"]
+    q -->|"CLI tools, scripting, glue"| py["Python"]
     q -->|"user interface"| v["Vue + Vite"]
     n --> d1{"Data shape?"}
     p --> d1
@@ -111,79 +219,27 @@ flowchart TD
 
 </details>
 
-## Featured projects
+<a id="stack"></a>
+
+## Stack
 
 <p align="center">
-  <a href="https://github.com/maximilianfeix/proxy-scraper"><img src="./assets/card-proxy-scraper.svg" alt="proxy-scraper: free proxies that actually work, with the live number of verified proxies" width="49%"></a>
-  <a href="https://github.com/maximilianfeix/repoatlas"><img src="./assets/card-repoatlas.svg" alt="RepoAtlas: map any TypeScript repo in one HTML file, every connection links to its source line" width="49%"></a>
+  <picture>
+    <source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=ts,js,py,php,java,cpp,nodejs,vue,vite,html,css&theme=light&perline=11">
+    <img src="https://skillicons.dev/icons?i=ts,js,py,php,java,cpp,nodejs,vue,vite,html,css&theme=dark&perline=11" alt="TypeScript, JavaScript, Python, PHP, Java, C++, Node.js, Vue, Vite, HTML, CSS" height="44">
+  </picture>
 </p>
-
-<p align="center"><sub>Real screenshots, live numbers – rebuilt every 3 hours by this repository's workflow.</sub></p>
-
-### [proxy-scraper](https://github.com/maximilianfeix/proxy-scraper) &nbsp;<sub>Python</sub>
-
-**Free proxies that actually work.** Scrapes HTTP/SOCKS4/SOCKS5 proxies from 700+ sources and verifies every hit: honeypot filter, catches proxies that inject scripts (one in five does), HTTPS with verified TLS, anonymity, country, provider and spam blocklists – and learns with every run which sources are worth it.
-
-- **Rotating proxy server** – SOCKS5 + HTTP, sticky sessions, country per request, refills itself, Prometheus metrics
-- **MCP server** – AI agents like Claude Code get working proxies and can load pages through them
-- **Everything around it** – setup wizard, live dashboard, Discord bot, Python API, Docker, shell completion
-
-<a href="https://github.com/maximilianfeix/proxy-scraper/actions/workflows/tests.yml"><img src="https://github.com/maximilianfeix/proxy-scraper/actions/workflows/tests.yml/badge.svg" alt="tests"></a> <a href="https://github.com/maximilianfeix/proxy-scraper/releases/latest"><img src="https://img.shields.io/github/v/release/maximilianfeix/proxy-scraper?style=flat-square&color=38BDF8" alt="release"></a> <a href="https://github.com/maximilianfeix/proxy-scraper/tree/proxy-list"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fmaximilianfeix%2Fproxy-scraper%2Fproxy-list%2Fbadges%2Ftotal.json&style=flat-square" alt="live proxies"></a> <a href="https://github.com/maximilianfeix/proxy-scraper/stargazers"><img src="https://img.shields.io/github/stars/maximilianfeix/proxy-scraper?style=flat-square&color=FBBF24" alt="stars"></a>
-
-| 700+ | ~1M | 25 s | 3 OS |
-|:---:|:---:|:---:|:---:|
-| sources | candidates per run | to check them | Linux · macOS · Windows |
-
-**→ [Browse the live list](https://maximilianfeix.github.io/proxy-scraper/)**, re-checked every hour by GitHub Actions.
-
-<details>
-<summary><b>Screenshot of the live list</b></summary>
-<br>
-<a href="https://maximilianfeix.github.io/proxy-scraper/"><img src="https://raw.githubusercontent.com/maximilianfeix/proxy-scraper/main/docs/website.png" alt="The live proxy list website" width="100%"></a>
-</details>
-
-### [RepoAtlas](https://github.com/maximilianfeix/repoatlas) &nbsp;<sub>TypeScript</sub>
-
-**Understand any TypeScript repo in one interactive map.** RepoAtlas parses every import with the TypeScript compiler API and turns a project into a standalone architecture map – entry points, modules, dependencies. Unlike a diagram guessed from prose, every connection links to the exact import statement and line that proves it.
-
-- **Evidence, not guesses** – click any edge to see the source line, with a commit-pinned GitHub link
-- **Assess change** – Focus map for direct neighbours, Impact map for everything that transitively depends on a module, circular import groups isolated edge by edge
-- **Zero setup** – one `npx` command, no clone, no API key; the output is a single offline HTML file (or JSON), also as a [GitHub Action](https://github.com/maximilianfeix/repoatlas#github-actions)
-
-```sh
-npx --yes --package=github:maximilianfeix/repoatlas -- repoatlas https://github.com/pmndrs/zustand -o zustand-map.html
-```
-
-<a href="https://github.com/maximilianfeix/repoatlas/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/maximilianfeix/repoatlas/ci.yml?branch=main&label=tests&style=flat-square" alt="tests"></a> <a href="https://github.com/maximilianfeix/repoatlas/actions/workflows/codeql.yml"><img src="https://img.shields.io/github/actions/workflow/status/maximilianfeix/repoatlas/codeql.yml?branch=main&label=CodeQL&style=flat-square" alt="CodeQL"></a> <a href="https://github.com/maximilianfeix/repoatlas/releases/latest"><img src="https://img.shields.io/github/v/release/maximilianfeix/repoatlas?style=flat-square&color=B8A9EF" alt="release"></a> <a href="https://github.com/maximilianfeix/repoatlas/stargazers"><img src="https://img.shields.io/github/stars/maximilianfeix/repoatlas?style=flat-square&color=FBBF24" alt="stars"></a>
-
-| Try it on | Modules | Connections |
-|---|:---:|:---:|
-| [**Zustand** – open map](https://maximilianfeix.github.io/repoatlas/examples/zustand.html) | 18 | 23 |
-| [**Ky** – open map](https://maximilianfeix.github.io/repoatlas/examples/ky.html) | 51 | 93 |
-| [**Hono** – open map](https://maximilianfeix.github.io/repoatlas/examples/hono.html) | 247 | 676 |
-
-<a href="https://maximilianfeix.github.io/repoatlas/examples/hono.html"><img src="https://raw.githubusercontent.com/maximilianfeix/repoatlas/main/docs/assets/architecture-map-preview.png" alt="RepoAtlas isolating a six-module circular dependency group in Hono" width="100%"></a>
-
-<sub>TypeScript 6 compiler API · Node.js 22+ · no network requests from the viewer · hash-based CSP · tests + CodeQL on every push</sub>
-
-## Recently shipped
-
-<!--SHIPPED:start-->
-- 🏷️ Released **[proxy-scraper v1.22.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.22.0)** <sub>· 29 Sep 2026</sub>
-- 🔀 Merged [release 1.22.0](https://github.com/maximilianfeix/proxy-scraper/pull/226) in **proxy-scraper** <sub>· 29 Sep 2026</sub>
-- 🔀 Merged [site: pick the format for copy and download; roadmap up to date](https://github.com/maximilianfeix/proxy-scraper/pull/225) in **proxy-scraper** <sub>· 29 Sep 2026</sub>
-- 🔀 Merged [One-time star hint in the CLI, and what 3.6 million checks found](https://github.com/maximilianfeix/proxy-scraper/pull/223) in **proxy-scraper** <sub>· 29 Sep 2026</sub>
-- 🔀 Merged [site: the proxy table fits the page on every screen size](https://github.com/maximilianfeix/proxy-scraper/pull/222) in **proxy-scraper** <sub>· 29 Sep 2026</sub>
-- 🔀 Merged [SARIF output for GitHub code scanning](https://github.com/maximilianfeix/spillage/pull/52) in **spillage** <sub>· 29 Sep 2026</sub>
-<!--SHIPPED:end-->
-
-## More projects
-
 <p align="center">
-  <img src="./assets/projects.svg" alt="More repositories: AxonPHPCLI, Mini-Laravel, C++ template for macOS, CurrentlyFreeDomains" width="100%">
+  <picture>
+    <source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=linux,bash,docker,mysql,mongodb,redis,sqlite,prometheus,githubactions,git,gitlab&theme=light&perline=11">
+    <img src="https://skillicons.dev/icons?i=linux,bash,docker,mysql,mongodb,redis,sqlite,prometheus,githubactions,git,gitlab&theme=dark&perline=11" alt="Linux, Bash, Docker, MySQL, MongoDB, Redis, SQLite, Prometheus, GitHub Actions, Git, GitLab" height="44">
+  </picture>
 </p>
+<p align="center"><sub>Also at home in Figma, Photoshop, After Effects and Blender.</sub></p>
 
-## GitHub activity
+<a id="activity"></a>
+
+## Activity
 
 <p align="center">
   <img src="./assets/metrics.svg" alt="GitHub metrics: activity, community, repositories, languages and contribution calendar">
@@ -197,20 +253,22 @@ npx --yes --package=github:maximilianfeix/repoatlas -- repoatlas https://github.
   </picture>
 </p>
 
-## Powered by GitHub Actions
+<details>
+<summary><b>How this profile updates itself</b></summary>
 
-This profile keeps itself up to date:
+<br>
 
 | Workflow | Status | What it does | When |
 |---|---|---|---|
-| [Profile](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/profile.yml) | [![Profile](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/profile.yml/badge.svg)](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/profile.yml) | renders the banner and project cards with live data and the *Recently shipped* list ([script](scripts/build_profile.py)) | every 3 hours |
-| [Metrics](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/metrics.yml) | [![Metrics](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/metrics.yml/badge.svg)](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/metrics.yml) | activity, languages, calendar and project cards via [lowlighter/metrics](https://github.com/lowlighter/metrics) | nightly |
+| [Profile](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/profile.yml) | [![Profile](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/profile.yml/badge.svg)](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/profile.yml) | renders the banner and project cards with live data (text set with HarfBuzz, so it looks the same everywhere), plus *Recently shipped* and *Contributions* ([script](scripts/build_profile.py)) | every 3 hours |
+| [Metrics](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/metrics.yml) | [![Metrics](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/metrics.yml/badge.svg)](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/metrics.yml) | activity, languages and calendar via [lowlighter/metrics](https://github.com/lowlighter/metrics) | nightly |
 | [Contribution snake](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/main.yml) | [![Snake](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/main.yml/badge.svg)](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/main.yml) | turns the contribution graph into the snake above | nightly |
 | [Link check](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/links.yml) | [![Link check](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/links.yml/badge.svg)](https://github.com/maximilianfeix/maximilianfeix/actions/workflows/links.yml) | makes sure every link in this README still works | weekly |
+
+</details>
 
 ---
 
 <p align="center">
-  <sub>Open to interesting backend and infrastructure work – the easiest way to reach me is an issue or discussion on one of my repositories.</sub><br>
-  <sub>Banner, project cards and stats are generated in this repository by GitHub Actions.</sub>
+  <sub>Open to interesting backend and infrastructure work – the easiest way to reach me is an issue or discussion on one of my repositories.</sub>
 </p>

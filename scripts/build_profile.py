@@ -3,7 +3,7 @@
 
 - assets/header-dark.svg / header-light.svg: banner with a live status panel
 - assets/card-<repo>.svg: featured project cards, a real screenshot plus live numbers
-- README.md: the "Recently shipped" list between the SHIPPED markers
+- README.md: the "Recently shipped" and "Open source" lists between their markers
 
 Only public data is used. Runs in GitHub Actions (see .github/workflows/profile.yml),
 works locally too: `pip install -r scripts/requirements.txt`, then
@@ -25,6 +25,8 @@ from pathlib import Path
 USER = "maximilianfeix"
 FEATURED = "proxy-scraper"
 ATLAS = "repoatlas"
+SPILLAGE = "spillage"
+PREVIEW = "gha-preview"
 SKIP_REPOS = {"community-content", USER}
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -49,6 +51,9 @@ class Profile:
     live_proxies: str = ""
     repo_stars: dict = field(default_factory=dict)
     atlas_release: str = ""
+    spillage_release: str = ""
+    preview_release: str = ""
+    contrib: list = field(default_factory=list)  # (full_name, stars, merged PR count)
     shipped: list = field(default_factory=list)
     now: datetime = field(default_factory=lambda: datetime.now(timezone.utc))
 
@@ -67,10 +72,11 @@ def collect() -> Profile:
         p.release = get(f"https://api.github.com/repos/{USER}/{FEATURED}/releases/latest")["tag_name"]
     except Exception:
         pass
-    try:
-        p.atlas_release = get(f"https://api.github.com/repos/{USER}/{ATLAS}/releases/latest")["tag_name"]
-    except Exception:
-        pass
+    for repo, attr in [(ATLAS, "atlas_release"), (SPILLAGE, "spillage_release"), (PREVIEW, "preview_release")]:
+        try:
+            setattr(p, attr, get(f"https://api.github.com/repos/{USER}/{repo}/releases/latest")["tag_name"])
+        except Exception:
+            pass
     try:
         badge = get(f"https://raw.githubusercontent.com/{USER}/{FEATURED}/proxy-list/badges/total.json")
         p.live_proxies = badge["message"]
@@ -81,16 +87,36 @@ def collect() -> Profile:
     for r in repos:
         for rel in get(f"https://api.github.com/repos/{USER}/{r['name']}/releases?per_page=5"):
             if not rel["draft"]:
-                items.append((rel["published_at"], f"🏷️ Released **[{r['name']} {rel['tag_name']}]({rel['html_url']})**"))
+                items.append((rel["published_at"], r["name"],
+                              f"🏷️ Released **[{r['name']} {rel['tag_name']}]({rel['html_url']})**"))
     query = f"is:pr+is:merged+author:{USER}+user:{USER}"
-    for pr in get(f"https://api.github.com/search/issues?q={query}&sort=updated&order=desc&per_page=20")["items"]:
+    for pr in get(f"https://api.github.com/search/issues?q={query}&sort=updated&order=desc&per_page=50")["items"]:
         repo = pr["repository_url"].rsplit("/", 1)[-1]
         if repo not in public:  # never list anything from private repos
             continue
         title = pr["title"].replace("[", "(").replace("]", ")")
-        items.append((pr["closed_at"], f"🔀 Merged [{title}]({pr['html_url']}) in **{repo}**"))
+        items.append((pr["closed_at"], repo, f"🔀 Merged [{title}]({pr['html_url']}) in **{repo}**"))
     items.sort(reverse=True)
-    p.shipped = items[:6]
+    per_repo: dict = {}
+    for when, repo, line in items:  # at most two per repo, so one busy project doesn't fill the list
+        per_repo[repo] = per_repo.get(repo, 0) + 1
+        if per_repo[repo] <= 2 and len(p.shipped) < 6:
+            p.shipped.append((when, line))
+
+    # merged pull requests in other people's projects
+    counts: dict = {}
+    query = f"is:pr+is:merged+author:{USER}+-user:{USER}"
+    for pr in get(f"https://api.github.com/search/issues?q={query}&per_page=100")["items"]:
+        name = pr["repository_url"].split("/repos/", 1)[1]
+        counts[name] = counts.get(name, 0) + 1
+    for name, n in counts.items():
+        try:
+            repo = get(f"https://api.github.com/repos/{name}")
+        except Exception:
+            continue
+        if not repo["private"]:
+            p.contrib.append((repo["full_name"], repo["stargazers_count"], n))
+    p.contrib.sort(key=lambda c: (-c[1], c[0]))
     return p
 
 
@@ -183,6 +209,7 @@ def render_header(p: Profile, theme: str) -> str:
 
     out.append(text("Backend and infrastructure at a hosting company in Germany.", 0, 196, SANS, 28, c["muted"]))
     out.append(spans([("Currently shipping ", SANS, c["muted"]), ("proxy-scraper", SANS_B, c["ink"]),
+                      (", ", SANS, c["muted"]), ("spillage", SANS_B, c["ink"]),
                       (" and ", SANS, c["muted"]), ("RepoAtlas", SANS_B, c["ink"]), (".", SANS, c["muted"])],
                      0, 236, 28))
 
@@ -194,7 +221,7 @@ def render_header(p: Profile, theme: str) -> str:
         out.append(f'<circle cx="{W - text_width(live, MONO, 17) - 15}" cy="314.5" r="4" fill="{c["signal"]}"/>')
 
     label = ("Maximilian Feix. Backend and infrastructure at a hosting company in Germany. "
-             "Currently shipping proxy-scraper and RepoAtlas.")
+             "Currently shipping proxy-scraper, spillage and RepoAtlas.")
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
             f'role="img" aria-label="{escape(label)}">\n' + "\n".join(out) + "\n</svg>\n")
 
@@ -212,6 +239,7 @@ class Card:
     shot: str  # raw URL of a screenshot in the project's repo
     crop: tuple  # left, top, right, bottom as fractions of the screenshot
     colors: dict
+    fit: bool = False  # letterbox instead of trimming, padded with the screenshot's own background
 
 
 def cards(p: Profile) -> list[Card]:
@@ -228,6 +256,18 @@ def cards(p: Profile) -> list[Card]:
              [("npx", True), (", one offline HTML file", False), ("   ·   ", False), (p.atlas_release or "latest", False)],
              f"{raw}/{ATLAS}/main/docs/assets/architecture-map-preview.png", (0.142, 0.24, 0.8, 1.0),
              dict(bg="#101722", ink="#E7EDF6", muted="#8C99AB", accent="#8BDEC1", rule="#223044")),
+        Card(SPILLAGE, "spillage", "Python",
+             "Finds the API keys your coding agents spilled into their logs.",
+             [("13", True), (" agents, 0 dependencies", False), ("   ·   ", False),
+              (p.spillage_release or "latest", False)],
+             f"{raw}/{SPILLAGE}/main/docs/social-preview.png", (0, 0, 1, 1),
+             dict(bg="#0E0F13", ink="#EAE5DA", muted="#9A988F", accent="#FF6B4A", rule="#26272D"), fit=True),
+        Card(PREVIEW, "gha-preview", "TypeScript",
+             "See a GitHub Actions run as a job graph before you push.",
+             [("in the browser", True), (", nothing uploaded", False), ("   ·   ", False),
+              (p.preview_release or "latest", False)],
+             f"{raw}/{PREVIEW}/main/docs/assets/playground.png", (0, 0, 1, 0.42),
+             dict(bg="#FAFAF7", ink="#17211A", muted="#5F6B62", accent="#2E6B43", rule="#DDE3DC")),
     ]
 
 
@@ -242,12 +282,20 @@ def screenshot(card: Card, w: int, h: int) -> str:
     box = [img.width * l, img.height * t, img.width * r, img.height * b]
     want = w / h
     bw, bh = box[2] - box[0], box[3] - box[1]
-    if bw / bh > want:  # too wide: trim the sides evenly
+    if card.fit:
+        img = img.crop(tuple(round(v) for v in box))
+        scale = min(w / bw, h / bh)
+        img = img.resize((round(bw * scale), round(bh * scale)), Image.LANCZOS)
+        canvas = Image.new("RGB", (w, h), img.getpixel((0, 0)))
+        canvas.paste(img, ((w - img.width) // 2, (h - img.height) // 2))
+        img = canvas
+    elif bw / bh > want:  # too wide: trim the sides evenly
         cut = (bw - bh * want) / 2
         box[0] += cut; box[2] -= cut
     else:  # too tall: keep the top
         box[3] = box[1] + bw / want
-    img = img.crop(tuple(round(v) for v in box)).resize((w, h), Image.LANCZOS)
+    if not card.fit:
+        img = img.crop(tuple(round(v) for v in box)).resize((w, h), Image.LANCZOS)
     buf = io.BytesIO()
     img.save(buf, "JPEG", quality=84, optimize=True, progressive=True)
     return "data:image/jpeg;base64," + base64.b64encode(buf.getvalue()).decode()
@@ -289,6 +337,22 @@ def render_shipped(p: Profile) -> str:
     return "\n".join(out)
 
 
+def short(n: int) -> str:
+    return f"{n / 1000:.1f}k".replace(".0k", "k") if n >= 1000 else str(n)
+
+
+def render_contrib(p: Profile) -> str:
+    if not p.contrib:
+        return "_Nothing merged yet._"
+    out = []
+    for name, stars, n in p.contrib[:6]:
+        prs = f"https://github.com/{name}/pulls?q=is%3Apr+is%3Amerged+author%3A{USER}"
+        label = "merged PR" if n == 1 else "merged PRs"
+        out.append(f"- **[{name}](https://github.com/{name})** <sub>★ {short(stars)}</sub><br>"
+                   f"<sub>[{n} {label}]({prs})</sub>")
+    return "\n".join(out)
+
+
 def replace_section(text: str, name: str, body: str) -> str:
     pattern = re.compile(rf"(<!--{name}:start-->).*?(<!--{name}:end-->)", re.S)
     if not pattern.search(text):
@@ -303,9 +367,11 @@ def main() -> int:
     for card in cards(p):
         (ROOT / "assets" / f"card-{card.slug}.svg").write_text(render_card(card), encoding="utf-8")
     readme = ROOT / "README.md"
-    readme.write_text(replace_section(readme.read_text(encoding="utf-8"), "SHIPPED", render_shipped(p)), encoding="utf-8")
+    body = replace_section(readme.read_text(encoding="utf-8"), "SHIPPED", render_shipped(p))
+    readme.write_text(replace_section(body, "CONTRIB", render_contrib(p)), encoding="utf-8")
     print(f"repos={p.repos} stars={p.stars} followers={p.followers} release={p.release} "
-          f"atlas={p.atlas_release} live={p.live_proxies} shipped={len(p.shipped)}")
+          f"atlas={p.atlas_release} spillage={p.spillage_release} preview={p.preview_release} "
+          f"live={p.live_proxies} shipped={len(p.shipped)} contrib={len(p.contrib)}")
     return 0
 
 

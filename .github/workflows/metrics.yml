@@ -51,30 +51,3 @@ jobs:
 
 
           plugin_lines: no
-
-      - name: Render project cards into assets/projects.svg
-        uses: lowlighter/metrics@latest
-        with:
-          token: ${{ secrets.METRICS_TOKEN }}
-          committer_token: ${{ secrets.GITHUB_TOKEN }}
-          committer_branch: main
-          filename: assets/projects.svg
-          user: ${{ github.repository_owner }}
-
-          template: classic
-          base: ""
-          config_animations: no
-          config_display: large
-          extras_css: |
-            svg, body, .background { background-color: #141416 !important; }
-            svg { border-radius: 12px; }
-            h2, .title { color: #C6F36B !important; }
-            h2 { border-bottom-color: #2B2B2F !important; }
-            .field, .value, .username, p, span, li, td { color: #EDEBE4 !important; }
-            .details, .meta, .light { color: #A3A29D !important; }
-            text, tspan { fill: #EDEBE4 !important; }
-            a { color: #C6F36B !important; }
-
-          plugin_repositories: yes
-          plugin_repositories_featured: AxonPHPCLI, Mini-Laravel, C--Template-fr-Mac, CurrentlyFreeDomains
-          plugin_repositories_order: featured
