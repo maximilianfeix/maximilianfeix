@@ -136,12 +136,12 @@ Try it on real projects: [**Zustand**](https://maximilianfeix.github.io/repoatla
 **Recently shipped**
 
 <!--SHIPPED:start-->
+- 🔀 Merged [Foundation: design tokens, layout and deploy to GitHub Pages](https://github.com/maximilianfeix/maximilianfeix.github.io/pull/5) in **maximilianfeix.github.io** <sub>· 30 Sep 2026</sub>
 - 🔀 Merged [Share image, social preview and favicon](https://github.com/maximilianfeix/actions-guard/pull/6) in **actions-guard** <sub>· 29 Sep 2026</sub>
 - 🔀 Merged [Website: a landing page that shows the app at work](https://github.com/maximilianfeix/actions-guard/pull/5) in **actions-guard** <sub>· 29 Sep 2026</sub>
 - 🔀 Merged [The hourly lists in a repository of their own (free-proxy-list)](https://github.com/maximilianfeix/proxy-scraper/pull/227) in **proxy-scraper** <sub>· 29 Sep 2026</sub>
 - 🏷️ Released **[proxy-scraper v1.22.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.22.0)** <sub>· 29 Sep 2026</sub>
 - 🔀 Merged [SARIF output for GitHub code scanning](https://github.com/maximilianfeix/spillage/pull/52) in **spillage** <sub>· 29 Sep 2026</sub>
-- 🏷️ Released **[gha-preview v0.3.1](https://github.com/maximilianfeix/gha-preview/releases/tag/v0.3.1)** <sub>· 28 Sep 2026</sub>
 <!--SHIPPED:end-->
 
 </td>
