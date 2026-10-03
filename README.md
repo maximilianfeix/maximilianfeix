@@ -136,12 +136,12 @@ Try it on real projects: [**Zustand**](https://maximilianfeix.github.io/repoatla
 **Recently shipped**
 
 <!--SHIPPED:start-->
+- 🔀 Merged [README: Nachrichtenlage als optional kennzeichnen](https://github.com/maximilianfeix/aktien-radar/pull/12) in **aktien-radar** <sub>· 03 Oct 2026</sub>
+- 🔀 Merged [Radar v3: neues Design, 240 Werte, Screener, Vergleich, News und Depot-Check](https://github.com/maximilianfeix/aktien-radar/pull/10) in **aktien-radar** <sub>· 03 Oct 2026</sub>
 - 🏷️ Released **[proxy-scraper v1.23.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.23.0)** <sub>· 02 Oct 2026</sub>
 - 🔀 Merged [release 1.23.0](https://github.com/maximilianfeix/proxy-scraper/pull/246) in **proxy-scraper** <sub>· 02 Oct 2026</sub>
 - 🔀 Merged [proxy-scraper 1.22.0, updated daily from PyPI](https://github.com/maximilianfeix/homebrew-tap/pull/1) in **homebrew-tap** <sub>· 02 Oct 2026</sub>
 - 🔀 Merged [Reveal keeps content focusable](https://github.com/maximilianfeix/maximilianfeix.github.io/pull/8) in **maximilianfeix.github.io** <sub>· 30 Sep 2026</sub>
-- 🔀 Merged [The Internet of Maxi: intro, project universe and project pages](https://github.com/maximilianfeix/maximilianfeix.github.io/pull/6) in **maximilianfeix.github.io** <sub>· 30 Sep 2026</sub>
-- 🔀 Merged [Share image, social preview and favicon](https://github.com/maximilianfeix/actions-guard/pull/6) in **actions-guard** <sub>· 29 Sep 2026</sub>
 <!--SHIPPED:end-->
 
 </td>
