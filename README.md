@@ -136,8 +136,8 @@ Try it on real projects: [**Zustand**](https://maximilianfeix.github.io/repoatla
 **Recently shipped**
 
 <!--SHIPPED:start-->
-- 🏷️ Released **[AxonPHPCLI v0.2.0](https://github.com/maximilianfeix/AxonPHPCLI/releases/tag/v0.2.0)** <sub>· 04 Oct 2026</sub>
-- 🔀 Merged [AxonPHP CLI 0.2.0: project detection, GitLab CI, tests and docs](https://github.com/maximilianfeix/AxonPHPCLI/pull/2) in **AxonPHPCLI** <sub>· 04 Oct 2026</sub>
+- 🏷️ Released **[AxonPHPCLI v0.5.1](https://github.com/maximilianfeix/AxonPHPCLI/releases/tag/v0.5.1)** <sub>· 04 Oct 2026</sub>
+- 🔀 Merged [AxonPHP CLI 0.5.1](https://github.com/maximilianfeix/AxonPHPCLI/pull/22) in **AxonPHPCLI** <sub>· 04 Oct 2026</sub>
 - 🔀 Merged [README: Nachrichtenlage als optional kennzeichnen](https://github.com/maximilianfeix/aktien-radar/pull/12) in **aktien-radar** <sub>· 03 Oct 2026</sub>
 - 🔀 Merged [Radar v3: neues Design, 240 Werte, Screener, Vergleich, News und Depot-Check](https://github.com/maximilianfeix/aktien-radar/pull/10) in **aktien-radar** <sub>· 03 Oct 2026</sub>
 - 🏷️ Released **[proxy-scraper v1.23.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.23.0)** <sub>· 02 Oct 2026</sub>
@@ -151,7 +151,7 @@ Try it on real projects: [**Zustand**](https://maximilianfeix.github.io/repoatla
 
 <!--CONTRIB:start-->
 - **[HKUDS/DeepTutor](https://github.com/HKUDS/DeepTutor)** <sub>★ 40.8k</sub><br><sub>[2 merged PRs](https://github.com/HKUDS/DeepTutor/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
-- **[semantica-agi/semantica](https://github.com/semantica-agi/semantica)** <sub>★ 13.6k</sub><br><sub>[3 merged PRs](https://github.com/semantica-agi/semantica/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
+- **[semantica-agi/semantica](https://github.com/semantica-agi/semantica)** <sub>★ 13.6k</sub><br><sub>[6 merged PRs](https://github.com/semantica-agi/semantica/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
 - **[MakazhanAlpamys/Soup](https://github.com/MakazhanAlpamys/Soup)** <sub>★ 8.1k</sub><br><sub>[6 merged PRs](https://github.com/MakazhanAlpamys/Soup/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
 - **[hetzneronline/community-content](https://github.com/hetzneronline/community-content)** <sub>★ 463</sub><br><sub>[3 merged PRs](https://github.com/hetzneronline/community-content/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
 - **[ldbumble/taskuary](https://github.com/ldbumble/taskuary)** <sub>★ 135</sub><br><sub>[15 merged PRs](https://github.com/ldbumble/taskuary/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
