@@ -136,12 +136,12 @@ Try it on real projects: [**Zustand**](https://maximilianfeix.github.io/repoatla
 **Recently shipped**
 
 <!--SHIPPED:start-->
+- 🔀 Merged [Live list: which proxies get through to Discord](https://github.com/maximilianfeix/proxy-scraper/pull/252) in **proxy-scraper** <sub>· 05 Oct 2026</sub>
+- 🔀 Merged [README: try it in seconds, one demo that opens on the dashboard, who runs free proxies](https://github.com/maximilianfeix/proxy-scraper/pull/250) in **proxy-scraper** <sub>· 05 Oct 2026</sub>
+- 🔀 Merged [CI tests on Linux, macOS and Windows; fix two Windows bugs](https://github.com/maximilianfeix/spillage/pull/53) in **spillage** <sub>· 05 Oct 2026</sub>
 - 🏷️ Released **[AxonPHPCLI v0.5.1](https://github.com/maximilianfeix/AxonPHPCLI/releases/tag/v0.5.1)** <sub>· 04 Oct 2026</sub>
 - 🔀 Merged [AxonPHP CLI 0.5.1](https://github.com/maximilianfeix/AxonPHPCLI/pull/22) in **AxonPHPCLI** <sub>· 04 Oct 2026</sub>
 - 🔀 Merged [README: Nachrichtenlage als optional kennzeichnen](https://github.com/maximilianfeix/aktien-radar/pull/12) in **aktien-radar** <sub>· 03 Oct 2026</sub>
-- 🔀 Merged [Radar v3: neues Design, 240 Werte, Screener, Vergleich, News und Depot-Check](https://github.com/maximilianfeix/aktien-radar/pull/10) in **aktien-radar** <sub>· 03 Oct 2026</sub>
-- 🏷️ Released **[proxy-scraper v1.23.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.23.0)** <sub>· 02 Oct 2026</sub>
-- 🔀 Merged [release 1.23.0](https://github.com/maximilianfeix/proxy-scraper/pull/246) in **proxy-scraper** <sub>· 02 Oct 2026</sub>
 <!--SHIPPED:end-->
 
 </td>
