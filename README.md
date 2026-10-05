@@ -136,12 +136,12 @@ Try it on real projects: [**Zustand**](https://maximilianfeix.github.io/repoatla
 **Recently shipped**
 
 <!--SHIPPED:start-->
-- 🔀 Merged [README: comparison, community section, report screenshot](https://github.com/maximilianfeix/spillage/pull/57) in **spillage** <sub>· 05 Oct 2026</sub>
-- 🔀 Merged [Website: comparison, star button, demo starts on a finished run](https://github.com/maximilianfeix/spillage/pull/54) in **spillage** <sub>· 05 Oct 2026</sub>
-- 🏷️ Released **[proxy-scraper v1.24.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.24.0)** <sub>· 05 Oct 2026</sub>
-- 🔀 Merged [release 1.24.0](https://github.com/maximilianfeix/proxy-scraper/pull/255) in **proxy-scraper** <sub>· 05 Oct 2026</sub>
+- 🔀 Merged [README: show the PyPI downloads](https://github.com/maximilianfeix/proxy-scraper/pull/258) in **proxy-scraper** <sub>· 05 Oct 2026</sub>
+- 🔀 Merged [Docker image: run the MCP server too](https://github.com/maximilianfeix/proxy-scraper/pull/259) in **proxy-scraper** <sub>· 05 Oct 2026</sub>
+- 🔀 Merged [robots.txt: announce the proxy-scraper sitemap](https://github.com/maximilianfeix/maximilianfeix.github.io/pull/10) in **maximilianfeix.github.io** <sub>· 05 Oct 2026</sub>
+- 🏷️ Released **[spillage v0.7.0](https://github.com/maximilianfeix/spillage/releases/tag/v0.7.0)** <sub>· 05 Oct 2026</sub>
+- 🔀 Merged [release 0.7.0](https://github.com/maximilianfeix/spillage/pull/67) in **spillage** <sub>· 05 Oct 2026</sub>
 - 🏷️ Released **[AxonPHPCLI v0.5.1](https://github.com/maximilianfeix/AxonPHPCLI/releases/tag/v0.5.1)** <sub>· 04 Oct 2026</sub>
-- 🔀 Merged [AxonPHP CLI 0.5.1](https://github.com/maximilianfeix/AxonPHPCLI/pull/22) in **AxonPHPCLI** <sub>· 04 Oct 2026</sub>
 <!--SHIPPED:end-->
 
 </td>
