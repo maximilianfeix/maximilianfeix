@@ -136,8 +136,8 @@ Try it on real projects: [**Zustand**](https://maximilianfeix.github.io/repoatla
 **Recently shipped**
 
 <!--SHIPPED:start-->
-- 🏷️ Released **[proxy-scraper v1.25.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.25.0)** <sub>· 05 Oct 2026</sub>
-- 🔀 Merged [release 1.25.0](https://github.com/maximilianfeix/proxy-scraper/pull/261) in **proxy-scraper** <sub>· 05 Oct 2026</sub>
+- 🔀 Merged [OpenSSF Scorecard: run it weekly](https://github.com/maximilianfeix/proxy-scraper/pull/274) in **proxy-scraper** <sub>· 06 Oct 2026</sub>
+- 🔀 Merged [CITATION.cff: make the repo citable](https://github.com/maximilianfeix/proxy-scraper/pull/276) in **proxy-scraper** <sub>· 06 Oct 2026</sub>
 - 🏷️ Released **[spillage v0.8.0](https://github.com/maximilianfeix/spillage/releases/tag/v0.8.0)** <sub>· 05 Oct 2026</sub>
 - 🔀 Merged [release 0.8.0](https://github.com/maximilianfeix/spillage/pull/70) in **spillage** <sub>· 05 Oct 2026</sub>
 - 🔀 Merged [robots.txt: announce the proxy-scraper sitemap](https://github.com/maximilianfeix/maximilianfeix.github.io/pull/10) in **maximilianfeix.github.io** <sub>· 05 Oct 2026</sub>
