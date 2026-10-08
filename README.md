@@ -136,8 +136,8 @@ Try it on real projects: [**Zustand**](https://maximilianfeix.github.io/repoatla
 **Recently shipped**
 
 <!--SHIPPED:start-->
-- 🔀 Merged [fix: prevent malformed source URLs from breaking the proxy-list pipeline](https://github.com/maximilianfeix/proxy-scraper/pull/297) in **proxy-scraper** <sub>· 08 Oct 2026</sub>
-- 🏷️ Released **[proxy-scraper v1.27.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.27.0)** <sub>· 06 Oct 2026</sub>
+- 🔀 Merged [release: publish Proxy Scraper on GitHub Marketplace (v1.27.1)](https://github.com/maximilianfeix/proxy-scraper/pull/299) in **proxy-scraper** <sub>· 08 Oct 2026</sub>
+- 🔀 Merged [Fix Host header port and blame for invalid target names](https://github.com/maximilianfeix/proxy-scraper/pull/301) in **proxy-scraper** <sub>· 08 Oct 2026</sub>
 - 🏷️ Released **[spillage v0.8.0](https://github.com/maximilianfeix/spillage/releases/tag/v0.8.0)** <sub>· 05 Oct 2026</sub>
 - 🔀 Merged [release 0.8.0](https://github.com/maximilianfeix/spillage/pull/70) in **spillage** <sub>· 05 Oct 2026</sub>
 - 🔀 Merged [robots.txt: announce the proxy-scraper sitemap](https://github.com/maximilianfeix/maximilianfeix.github.io/pull/10) in **maximilianfeix.github.io** <sub>· 05 Oct 2026</sub>
