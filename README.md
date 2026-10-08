@@ -136,8 +136,8 @@ Try it on real projects: [**Zustand**](https://maximilianfeix.github.io/repoatla
 **Recently shipped**
 
 <!--SHIPPED:start-->
+- 🔀 Merged [Start the MCP server after a plain uv sync](https://github.com/maximilianfeix/proxy-scraper/pull/304) in **proxy-scraper** <sub>· 08 Oct 2026</sub>
 - 🔀 Merged [release: publish Proxy Scraper on GitHub Marketplace (v1.27.1)](https://github.com/maximilianfeix/proxy-scraper/pull/299) in **proxy-scraper** <sub>· 08 Oct 2026</sub>
-- 🔀 Merged [Fix Host header port and blame for invalid target names](https://github.com/maximilianfeix/proxy-scraper/pull/301) in **proxy-scraper** <sub>· 08 Oct 2026</sub>
 - 🏷️ Released **[spillage v0.8.0](https://github.com/maximilianfeix/spillage/releases/tag/v0.8.0)** <sub>· 05 Oct 2026</sub>
 - 🔀 Merged [release 0.8.0](https://github.com/maximilianfeix/spillage/pull/70) in **spillage** <sub>· 05 Oct 2026</sub>
 - 🔀 Merged [robots.txt: announce the proxy-scraper sitemap](https://github.com/maximilianfeix/maximilianfeix.github.io/pull/10) in **maximilianfeix.github.io** <sub>· 05 Oct 2026</sub>
@@ -153,7 +153,7 @@ Try it on real projects: [**Zustand**](https://maximilianfeix.github.io/repoatla
 - **[HKUDS/DeepTutor](https://github.com/HKUDS/DeepTutor)** <sub>★ 40.9k</sub><br><sub>[2 merged PRs](https://github.com/HKUDS/DeepTutor/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
 - **[semantica-agi/semantica](https://github.com/semantica-agi/semantica)** <sub>★ 13.8k</sub><br><sub>[6 merged PRs](https://github.com/semantica-agi/semantica/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
 - **[MakazhanAlpamys/Soup](https://github.com/MakazhanAlpamys/Soup)** <sub>★ 8.3k</sub><br><sub>[6 merged PRs](https://github.com/MakazhanAlpamys/Soup/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
-- **[TensorBlock/awesome-mcp-servers](https://github.com/TensorBlock/awesome-mcp-servers)** <sub>★ 884</sub><br><sub>[1 merged PR](https://github.com/TensorBlock/awesome-mcp-servers/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
+- **[TensorBlock/awesome-mcp-servers](https://github.com/TensorBlock/awesome-mcp-servers)** <sub>★ 885</sub><br><sub>[1 merged PR](https://github.com/TensorBlock/awesome-mcp-servers/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
 - **[conda-forge/staged-recipes](https://github.com/conda-forge/staged-recipes)** <sub>★ 847</sub><br><sub>[1 merged PR](https://github.com/conda-forge/staged-recipes/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
 - **[hetzneronline/community-content](https://github.com/hetzneronline/community-content)** <sub>★ 463</sub><br><sub>[3 merged PRs](https://github.com/hetzneronline/community-content/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
 <!--CONTRIB:end-->
