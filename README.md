@@ -34,6 +34,7 @@ Software developer from Germany, working at a hosting company. Most of my time g
 **Right now**
 
 - 🔐 Shipping **[spillage](https://github.com/maximilianfeix/spillage)** – secret scanning for coding-agent logs
+- 🔎 Just released **[dejabuilt](https://github.com/maximilianfeix/dejabuilt)** – an agent skill that checks GitHub before you build
 - ⚡ Maintaining **[proxy-scraper](https://github.com/maximilianfeix/proxy-scraper)** and **[RepoAtlas](https://github.com/maximilianfeix/repoatlas)**
 - 🔨 Building **devprofile.dev**
 - 📚 Learning **microservices** – service boundaries, messaging, observability
