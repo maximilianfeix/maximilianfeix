@@ -62,7 +62,7 @@ Software developer from Germany, working at a hosting company. Most of my time g
 
 ### [proxy-scraper](https://github.com/maximilianfeix/proxy-scraper) &nbsp;<sub>Python</sub>
 
-**Free proxies that actually work.** Scrapes HTTP/SOCKS4/SOCKS5 proxies from 700+ sources and verifies every hit: honeypot filter, catches proxies that inject scripts (one in five does), HTTPS with verified TLS, anonymity, country, provider and spam blocklists – and learns with every run which sources are worth it. Comes with a rotating proxy server (SOCKS5 + HTTP, sticky sessions, Prometheus metrics), an MCP server for AI agents, a live dashboard and a Discord bot.
+**Free proxies that actually work.** Scrapes HTTP/SOCKS4/SOCKS5 proxies from 700+ sources and verifies every hit: honeypots, injected scripts (one in five does it), verified TLS, anonymity and spam blocklists. Ships with a rotating proxy server, an MCP server for AI agents and a live dashboard.
 
 **→ [Browse the live list](https://maximilianfeix.github.io/proxy-scraper/)**, re-checked every hour by GitHub Actions.
 
@@ -72,9 +72,7 @@ Software developer from Germany, working at a hosting company. Most of my time g
 
 ### [spillage](https://github.com/maximilianfeix/spillage) &nbsp;<sub>Python</sub>
 
-**Find the API keys your coding agents spilled into their logs.** Claude Code, Codex, Gemini CLI, Cursor and the rest keep every conversation on disk as plain text – including each `.env` they read and every key you pasted "just to test". spillage reads the logs of thirteen agents, tells you which keys leaked and *how* (you pasted it, a tool printed it, the model repeated it), links to the page where you rotate each one, scrubs them without breaking `--resume`, and installs hooks that block the next leak.
-
-56 rules that know each key's exact shape, no dependencies and no network access – it's a tool you point at your secrets. Reports as HTML, JSON, Markdown and SARIF, plus a GitHub Action and a pre-commit hook.
+**Find the API keys your coding agents spilled into their logs.** Claude Code, Codex, Gemini CLI, Cursor and the rest keep every conversation on disk as plain text. spillage reads the logs of thirteen agents, shows which keys leaked and how, scrubs them without breaking `--resume`, and installs hooks that block the next leak. 56 rules, no dependencies, no network access.
 
 ```sh
 brew install maximilianfeix/tap/spillage && spillage
@@ -86,7 +84,7 @@ brew install maximilianfeix/tap/spillage && spillage
 
 ### [RepoAtlas](https://github.com/maximilianfeix/repoatlas) &nbsp;<sub>TypeScript</sub>
 
-**Understand any TypeScript repo in one interactive map.** RepoAtlas parses every import with the TypeScript compiler API and turns a project into a standalone architecture map. Unlike a diagram guessed from prose, every connection links to the exact import statement and line that proves it – with a Focus map for direct neighbours, an Impact map for everything that transitively depends on a module, and circular import groups isolated edge by edge.
+**Understand any TypeScript repo in one interactive map.** Parses every import with the TypeScript compiler API and turns a project into a standalone architecture map – every connection links to the import statement and line that proves it.
 
 ```sh
 npx --yes --package=github:maximilianfeix/repoatlas -- repoatlas https://github.com/pmndrs/zustand -o zustand-map.html
@@ -100,7 +98,7 @@ Try it on real projects: [**Zustand**](https://maximilianfeix.github.io/repoatla
 
 ### [gha-preview](https://github.com/maximilianfeix/gha-preview) &nbsp;<sub>TypeScript</sub>
 
-**See the run before the run.** Paste a GitHub Actions workflow and explore it as a job graph: which jobs a `push` or `pull_request` would start, what a matrix expands to, how a proposed change reshapes the pipeline – and jump from any job straight back to its YAML line. Everything is parsed in the browser; no account, no upload.
+**See the run before the run.** Paste a GitHub Actions workflow and explore it as a job graph: which jobs a `push` or `pull_request` would start and what a matrix expands to. Parsed in the browser; no account, no upload.
 
 **→ [Try it in the browser](https://maximilianfeix.github.io/gha-preview/)**
 
@@ -133,10 +131,10 @@ Try it on real projects: [**Zustand**](https://maximilianfeix.github.io/repoatla
 **Recently shipped**
 
 <!--SHIPPED:start-->
-- Merged [Add a plugin icon](https://github.com/maximilianfeix/dejabuilt/pull/8) in **dejabuilt** <sub>· 10 Oct 2026</sub>
 - Merged [Document installing with the skills CLI](https://github.com/maximilianfeix/dejabuilt/pull/7) in **dejabuilt** <sub>· 10 Oct 2026</sub>
 - Merged [Install from PyPI: pipx install spillage](https://github.com/maximilianfeix/spillage/pull/73) in **spillage** <sub>· 10 Oct 2026</sub>
 - Released **[spillage v0.9.0](https://github.com/maximilianfeix/spillage/releases/tag/v0.9.0)** <sub>· 10 Oct 2026</sub>
+- Merged [Add a social preview image and say how the project was built](https://github.com/maximilianfeix/dejabuilt/pull/6) in **dejabuilt** <sub>· 10 Oct 2026</sub>
 - Merged [Bracket IPv6 literals in the checker's CONNECT line, targets and judges](https://github.com/maximilianfeix/proxy-scraper/pull/305) in **proxy-scraper** <sub>· 10 Oct 2026</sub>
 - Merged [Website: a ranking of the sources – which free proxy lists actually work](https://github.com/maximilianfeix/proxy-scraper/pull/306) in **proxy-scraper** <sub>· 10 Oct 2026</sub>
 <!--SHIPPED:end-->
