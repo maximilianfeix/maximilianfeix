@@ -3,6 +3,7 @@
 
 - assets/header-dark.svg / header-light.svg: banner with a live status panel
 - assets/card-<repo>.svg: featured project cards, a real screenshot plus live numbers
+- assets/activity-dark.svg / activity-light.svg: releases, contributions and languages
 - README.md: the "Recently shipped" and "Open source" lists between their markers
 
 Only public data is used. Runs in GitHub Actions (see .github/workflows/profile.yml),
@@ -42,6 +43,13 @@ def get(url: str):
         return json.load(resp)
 
 
+def gql(query: str) -> dict:
+    req = urllib.request.Request("https://api.github.com/graphql", data=json.dumps({"query": query}).encode(),
+                                 headers={"User-Agent": USER, "Authorization": f"Bearer {os.environ['GITHUB_TOKEN']}"})
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        return json.load(resp)["data"]
+
+
 @dataclass
 class Profile:
     repos: int = 0
@@ -54,6 +62,8 @@ class Profile:
     spillage_release: str = ""
     preview_release: str = ""
     contrib: list = field(default_factory=list)  # (full_name, stars, merged PR count)
+    releases: int = 0
+    languages: list = field(default_factory=list)  # (name, share of bytes in percent), largest first
     shipped: list = field(default_factory=list)
     now: datetime = field(default_factory=lambda: datetime.now(timezone.utc))
 
@@ -106,9 +116,13 @@ def collect() -> Profile:
     # merged pull requests in other people's projects
     counts: dict = {}
     query = f"is:pr+is:merged+author:{USER}+-user:{USER}"
-    for pr in get(f"https://api.github.com/search/issues?q={query}&per_page=100")["items"]:
-        name = pr["repository_url"].split("/repos/", 1)[1]
-        counts[name] = counts.get(name, 0) + 1
+    for page in range(1, 11):  # the search API stops at 1,000 results
+        found = get(f"https://api.github.com/search/issues?q={query}&per_page=100&page={page}")["items"]
+        for pr in found:
+            name = pr["repository_url"].split("/repos/", 1)[1]
+            counts[name] = counts.get(name, 0) + 1
+        if len(found) < 100:
+            break
     for name, n in counts.items():
         try:
             repo = get(f"https://api.github.com/repos/{name}")
@@ -117,6 +131,20 @@ def collect() -> Profile:
         if not repo["private"]:
             p.contrib.append((repo["full_name"], repo["stargazers_count"], n))
     p.contrib.sort(key=lambda c: (-c[1], c[0]))
+
+    nodes = gql(f'''{{ user(login: "{USER}") {{ repositories(ownerAffiliations: OWNER, isFork: false,
+        privacy: PUBLIC, first: 100) {{ nodes {{ name releases {{ totalCount }}
+        languages(first: 10, orderBy: {{field: SIZE, direction: DESC}}) {{ edges {{ size node {{ name }} }} }}
+        }} }} }} }}''')["user"]["repositories"]["nodes"]
+    sizes: dict = {}
+    for r in nodes:
+        if r["name"] in SKIP_REPOS:
+            continue
+        p.releases += r["releases"]["totalCount"]
+        for e in r["languages"]["edges"]:
+            sizes[e["node"]["name"]] = sizes.get(e["node"]["name"], 0) + e["size"]
+    total = sum(sizes.values()) or 1
+    p.languages = sorted(((n, v / total * 100) for n, v in sizes.items()), key=lambda l: -l[1])
     return p
 
 
@@ -222,6 +250,43 @@ def render_header(p: Profile, theme: str) -> str:
 
     label = ("Maximilian Feix. Backend and infrastructure at a hosting company in Germany. "
              "Currently shipping proxy-scraper, spillage and RepoAtlas.")
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
+            f'role="img" aria-label="{escape(label)}">\n' + "\n".join(out) + "\n</svg>\n")
+
+
+# ---------------------------------------------------------------- activity
+# Same masthead treatment as the header: no background, four numbers, then the languages
+# as bars in a single hue. Only public repositories are counted.
+
+def render_activity(p: Profile, theme: str) -> str:
+    c = THEMES[theme]
+    W, H = 1200, 318
+    out = []
+
+    merged = sum(n for _, _, n in p.contrib)
+    tiles = [(fmt_int(p.releases), "releases shipped"), (fmt_int(merged), "pull requests merged upstream"),
+             (fmt_int(len(p.contrib)), "projects contributed to"), (fmt_int(p.stars), "stars on my projects")]
+    for i, (value, label) in enumerate(tiles):
+        x = i * 300
+        out.append(text(value, x - 2, 62, DISPLAY, 68, c["ink"], tracking=-2.4))
+        out.append(text(label, x, 100, MONO, 17, c["muted"]))
+
+    out.append(f'<rect y="134" width="{W}" height="1" fill="{c["rule"]}"/>')
+    out.append(text("languages, by share of code in my public repositories", 0, 172, MONO, 17, c["faint"]))
+
+    langs = p.languages[:6]
+    top = langs[0][1] if langs else 1
+    for i, (name, share) in enumerate(langs):
+        x, y = (i // 3) * 640, 216 + (i % 3) * 40
+        out.append(text(name, x, y, SANS, 21, c["ink"]))
+        out.append(f'<rect x="{x + 150}" y="{y - 12}" width="320" height="8" rx="4" fill="{c["rule"]}"/>')
+        out.append(f'<rect x="{x + 150}" y="{y - 12}" width="{max(8, round(320 * share / top))}" height="8" rx="4" '
+                   f'fill="{c["signal"]}"/>')
+        pct = f"{share:.1f}%" if share >= 1 else "<1%"
+        out.append(text(pct, x + 560, y, MONO, 17, c["muted"], anchor="end"))
+
+    label = (", ".join(f"{v} {l}" for v, l in tiles) + ". Languages: "
+             + ", ".join(f"{n} {s:.0f}%" for n, s in langs) + ".")
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
             f'role="img" aria-label="{escape(label)}">\n' + "\n".join(out) + "\n</svg>\n")
 
@@ -364,6 +429,7 @@ def main() -> int:
     p = collect()
     for theme in THEMES:
         (ROOT / "assets" / f"header-{theme}.svg").write_text(render_header(p, theme), encoding="utf-8")
+        (ROOT / "assets" / f"activity-{theme}.svg").write_text(render_activity(p, theme), encoding="utf-8")
     for card in cards(p):
         (ROOT / "assets" / f"card-{card.slug}.svg").write_text(render_card(card), encoding="utf-8")
     readme = ROOT / "README.md"
@@ -371,7 +437,7 @@ def main() -> int:
     readme.write_text(replace_section(body, "CONTRIB", render_contrib(p)), encoding="utf-8")
     print(f"repos={p.repos} stars={p.stars} followers={p.followers} release={p.release} "
           f"atlas={p.atlas_release} spillage={p.spillage_release} preview={p.preview_release} "
-          f"live={p.live_proxies} shipped={len(p.shipped)} contrib={len(p.contrib)}")
+          f"live={p.live_proxies} shipped={len(p.shipped)} contrib={len(p.contrib)} releases={p.releases}")
     return 0
 
 
