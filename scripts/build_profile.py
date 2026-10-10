@@ -264,7 +264,7 @@ def render_activity(p: Profile, theme: str) -> str:
     out = []
 
     merged = sum(n for _, _, n in p.contrib)
-    tiles = [(fmt_int(p.releases), "releases shipped"), (fmt_int(merged), "pull requests merged upstream"),
+    tiles = [(fmt_int(p.releases), "releases shipped"), (fmt_int(merged), "upstream PRs merged"),
              (fmt_int(len(p.contrib)), "projects contributed to"), (fmt_int(p.stars), "stars on my projects")]
     for i, (value, label) in enumerate(tiles):
         x = i * 300

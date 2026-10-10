@@ -136,12 +136,12 @@ Try it on real projects: [**Zustand**](https://maximilianfeix.github.io/repoatla
 **Recently shipped**
 
 <!--SHIPPED:start-->
+- 🏷️ Released **[dejabuilt v0.1.0](https://github.com/maximilianfeix/dejabuilt/releases/tag/v0.1.0)** <sub>· 10 Oct 2026</sub>
+- 🔀 Merged [README, banner, example report, contributor docs and release workflow](https://github.com/maximilianfeix/dejabuilt/pull/4) in **dejabuilt** <sub>· 10 Oct 2026</sub>
 - 🔀 Merged [Start the MCP server after a plain uv sync](https://github.com/maximilianfeix/proxy-scraper/pull/304) in **proxy-scraper** <sub>· 08 Oct 2026</sub>
 - 🔀 Merged [release: publish Proxy Scraper on GitHub Marketplace (v1.27.1)](https://github.com/maximilianfeix/proxy-scraper/pull/299) in **proxy-scraper** <sub>· 08 Oct 2026</sub>
 - 🏷️ Released **[spillage v0.8.0](https://github.com/maximilianfeix/spillage/releases/tag/v0.8.0)** <sub>· 05 Oct 2026</sub>
 - 🔀 Merged [release 0.8.0](https://github.com/maximilianfeix/spillage/pull/70) in **spillage** <sub>· 05 Oct 2026</sub>
-- 🔀 Merged [robots.txt: announce the proxy-scraper sitemap](https://github.com/maximilianfeix/maximilianfeix.github.io/pull/10) in **maximilianfeix.github.io** <sub>· 05 Oct 2026</sub>
-- 🏷️ Released **[AxonPHPCLI v0.5.1](https://github.com/maximilianfeix/AxonPHPCLI/releases/tag/v0.5.1)** <sub>· 04 Oct 2026</sub>
 <!--SHIPPED:end-->
 
 </td>
@@ -251,6 +251,8 @@ flowchart TD
   </picture>
 </p>
 
+<p align="center"><sub>Public repositories only – counted by the same workflow that draws the banner.</sub></p>
+
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/maximilianfeix/maximilianfeix/output/github-snake-dark.svg">
@@ -258,8 +260,6 @@ flowchart TD
     <img src="https://raw.githubusercontent.com/maximilianfeix/maximilianfeix/output/github-snake.svg" alt="Contribution snake" width="100%">
   </picture>
 </p>
-
-<p align="center"><sub>Public repositories only – counted by the same workflow that draws the banner.</sub></p>
 
 <details>
 <summary><b>How this profile updates itself</b></summary>
