@@ -213,7 +213,7 @@ def spans(parts: list, x: float, y: float, size: float) -> str:
 # ---------------------------------------------------------------- header
 
 THEMES = {
-    # no background: the header sits on GitHub's own page colour, like a masthead
+    # text colours on GitHub's own page colour; the banner adds its SURFACE on top
     "light": dict(ink="#121113", muted="#57564F", faint="#7E7D77", rule="#D0D7DE", signal="#3F5A00"),
     "dark": dict(ink="#EDEBE6", muted="#A6A59F", faint="#7D7C77", rule="#30363D", signal="#D4F77A"),
 }
@@ -225,28 +225,72 @@ def fmt_int(n: int) -> str:
     return f"{n:,}"
 
 
+# the banner is a card of its own, like the project cards below it
+SURFACE = {
+    "light": dict(bg="#F4F3EE", panel="#FFFFFF", line="#DEDCD4", dot="#CFCDC4", glow="#B9E34F", glow_a=0.42),
+    "dark": dict(bg="#0E0E10", panel="#16161A", line="#2A2A2F", dot="#34343A", glow="#C6F36B", glow_a=0.17),
+}
+
+
 def render_header(p: Profile, theme: str) -> str:
-    c = THEMES[theme]
-    W, H = 1200, 340
+    c = {**THEMES[theme], **SURFACE[theme]}
+    W, H, PAD = 1200, 400, 56
     out = []
 
-    # the name, set like the proxy-scraper site's headline
-    name, size = "Maximilian Feix", 128
-    out.append(text(name, -4, 128, DISPLAY, size, c["ink"], tracking=-5.2))
-    out.append(text(".", -4 + text_width(name, DISPLAY, size, -5.2) + 1, 128, DISPLAY, size, c["signal"]))
+    out.append(f"""<defs>
+<clipPath id="card"><rect width="{W}" height="{H}" rx="20"/></clipPath>
+<pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.2" fill="{c["dot"]}"/></pattern>
+<linearGradient id="fade" x1="0" x2="1" y1="0" y2="0"><stop offset=".3" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff"/></linearGradient>
+<mask id="right"><rect width="{W}" height="{H}" fill="url(#fade)"/></mask>
+<radialGradient id="glow" cx="{W - 190}" cy="-40" r="560" gradientUnits="userSpaceOnUse"><stop stop-color="{c["glow"]}" stop-opacity="{c["glow_a"]}"/><stop offset="1" stop-color="{c["glow"]}" stop-opacity="0"/></radialGradient>
+<style>@media (prefers-reduced-motion: no-preference) {{ .pulse {{ animation: pulse 2.6s ease-in-out infinite }} }} @keyframes pulse {{ 50% {{ opacity: .3 }} }}</style>
+</defs>
+<g clip-path="url(#card)">
+<rect width="{W}" height="{H}" fill="{c["bg"]}"/>
+<rect width="{W}" height="{H}" fill="url(#dots)" mask="url(#right)"/>
+<rect width="{W}" height="{H}" fill="url(#glow)"/>""")
 
-    out.append(text("Backend and infrastructure at a hosting company in Germany.", 0, 196, SANS, 28, c["muted"]))
+    # left: what I do, who I am, what I'm shipping
+    out.append(f'<rect x="{PAD}" y="70" width="28" height="3" rx="1.5" fill="{c["signal"]}"/>')
+    out.append(text("BACKEND  /  INFRASTRUCTURE  /  DEVELOPER TOOLS", PAD + 42, 77, MONO, 15, c["muted"], tracking=1.6))
+
+    name, size, track = "Maximilian Feix", 100, -4.2
+    out.append(text(name, PAD - 4, 186, DISPLAY, size, c["ink"], tracking=track))
+    out.append(text(".", PAD - 4 + text_width(name, DISPLAY, size, track) + 1, 186, DISPLAY, size, c["signal"]))
+
+    out.append(text("Backend and infrastructure at a hosting company in Germany.", PAD, 240, SANS, 23, c["muted"]))
     out.append(spans([("Currently shipping ", SANS, c["muted"]), ("proxy-scraper", SANS_B, c["ink"]),
                       (", ", SANS, c["muted"]), ("spillage", SANS_B, c["ink"]),
                       (" and ", SANS, c["muted"]), ("RepoAtlas", SANS_B, c["ink"]), (".", SANS, c["muted"])],
-                     0, 236, 28))
+                     PAD, 274, 23))
 
-    out.append(f'<rect y="282" width="{W}" height="1" fill="{c["rule"]}"/>')
-    out.append(text("   ".join(STACK), 0, 320, MONO, 17, c["faint"]))
-    if p.live_proxies:
-        live = f"{p.live_proxies} proxies verified this hour"
-        out.append(text(live, W, 320, MONO, 17, c["muted"], anchor="end"))
-        out.append(f'<circle cx="{W - text_width(live, MONO, 17) - 15}" cy="314.5" r="4" fill="{c["signal"]}"/>')
+    x = PAD
+    for tech in STACK:  # the stack as quiet chips along the bottom edge
+        w = text_width(tech, MONO, 15) + 28
+        out.append(f'<rect x="{x}" y="314" width="{w:.1f}" height="32" rx="16" fill="none" stroke="{c["line"]}"/>')
+        out.append(text(tech, x + 14, 335.5, MONO, 15, c["muted"]))
+        x += w + 10
+
+    # right: what the workflows measured on their last run
+    px, py, pw, ph = 800, PAD, W - PAD - 800, H - 2 * PAD
+    out.append(f'<rect x="{px}" y="{py}" width="{pw}" height="{ph}" rx="14" fill="{c["panel"]}" stroke="{c["line"]}"/>')
+    out.append(f'<circle class="pulse" cx="{px + 27}" cy="{py + 30}" r="4.5" fill="{c["signal"]}"/>')
+    out.append(text("LIVE", px + 42, py + 35, MONO, 14, c["ink"], tracking=1.4))
+    out.append(text("rebuilt every 3 h", px + pw - 22, py + 35, MONO, 13, c["faint"], anchor="end"))
+    out.append(f'<rect x="{px}" y="{py + 58}" width="{pw}" height="1" fill="{c["line"]}"/>')
+
+    out.append(text(p.live_proxies or "1,000+", px + 20, py + 118, DISPLAY, 54, c["ink"], tracking=-1.8))
+    out.append(text("proxies verified this hour", px + 22, py + 146, MONO, 14, c["muted"]))
+    out.append(f'<rect x="{px}" y="{py + 168}" width="{pw}" height="1" fill="{c["line"]}"/>')
+
+    rows = [("proxy-scraper", p.release), ("spillage", p.spillage_release),
+            ("RepoAtlas", p.atlas_release), ("gha-preview", p.preview_release)]
+    for i, (repo, version) in enumerate(rows):
+        y = py + 198 + i * 25
+        out.append(text(repo, px + 22, y, MONO, 14, c["muted"]))
+        out.append(text(version or "latest", px + pw - 22, y, MONO, 14, c["ink"], anchor="end"))
+
+    out.append(f'</g>\n<rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="20" fill="none" stroke="{c["line"]}"/>')
 
     label = ("Maximilian Feix. Backend and infrastructure at a hosting company in Germany. "
              "Currently shipping proxy-scraper, spillage and RepoAtlas.")
