@@ -3,6 +3,7 @@
 
 - assets/header-dark.svg / header-light.svg: banner with a live status panel
 - assets/card-<repo>.svg: featured project cards, a real screenshot plus live numbers
+- assets/activity-dark.svg / activity-light.svg: releases, contributions and languages
 - README.md: the "Recently shipped" and "Open source" lists between their markers
 
 Only public data is used. Runs in GitHub Actions (see .github/workflows/profile.yml),
@@ -42,6 +43,13 @@ def get(url: str):
         return json.load(resp)
 
 
+def gql(query: str) -> dict:
+    req = urllib.request.Request("https://api.github.com/graphql", data=json.dumps({"query": query}).encode(),
+                                 headers={"User-Agent": USER, "Authorization": f"Bearer {os.environ['GITHUB_TOKEN']}"})
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        return json.load(resp)["data"]
+
+
 @dataclass
 class Profile:
     repos: int = 0
@@ -54,6 +62,8 @@ class Profile:
     spillage_release: str = ""
     preview_release: str = ""
     contrib: list = field(default_factory=list)  # (full_name, stars, merged PR count)
+    releases: int = 0
+    languages: list = field(default_factory=list)  # (name, share of bytes in percent), largest first
     shipped: list = field(default_factory=list)
     now: datetime = field(default_factory=lambda: datetime.now(timezone.utc))
 
@@ -88,14 +98,14 @@ def collect() -> Profile:
         for rel in get(f"https://api.github.com/repos/{USER}/{r['name']}/releases?per_page=5"):
             if not rel["draft"]:
                 items.append((rel["published_at"], r["name"],
-                              f"🏷️ Released **[{r['name']} {rel['tag_name']}]({rel['html_url']})**"))
+                              f"Released **[{r['name']} {rel['tag_name']}]({rel['html_url']})**"))
     query = f"is:pr+is:merged+author:{USER}+user:{USER}"
     for pr in get(f"https://api.github.com/search/issues?q={query}&sort=updated&order=desc&per_page=50")["items"]:
         repo = pr["repository_url"].rsplit("/", 1)[-1]
         if repo not in public:  # never list anything from private repos
             continue
         title = pr["title"].replace("[", "(").replace("]", ")")
-        items.append((pr["closed_at"], repo, f"🔀 Merged [{title}]({pr['html_url']}) in **{repo}**"))
+        items.append((pr["closed_at"], repo, f"Merged [{title}]({pr['html_url']}) in **{repo}**"))
     items.sort(reverse=True)
     per_repo: dict = {}
     for when, repo, line in items:  # at most two per repo, so one busy project doesn't fill the list
@@ -106,9 +116,13 @@ def collect() -> Profile:
     # merged pull requests in other people's projects
     counts: dict = {}
     query = f"is:pr+is:merged+author:{USER}+-user:{USER}"
-    for pr in get(f"https://api.github.com/search/issues?q={query}&per_page=100")["items"]:
-        name = pr["repository_url"].split("/repos/", 1)[1]
-        counts[name] = counts.get(name, 0) + 1
+    for page in range(1, 11):  # the search API stops at 1,000 results
+        found = get(f"https://api.github.com/search/issues?q={query}&per_page=100&page={page}")["items"]
+        for pr in found:
+            name = pr["repository_url"].split("/repos/", 1)[1]
+            counts[name] = counts.get(name, 0) + 1
+        if len(found) < 100:
+            break
     for name, n in counts.items():
         try:
             repo = get(f"https://api.github.com/repos/{name}")
@@ -117,6 +131,20 @@ def collect() -> Profile:
         if not repo["private"]:
             p.contrib.append((repo["full_name"], repo["stargazers_count"], n))
     p.contrib.sort(key=lambda c: (-c[1], c[0]))
+
+    nodes = gql(f'''{{ user(login: "{USER}") {{ repositories(ownerAffiliations: OWNER, isFork: false,
+        privacy: PUBLIC, first: 100) {{ nodes {{ name releases {{ totalCount }}
+        languages(first: 10, orderBy: {{field: SIZE, direction: DESC}}) {{ edges {{ size node {{ name }} }} }}
+        }} }} }} }}''')["user"]["repositories"]["nodes"]
+    sizes: dict = {}
+    for r in nodes:
+        if r["name"] in SKIP_REPOS:
+            continue
+        p.releases += r["releases"]["totalCount"]
+        for e in r["languages"]["edges"]:
+            sizes[e["node"]["name"]] = sizes.get(e["node"]["name"], 0) + e["size"]
+    total = sum(sizes.values()) or 1
+    p.languages = sorted(((n, v / total * 100) for n, v in sizes.items()), key=lambda l: -l[1])
     return p
 
 
@@ -185,7 +213,7 @@ def spans(parts: list, x: float, y: float, size: float) -> str:
 # ---------------------------------------------------------------- header
 
 THEMES = {
-    # no background: the header sits on GitHub's own page colour, like a masthead
+    # text colours on GitHub's own page colour; the banner adds its SURFACE on top
     "light": dict(ink="#121113", muted="#57564F", faint="#7E7D77", rule="#D0D7DE", signal="#3F5A00"),
     "dark": dict(ink="#EDEBE6", muted="#A6A59F", faint="#7D7C77", rule="#30363D", signal="#D4F77A"),
 }
@@ -197,31 +225,112 @@ def fmt_int(n: int) -> str:
     return f"{n:,}"
 
 
+# the banner is a card of its own, like the project cards below it
+SURFACE = {
+    "light": dict(bg="#F4F3EE", panel="#FFFFFF", line="#DEDCD4", dot="#CFCDC4", glow="#B9E34F", glow_a=0.42),
+    "dark": dict(bg="#0E0E10", panel="#16161A", line="#2A2A2F", dot="#34343A", glow="#C6F36B", glow_a=0.17),
+}
+
+
 def render_header(p: Profile, theme: str) -> str:
-    c = THEMES[theme]
-    W, H = 1200, 340
+    c = {**THEMES[theme], **SURFACE[theme]}
+    W, H, PAD = 1200, 400, 56
     out = []
 
-    # the name, set like the proxy-scraper site's headline
-    name, size = "Maximilian Feix", 128
-    out.append(text(name, -4, 128, DISPLAY, size, c["ink"], tracking=-5.2))
-    out.append(text(".", -4 + text_width(name, DISPLAY, size, -5.2) + 1, 128, DISPLAY, size, c["signal"]))
+    out.append(f"""<defs>
+<clipPath id="card"><rect width="{W}" height="{H}" rx="20"/></clipPath>
+<pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.2" fill="{c["dot"]}"/></pattern>
+<linearGradient id="fade" x1="0" x2="1" y1="0" y2="0"><stop offset=".3" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff"/></linearGradient>
+<mask id="right"><rect width="{W}" height="{H}" fill="url(#fade)"/></mask>
+<radialGradient id="glow" cx="{W - 190}" cy="-40" r="560" gradientUnits="userSpaceOnUse"><stop stop-color="{c["glow"]}" stop-opacity="{c["glow_a"]}"/><stop offset="1" stop-color="{c["glow"]}" stop-opacity="0"/></radialGradient>
+<style>@media (prefers-reduced-motion: no-preference) {{ .pulse {{ animation: pulse 2.6s ease-in-out infinite }} }} @keyframes pulse {{ 50% {{ opacity: .3 }} }}</style>
+</defs>
+<g clip-path="url(#card)">
+<rect width="{W}" height="{H}" fill="{c["bg"]}"/>
+<rect width="{W}" height="{H}" fill="url(#dots)" mask="url(#right)"/>
+<rect width="{W}" height="{H}" fill="url(#glow)"/>""")
 
-    out.append(text("Backend and infrastructure at a hosting company in Germany.", 0, 196, SANS, 28, c["muted"]))
+    # left: what I do, who I am, what I'm shipping
+    out.append(f'<rect x="{PAD}" y="70" width="28" height="3" rx="1.5" fill="{c["signal"]}"/>')
+    out.append(text("BACKEND  /  INFRASTRUCTURE  /  DEVELOPER TOOLS", PAD + 42, 77, MONO, 15, c["muted"], tracking=1.6))
+
+    name, size, track = "Maximilian Feix", 100, -4.2
+    out.append(text(name, PAD - 4, 186, DISPLAY, size, c["ink"], tracking=track))
+    out.append(text(".", PAD - 4 + text_width(name, DISPLAY, size, track) + 1, 186, DISPLAY, size, c["signal"]))
+
+    out.append(text("Backend and infrastructure at a hosting company in Germany.", PAD, 240, SANS, 23, c["muted"]))
     out.append(spans([("Currently shipping ", SANS, c["muted"]), ("proxy-scraper", SANS_B, c["ink"]),
                       (", ", SANS, c["muted"]), ("spillage", SANS_B, c["ink"]),
                       (" and ", SANS, c["muted"]), ("RepoAtlas", SANS_B, c["ink"]), (".", SANS, c["muted"])],
-                     0, 236, 28))
+                     PAD, 274, 23))
 
-    out.append(f'<rect y="282" width="{W}" height="1" fill="{c["rule"]}"/>')
-    out.append(text("   ".join(STACK), 0, 320, MONO, 17, c["faint"]))
-    if p.live_proxies:
-        live = f"{p.live_proxies} proxies verified this hour"
-        out.append(text(live, W, 320, MONO, 17, c["muted"], anchor="end"))
-        out.append(f'<circle cx="{W - text_width(live, MONO, 17) - 15}" cy="314.5" r="4" fill="{c["signal"]}"/>')
+    x = PAD
+    for tech in STACK:  # the stack as quiet chips along the bottom edge
+        w = text_width(tech, MONO, 15) + 28
+        out.append(f'<rect x="{x}" y="314" width="{w:.1f}" height="32" rx="16" fill="none" stroke="{c["line"]}"/>')
+        out.append(text(tech, x + 14, 335.5, MONO, 15, c["muted"]))
+        x += w + 10
+
+    # right: what the workflows measured on their last run
+    px, py, pw, ph = 800, PAD, W - PAD - 800, H - 2 * PAD
+    out.append(f'<rect x="{px}" y="{py}" width="{pw}" height="{ph}" rx="14" fill="{c["panel"]}" stroke="{c["line"]}"/>')
+    out.append(f'<circle class="pulse" cx="{px + 27}" cy="{py + 30}" r="4.5" fill="{c["signal"]}"/>')
+    out.append(text("LIVE", px + 42, py + 35, MONO, 14, c["ink"], tracking=1.4))
+    out.append(text("rebuilt every 3 h", px + pw - 22, py + 35, MONO, 13, c["faint"], anchor="end"))
+    out.append(f'<rect x="{px}" y="{py + 58}" width="{pw}" height="1" fill="{c["line"]}"/>')
+
+    out.append(text(p.live_proxies or "1,000+", px + 20, py + 118, DISPLAY, 54, c["ink"], tracking=-1.8))
+    out.append(text("proxies verified this hour", px + 22, py + 146, MONO, 14, c["muted"]))
+    out.append(f'<rect x="{px}" y="{py + 168}" width="{pw}" height="1" fill="{c["line"]}"/>')
+
+    rows = [("proxy-scraper", p.release), ("spillage", p.spillage_release),
+            ("RepoAtlas", p.atlas_release), ("gha-preview", p.preview_release)]
+    for i, (repo, version) in enumerate(rows):
+        y = py + 198 + i * 25
+        out.append(text(repo, px + 22, y, MONO, 14, c["muted"]))
+        out.append(text(version or "latest", px + pw - 22, y, MONO, 14, c["ink"], anchor="end"))
+
+    out.append(f'</g>\n<rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="20" fill="none" stroke="{c["line"]}"/>')
 
     label = ("Maximilian Feix. Backend and infrastructure at a hosting company in Germany. "
              "Currently shipping proxy-scraper, spillage and RepoAtlas.")
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
+            f'role="img" aria-label="{escape(label)}">\n' + "\n".join(out) + "\n</svg>\n")
+
+
+# ---------------------------------------------------------------- activity
+# Same masthead treatment as the header: no background, four numbers, then the languages
+# as bars in a single hue. Only public repositories are counted.
+
+def render_activity(p: Profile, theme: str) -> str:
+    c = THEMES[theme]
+    W, H = 1200, 318
+    out = []
+
+    merged = sum(n for _, _, n in p.contrib)
+    tiles = [(fmt_int(p.releases), "releases shipped"), (fmt_int(merged), "upstream PRs merged"),
+             (fmt_int(len(p.contrib)), "projects contributed to"), (fmt_int(p.stars), "stars on my projects")]
+    for i, (value, label) in enumerate(tiles):
+        x = i * 300
+        out.append(text(value, x - 2, 62, DISPLAY, 68, c["ink"], tracking=-2.4))
+        out.append(text(label, x, 100, MONO, 17, c["muted"]))
+
+    out.append(f'<rect y="134" width="{W}" height="1" fill="{c["rule"]}"/>')
+    out.append(text("languages, by share of code in my public repositories", 0, 172, MONO, 17, c["faint"]))
+
+    langs = p.languages[:6]
+    top = langs[0][1] if langs else 1
+    for i, (name, share) in enumerate(langs):
+        x, y = (i // 3) * 640, 216 + (i % 3) * 40
+        out.append(text(name, x, y, SANS, 21, c["ink"]))
+        out.append(f'<rect x="{x + 150}" y="{y - 12}" width="320" height="8" rx="4" fill="{c["rule"]}"/>')
+        out.append(f'<rect x="{x + 150}" y="{y - 12}" width="{max(8, round(320 * share / top))}" height="8" rx="4" '
+                   f'fill="{c["signal"]}"/>')
+        pct = f"{share:.1f}%" if share >= 1 else "<1%"
+        out.append(text(pct, x + 560, y, MONO, 17, c["muted"], anchor="end"))
+
+    label = (", ".join(f"{v} {l}" for v, l in tiles) + ". Languages: "
+             + ", ".join(f"{n} {s:.0f}%" for n, s in langs) + ".")
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
             f'role="img" aria-label="{escape(label)}">\n' + "\n".join(out) + "\n</svg>\n")
 
@@ -364,6 +473,7 @@ def main() -> int:
     p = collect()
     for theme in THEMES:
         (ROOT / "assets" / f"header-{theme}.svg").write_text(render_header(p, theme), encoding="utf-8")
+        (ROOT / "assets" / f"activity-{theme}.svg").write_text(render_activity(p, theme), encoding="utf-8")
     for card in cards(p):
         (ROOT / "assets" / f"card-{card.slug}.svg").write_text(render_card(card), encoding="utf-8")
     readme = ROOT / "README.md"
@@ -371,7 +481,7 @@ def main() -> int:
     readme.write_text(replace_section(body, "CONTRIB", render_contrib(p)), encoding="utf-8")
     print(f"repos={p.repos} stars={p.stars} followers={p.followers} release={p.release} "
           f"atlas={p.atlas_release} spillage={p.spillage_release} preview={p.preview_release} "
-          f"live={p.live_proxies} shipped={len(p.shipped)} contrib={len(p.contrib)}")
+          f"live={p.live_proxies} shipped={len(p.shipped)} contrib={len(p.contrib)} releases={p.releases}")
     return 0
 
 
