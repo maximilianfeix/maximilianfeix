@@ -133,10 +133,10 @@ Try it on real projects: [**Zustand**](https://maximilianfeix.github.io/repoatla
 **Recently shipped**
 
 <!--SHIPPED:start-->
+- Merged [Add a plugin icon](https://github.com/maximilianfeix/dejabuilt/pull/8) in **dejabuilt** <sub>· 10 Oct 2026</sub>
 - Merged [Document installing with the skills CLI](https://github.com/maximilianfeix/dejabuilt/pull/7) in **dejabuilt** <sub>· 10 Oct 2026</sub>
 - Merged [Install from PyPI: pipx install spillage](https://github.com/maximilianfeix/spillage/pull/73) in **spillage** <sub>· 10 Oct 2026</sub>
 - Released **[spillage v0.9.0](https://github.com/maximilianfeix/spillage/releases/tag/v0.9.0)** <sub>· 10 Oct 2026</sub>
-- Merged [Add a social preview image and say how the project was built](https://github.com/maximilianfeix/dejabuilt/pull/6) in **dejabuilt** <sub>· 10 Oct 2026</sub>
 - Merged [Bracket IPv6 literals in the checker's CONNECT line, targets and judges](https://github.com/maximilianfeix/proxy-scraper/pull/305) in **proxy-scraper** <sub>· 10 Oct 2026</sub>
 - Merged [Website: a ranking of the sources – which free proxy lists actually work](https://github.com/maximilianfeix/proxy-scraper/pull/306) in **proxy-scraper** <sub>· 10 Oct 2026</sub>
 <!--SHIPPED:end-->
