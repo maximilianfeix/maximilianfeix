@@ -131,12 +131,12 @@ Try it on real projects: [**Zustand**](https://maximilianfeix.github.io/repoatla
 **Recently shipped**
 
 <!--SHIPPED:start-->
-- Released **[dejabuilt v0.1.1](https://github.com/maximilianfeix/dejabuilt/releases/tag/v0.1.1)** <sub>· 10 Oct 2026</sub>
-- Merged [Privacy policy, two more examples, OPEN wording fix (0.1.1)](https://github.com/maximilianfeix/dejabuilt/pull/9) in **dejabuilt** <sub>· 10 Oct 2026</sub>
-- Released **[spillage v0.9.1](https://github.com/maximilianfeix/spillage/releases/tag/v0.9.1)** <sub>· 10 Oct 2026</sub>
-- Merged [docs: mention dejabuilt in the Community section](https://github.com/maximilianfeix/proxy-scraper/pull/307) in **proxy-scraper** <sub>· 10 Oct 2026</sub>
-- Merged [release 0.9.1: a README PyPI can show](https://github.com/maximilianfeix/spillage/pull/74) in **spillage** <sub>· 10 Oct 2026</sub>
-- Merged [Bracket IPv6 literals in the checker's CONNECT line, targets and judges](https://github.com/maximilianfeix/proxy-scraper/pull/305) in **proxy-scraper** <sub>· 10 Oct 2026</sub>
+- Merged [fix(bot): keep setting up when the bot may not pin](https://github.com/maximilianfeix/proxy-scraper/pull/310) in **proxy-scraper** <sub>· 10 Oct 2026</sub>
+- Merged [Say plainly when Discord rejects the token](https://github.com/maximilianfeix/community-bot/pull/3) in **community-bot** <sub>· 10 Oct 2026</sub>
+- Merged [Add the community bot](https://github.com/maximilianfeix/community-bot/pull/2) in **community-bot** <sub>· 10 Oct 2026</sub>
+- Released **[spillage v0.10.0](https://github.com/maximilianfeix/spillage/releases/tag/v0.10.0)** <sub>· 10 Oct 2026</sub>
+- Merged [release 0.10.0: more places, 13 rules, a linear JWT rule, a guard that sees through wrappers](https://github.com/maximilianfeix/spillage/pull/82) in **spillage** <sub>· 10 Oct 2026</sub>
+- Merged [ci(bot): keep host and server names out of the public deploy log](https://github.com/maximilianfeix/proxy-scraper/pull/309) in **proxy-scraper** <sub>· 10 Oct 2026</sub>
 <!--SHIPPED:end-->
 
 </td>
