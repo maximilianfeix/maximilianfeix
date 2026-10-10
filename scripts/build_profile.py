@@ -98,14 +98,14 @@ def collect() -> Profile:
         for rel in get(f"https://api.github.com/repos/{USER}/{r['name']}/releases?per_page=5"):
             if not rel["draft"]:
                 items.append((rel["published_at"], r["name"],
-                              f"🏷️ Released **[{r['name']} {rel['tag_name']}]({rel['html_url']})**"))
+                              f"Released **[{r['name']} {rel['tag_name']}]({rel['html_url']})**"))
     query = f"is:pr+is:merged+author:{USER}+user:{USER}"
     for pr in get(f"https://api.github.com/search/issues?q={query}&sort=updated&order=desc&per_page=50")["items"]:
         repo = pr["repository_url"].rsplit("/", 1)[-1]
         if repo not in public:  # never list anything from private repos
             continue
         title = pr["title"].replace("[", "(").replace("]", ")")
-        items.append((pr["closed_at"], repo, f"🔀 Merged [{title}]({pr['html_url']}) in **{repo}**"))
+        items.append((pr["closed_at"], repo, f"Merged [{title}]({pr['html_url']}) in **{repo}**"))
     items.sort(reverse=True)
     per_repo: dict = {}
     for when, repo, line in items:  # at most two per repo, so one busy project doesn't fill the list
