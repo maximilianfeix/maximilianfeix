@@ -133,10 +133,10 @@ Try it on real projects: [**Zustand**](https://maximilianfeix.github.io/repoatla
 <!--SHIPPED:start-->
 - Released **[proxy-scraper v1.28.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.28.0)** <sub>· 11 Oct 2026</sub>
 - Merged [release 1.28.0 (#315)](https://github.com/maximilianfeix/proxy-scraper/pull/326) in **proxy-scraper** <sub>· 11 Oct 2026</sub>
-- Released **[kuerzel v0.2.0](https://github.com/maximilianfeix/kuerzel/releases/tag/v0.2.0)** <sub>· 11 Oct 2026</sub>
-- Merged [Add one-click fixes, a Hub browser, ready-made snippets and reordering](https://github.com/maximilianfeix/kuerzel/pull/33) in **kuerzel** <sub>· 11 Oct 2026</sub>
 - Merged [A look of its own: pictures, a colour per project, custom emojis](https://github.com/maximilianfeix/community-bot/pull/8) in **community-bot** <sub>· 10 Oct 2026</sub>
 - Merged [Starter cards, latest releases once, role colour](https://github.com/maximilianfeix/community-bot/pull/6) in **community-bot** <sub>· 10 Oct 2026</sub>
+- Released **[spillage v0.10.0](https://github.com/maximilianfeix/spillage/releases/tag/v0.10.0)** <sub>· 10 Oct 2026</sub>
+- Merged [release 0.10.0: more places, 13 rules, a linear JWT rule, a guard that sees through wrappers](https://github.com/maximilianfeix/spillage/pull/82) in **spillage** <sub>· 10 Oct 2026</sub>
 <!--SHIPPED:end-->
 
 </td>
@@ -149,7 +149,7 @@ Try it on real projects: [**Zustand**](https://maximilianfeix.github.io/repoatla
 - **[semantica-agi/semantica](https://github.com/semantica-agi/semantica)** <sub>★ 13.9k</sub><br><sub>[6 merged PRs](https://github.com/semantica-agi/semantica/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
 - **[MakazhanAlpamys/Soup](https://github.com/MakazhanAlpamys/Soup)** <sub>★ 8.5k</sub><br><sub>[6 merged PRs](https://github.com/MakazhanAlpamys/Soup/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
 - **[mthcht/awesome-lists](https://github.com/mthcht/awesome-lists)** <sub>★ 1.9k</sub><br><sub>[1 merged PR](https://github.com/mthcht/awesome-lists/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
-- **[TensorBlock/awesome-mcp-servers](https://github.com/TensorBlock/awesome-mcp-servers)** <sub>★ 889</sub><br><sub>[1 merged PR](https://github.com/TensorBlock/awesome-mcp-servers/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
+- **[TensorBlock/awesome-mcp-servers](https://github.com/TensorBlock/awesome-mcp-servers)** <sub>★ 890</sub><br><sub>[1 merged PR](https://github.com/TensorBlock/awesome-mcp-servers/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
 - **[conda-forge/staged-recipes](https://github.com/conda-forge/staged-recipes)** <sub>★ 847</sub><br><sub>[1 merged PR](https://github.com/conda-forge/staged-recipes/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
 <!--CONTRIB:end-->
 
