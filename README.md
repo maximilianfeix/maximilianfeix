@@ -131,8 +131,8 @@ Try it on real projects: [**Zustand**](https://maximilianfeix.github.io/repoatla
 **Recently shipped**
 
 <!--SHIPPED:start-->
-- Released **[kuerzel v0.1.1](https://github.com/maximilianfeix/kuerzel/releases/tag/v0.1.1)** <sub>· 10 Oct 2026</sub>
-- Merged [Fix what testing against a real Espanso on Windows found](https://github.com/maximilianfeix/kuerzel/pull/29) in **kuerzel** <sub>· 10 Oct 2026</sub>
+- Released **[kuerzel v0.2.0](https://github.com/maximilianfeix/kuerzel/releases/tag/v0.2.0)** <sub>· 11 Oct 2026</sub>
+- Merged [Add one-click fixes, a Hub browser, ready-made snippets and reordering](https://github.com/maximilianfeix/kuerzel/pull/33) in **kuerzel** <sub>· 11 Oct 2026</sub>
 - Merged [A look of its own: pictures, a colour per project, custom emojis](https://github.com/maximilianfeix/community-bot/pull/8) in **community-bot** <sub>· 10 Oct 2026</sub>
 - Merged [Starter cards, latest releases once, role colour](https://github.com/maximilianfeix/community-bot/pull/6) in **community-bot** <sub>· 10 Oct 2026</sub>
 - Merged [fix(bot): keep setting up when the bot may not pin](https://github.com/maximilianfeix/proxy-scraper/pull/310) in **proxy-scraper** <sub>· 10 Oct 2026</sub>
