@@ -131,12 +131,12 @@ Try it on real projects: [**Zustand**](https://maximilianfeix.github.io/repoatla
 **Recently shipped**
 
 <!--SHIPPED:start-->
+- Merged [feat(core): Electron ASAR reader, JavaScript module graph and source maps](https://github.com/maximilianfeix/hexvero/pull/20) in **hexvero** <sub>· 12 Oct 2026</sub>
+- Merged [feat(core): ZIP directory reader and Android APK manifest decoding](https://github.com/maximilianfeix/hexvero/pull/19) in **hexvero** <sub>· 12 Oct 2026</sub>
 - Merged [ci: bump github/codeql-action to 4.38.3 in all three places](https://github.com/maximilianfeix/spillage/pull/90) in **spillage** <sub>· 12 Oct 2026</sub>
 - Merged [doctor: log files other users can read, and how long Claude Code keeps transcripts (#88)](https://github.com/maximilianfeix/spillage/pull/89) in **spillage** <sub>· 12 Oct 2026</sub>
 - Released **[proxy-scraper v1.28.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.28.0)** <sub>· 11 Oct 2026</sub>
 - Merged [release 1.28.0 (#315)](https://github.com/maximilianfeix/proxy-scraper/pull/326) in **proxy-scraper** <sub>· 11 Oct 2026</sub>
-- Merged [A look of its own: pictures, a colour per project, custom emojis](https://github.com/maximilianfeix/community-bot/pull/8) in **community-bot** <sub>· 10 Oct 2026</sub>
-- Merged [Starter cards, latest releases once, role colour](https://github.com/maximilianfeix/community-bot/pull/6) in **community-bot** <sub>· 10 Oct 2026</sub>
 <!--SHIPPED:end-->
 
 </td>
