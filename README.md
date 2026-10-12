@@ -145,7 +145,7 @@ Try it on real projects: [**Zustand**](https://maximilianfeix.github.io/repoatla
 **Contributions to other projects**
 
 <!--CONTRIB:start-->
-- **[HKUDS/DeepTutor](https://github.com/HKUDS/DeepTutor)** <sub>★ 41.1k</sub><br><sub>[2 merged PRs](https://github.com/HKUDS/DeepTutor/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
+- **[HKUDS/DeepTutor](https://github.com/HKUDS/DeepTutor)** <sub>★ 41.2k</sub><br><sub>[2 merged PRs](https://github.com/HKUDS/DeepTutor/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
 - **[semantica-agi/semantica](https://github.com/semantica-agi/semantica)** <sub>★ 13.9k</sub><br><sub>[6 merged PRs](https://github.com/semantica-agi/semantica/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
 - **[MakazhanAlpamys/Soup](https://github.com/MakazhanAlpamys/Soup)** <sub>★ 8.6k</sub><br><sub>[6 merged PRs](https://github.com/MakazhanAlpamys/Soup/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
 - **[mthcht/awesome-lists](https://github.com/mthcht/awesome-lists)** <sub>★ 1.9k</sub><br><sub>[1 merged PR](https://github.com/mthcht/awesome-lists/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
