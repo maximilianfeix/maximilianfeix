@@ -131,8 +131,8 @@ Try it on real projects: [**Zustand**](https://maximilianfeix.github.io/repoatla
 **Recently shipped**
 
 <!--SHIPPED:start-->
-- Released **[dockdu v0.1.0](https://github.com/maximilianfeix/dockdu/releases/tag/v0.1.0)** <sub>· 13 Oct 2026</sub>
-- Merged [docs: quickstart explains exit 2 on Docker Desktop](https://github.com/maximilianfeix/dockdu/pull/14) in **dockdu** <sub>· 13 Oct 2026</sub>
+- Merged [ci: release preflight for the tap token](https://github.com/maximilianfeix/dockdu/pull/17) in **dockdu** <sub>· 13 Oct 2026</sub>
+- Merged [fix: report the module version for go install builds](https://github.com/maximilianfeix/dockdu/pull/16) in **dockdu** <sub>· 13 Oct 2026</sub>
 - Released **[hexvero v0.3.0](https://github.com/maximilianfeix/hexvero/releases/tag/v0.3.0)** <sub>· 13 Oct 2026</sub>
 - Merged [Bridge inventory, tail calls, URL tags and a measured REA comparison](https://github.com/maximilianfeix/hexvero/pull/88) in **hexvero** <sub>· 13 Oct 2026</sub>
 - Released **[proxy-scraper v1.28.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.28.0)** <sub>· 11 Oct 2026</sub>
