@@ -131,8 +131,8 @@ Try it on real projects: [**Zustand**](https://maximilianfeix.github.io/repoatla
 **Recently shipped**
 
 <!--SHIPPED:start-->
-- Merged [feat(core): Electron ASAR reader, JavaScript module graph and source maps](https://github.com/maximilianfeix/hexvero/pull/20) in **hexvero** <sub>· 12 Oct 2026</sub>
-- Merged [feat(core): ZIP directory reader and Android APK manifest decoding](https://github.com/maximilianfeix/hexvero/pull/19) in **hexvero** <sub>· 12 Oct 2026</sub>
+- Released **[hexvero v0.2.0](https://github.com/maximilianfeix/hexvero/releases/tag/v0.2.0)** <sub>· 12 Oct 2026</sub>
+- Merged [chore(release): 0.2.0](https://github.com/maximilianfeix/hexvero/pull/46) in **hexvero** <sub>· 12 Oct 2026</sub>
 - Merged [ci: bump github/codeql-action to 4.38.3 in all three places](https://github.com/maximilianfeix/spillage/pull/90) in **spillage** <sub>· 12 Oct 2026</sub>
 - Merged [doctor: log files other users can read, and how long Claude Code keeps transcripts (#88)](https://github.com/maximilianfeix/spillage/pull/89) in **spillage** <sub>· 12 Oct 2026</sub>
 - Released **[proxy-scraper v1.28.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.28.0)** <sub>· 11 Oct 2026</sub>
