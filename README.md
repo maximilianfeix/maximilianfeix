@@ -131,8 +131,8 @@ Try it on real projects: [**Zustand**](https://maximilianfeix.github.io/repoatla
 **Recently shipped**
 
 <!--SHIPPED:start-->
-- Merged [feat(core): zero-dependency JavaScript bundle splitting and source recovery](https://github.com/maximilianfeix/hexvero/pull/56) in **hexvero** <sub>· 13 Oct 2026</sub>
-- Merged [fix(cli): bin path without ./ so npm keeps the hexvero command](https://github.com/maximilianfeix/hexvero/pull/55) in **hexvero** <sub>· 13 Oct 2026</sub>
+- Merged [fix(core): robustness review of paging, identities, parsers and directory analysis](https://github.com/maximilianfeix/hexvero/pull/71) in **hexvero** <sub>· 13 Oct 2026</sub>
+- Merged [fix(mcp,server,core): security review of the MCP and HTTP surfaces](https://github.com/maximilianfeix/hexvero/pull/69) in **hexvero** <sub>· 13 Oct 2026</sub>
 - Merged [ci: bump github/codeql-action to 4.38.3 in all three places](https://github.com/maximilianfeix/spillage/pull/90) in **spillage** <sub>· 12 Oct 2026</sub>
 - Merged [doctor: log files other users can read, and how long Claude Code keeps transcripts (#88)](https://github.com/maximilianfeix/spillage/pull/89) in **spillage** <sub>· 12 Oct 2026</sub>
 - Released **[proxy-scraper v1.28.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.28.0)** <sub>· 11 Oct 2026</sub>
@@ -149,7 +149,7 @@ Try it on real projects: [**Zustand**](https://maximilianfeix.github.io/repoatla
 - **[semantica-agi/semantica](https://github.com/semantica-agi/semantica)** <sub>★ 14k</sub><br><sub>[6 merged PRs](https://github.com/semantica-agi/semantica/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
 - **[MakazhanAlpamys/Soup](https://github.com/MakazhanAlpamys/Soup)** <sub>★ 8.6k</sub><br><sub>[6 merged PRs](https://github.com/MakazhanAlpamys/Soup/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
 - **[mthcht/awesome-lists](https://github.com/mthcht/awesome-lists)** <sub>★ 1.9k</sub><br><sub>[1 merged PR](https://github.com/mthcht/awesome-lists/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
-- **[TensorBlock/awesome-mcp-servers](https://github.com/TensorBlock/awesome-mcp-servers)** <sub>★ 895</sub><br><sub>[1 merged PR](https://github.com/TensorBlock/awesome-mcp-servers/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
+- **[TensorBlock/awesome-mcp-servers](https://github.com/TensorBlock/awesome-mcp-servers)** <sub>★ 896</sub><br><sub>[1 merged PR](https://github.com/TensorBlock/awesome-mcp-servers/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
 - **[conda-forge/staged-recipes](https://github.com/conda-forge/staged-recipes)** <sub>★ 847</sub><br><sub>[1 merged PR](https://github.com/conda-forge/staged-recipes/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
 <!--CONTRIB:end-->
 
