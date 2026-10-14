@@ -131,12 +131,12 @@ Try it on real projects: [**Zustand**](https://maximilianfeix.github.io/repoatla
 **Recently shipped**
 
 <!--SHIPPED:start-->
-- Merged [ci: release preflight for the tap token](https://github.com/maximilianfeix/dockdu/pull/17) in **dockdu** <sub>· 13 Oct 2026</sub>
-- Merged [fix: report the module version for go install builds](https://github.com/maximilianfeix/dockdu/pull/16) in **dockdu** <sub>· 13 Oct 2026</sub>
+- Merged [release 1.29.0](https://github.com/maximilianfeix/proxy-scraper/pull/330) in **proxy-scraper** <sub>· 14 Oct 2026</sub>
+- Merged [ci: --require-hashes for the locked installs, base image pinned by digest](https://github.com/maximilianfeix/proxy-scraper/pull/329) in **proxy-scraper** <sub>· 14 Oct 2026</sub>
+- Merged [docs: v0.2.0 release verification](https://github.com/maximilianfeix/dockdu/pull/28) in **dockdu** <sub>· 14 Oct 2026</sub>
+- Released **[dockdu v0.2.0](https://github.com/maximilianfeix/dockdu/releases/tag/v0.2.0)** <sub>· 14 Oct 2026</sub>
 - Released **[hexvero v0.3.0](https://github.com/maximilianfeix/hexvero/releases/tag/v0.3.0)** <sub>· 13 Oct 2026</sub>
 - Merged [Bridge inventory, tail calls, URL tags and a measured REA comparison](https://github.com/maximilianfeix/hexvero/pull/88) in **hexvero** <sub>· 13 Oct 2026</sub>
-- Released **[proxy-scraper v1.28.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.28.0)** <sub>· 11 Oct 2026</sub>
-- Released **[spillage v0.10.0](https://github.com/maximilianfeix/spillage/releases/tag/v0.10.0)** <sub>· 10 Oct 2026</sub>
 <!--SHIPPED:end-->
 
 </td>
