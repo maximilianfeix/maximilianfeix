@@ -131,12 +131,12 @@ Try it on real projects: [**Zustand**](https://maximilianfeix.github.io/repoatla
 **Recently shipped**
 
 <!--SHIPPED:start-->
-- Merged [Overnight log: PRs #106 to #111, releases 0.6.1 and 0.6.2](https://github.com/maximilianfeix/hexvero/pull/112) in **hexvero** <sub>· 14 Oct 2026</sub>
-- Released **[hexvero v0.6.2](https://github.com/maximilianfeix/hexvero/releases/tag/v0.6.2)** <sub>· 14 Oct 2026</sub>
-- Merged [docs: overnight log update](https://github.com/maximilianfeix/dockdu/pull/41) in **dockdu** <sub>· 14 Oct 2026</sub>
-- Released **[dockdu v0.3.3](https://github.com/maximilianfeix/dockdu/releases/tag/v0.3.3)** <sub>· 14 Oct 2026</sub>
-- Merged [docs: maintenance log after 1.29.0](https://github.com/maximilianfeix/proxy-scraper/pull/331) in **proxy-scraper** <sub>· 14 Oct 2026</sub>
+- Merged [Corpus scorer: score every window setting a case lists](https://github.com/maximilianfeix/hexvero/pull/121) in **hexvero** <sub>· 15 Oct 2026</sub>
+- Merged [Window settings through Object.assign and frozen bases](https://github.com/maximilianfeix/hexvero/pull/120) in **hexvero** <sub>· 15 Oct 2026</sub>
+- Merged [docs: handoff after v0.5.0](https://github.com/maximilianfeix/dockdu/pull/48) in **dockdu** <sub>· 15 Oct 2026</sub>
+- Released **[dockdu v0.5.0](https://github.com/maximilianfeix/dockdu/releases/tag/v0.5.0)** <sub>· 15 Oct 2026</sub>
 - Released **[proxy-scraper v1.29.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.29.0)** <sub>· 14 Oct 2026</sub>
+- Released **[proxy-scraper v1.28.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.28.0)** <sub>· 11 Oct 2026</sub>
 <!--SHIPPED:end-->
 
 </td>
@@ -147,7 +147,7 @@ Try it on real projects: [**Zustand**](https://maximilianfeix.github.io/repoatla
 <!--CONTRIB:start-->
 - **[HKUDS/DeepTutor](https://github.com/HKUDS/DeepTutor)** <sub>★ 41.4k</sub><br><sub>[2 merged PRs](https://github.com/HKUDS/DeepTutor/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
 - **[semantica-agi/semantica](https://github.com/semantica-agi/semantica)** <sub>★ 14k</sub><br><sub>[6 merged PRs](https://github.com/semantica-agi/semantica/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
-- **[MakazhanAlpamys/Soup](https://github.com/MakazhanAlpamys/Soup)** <sub>★ 9k</sub><br><sub>[6 merged PRs](https://github.com/MakazhanAlpamys/Soup/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
+- **[MakazhanAlpamys/Soup](https://github.com/MakazhanAlpamys/Soup)** <sub>★ 9.1k</sub><br><sub>[6 merged PRs](https://github.com/MakazhanAlpamys/Soup/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
 - **[mthcht/awesome-lists](https://github.com/mthcht/awesome-lists)** <sub>★ 1.9k</sub><br><sub>[1 merged PR](https://github.com/mthcht/awesome-lists/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
 - **[TensorBlock/awesome-mcp-servers](https://github.com/TensorBlock/awesome-mcp-servers)** <sub>★ 903</sub><br><sub>[1 merged PR](https://github.com/TensorBlock/awesome-mcp-servers/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
 - **[conda-forge/staged-recipes](https://github.com/conda-forge/staged-recipes)** <sub>★ 847</sub><br><sub>[1 merged PR](https://github.com/conda-forge/staged-recipes/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
