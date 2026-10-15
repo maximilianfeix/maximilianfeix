@@ -131,8 +131,8 @@ Try it on real projects: [**Zustand**](https://maximilianfeix.github.io/repoatla
 **Recently shipped**
 
 <!--SHIPPED:start-->
-- Released **[hexvero v0.4.2](https://github.com/maximilianfeix/hexvero/releases/tag/v0.4.2)** <sub>· 14 Oct 2026</sub>
-- Merged [Follow modules bundled by esbuild, top-level patterns and class expressions](https://github.com/maximilianfeix/hexvero/pull/96) in **hexvero** <sub>· 14 Oct 2026</sub>
+- Merged [Overnight log: PRs #106 to #111, releases 0.6.1 and 0.6.2](https://github.com/maximilianfeix/hexvero/pull/112) in **hexvero** <sub>· 14 Oct 2026</sub>
+- Released **[hexvero v0.6.2](https://github.com/maximilianfeix/hexvero/releases/tag/v0.6.2)** <sub>· 14 Oct 2026</sub>
 - Merged [docs: overnight log update](https://github.com/maximilianfeix/dockdu/pull/41) in **dockdu** <sub>· 14 Oct 2026</sub>
 - Released **[dockdu v0.3.3](https://github.com/maximilianfeix/dockdu/releases/tag/v0.3.3)** <sub>· 14 Oct 2026</sub>
 - Merged [docs: maintenance log after 1.29.0](https://github.com/maximilianfeix/proxy-scraper/pull/331) in **proxy-scraper** <sub>· 14 Oct 2026</sub>
