@@ -131,10 +131,10 @@ Try it on real projects: [**Zustand**](https://maximilianfeix.github.io/repoatla
 **Recently shipped**
 
 <!--SHIPPED:start-->
-- Merged [README: badges and demo table](https://github.com/maximilianfeix/repoville/pull/53) in **repoville** <sub>· 16 Oct 2026</sub>
-- Merged [Autopilot: extend to 20:00, promotion + texture backlog](https://github.com/maximilianfeix/repoville/pull/52) in **repoville** <sub>· 16 Oct 2026</sub>
-- Merged [Progress and growth log: 0.7.1 to 0.7.5, holdout4](https://github.com/maximilianfeix/hexvero/pull/128) in **hexvero** <sub>· 15 Oct 2026</sub>
+- Merged [Progress 08:30](https://github.com/maximilianfeix/repoville/pull/78) in **repoville** <sub>· 16 Oct 2026</sub>
+- Merged [Refactor: Mason.recessGlass](https://github.com/maximilianfeix/repoville/pull/77) in **repoville** <sub>· 16 Oct 2026</sub>
 - Released **[hexvero v0.7.5](https://github.com/maximilianfeix/hexvero/releases/tag/v0.7.5)** <sub>· 15 Oct 2026</sub>
+- Released **[hexvero v0.7.4](https://github.com/maximilianfeix/hexvero/releases/tag/v0.7.4)** <sub>· 15 Oct 2026</sub>
 - Released **[dockdu v0.5.0](https://github.com/maximilianfeix/dockdu/releases/tag/v0.5.0)** <sub>· 15 Oct 2026</sub>
 - Released **[dockdu v0.4.0](https://github.com/maximilianfeix/dockdu/releases/tag/v0.4.0)** <sub>· 15 Oct 2026</sub>
 <!--SHIPPED:end-->
