@@ -30,7 +30,7 @@ jobs:
           cache-dependency-path: scripts/requirements.txt
       - run: pip install -r scripts/requirements.txt
 
-      - name: Build banner, cards, activity panel, badges and download figures
+      - name: Build stats, static contribution grid, badges and download figures
         run: python3 scripts/build_profile.py >> "$GITHUB_STEP_SUMMARY"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -39,7 +39,7 @@ jobs:
       - name: Commit if something changed
         run: |
           # staged, so new files (a badge for a figure that appears for the first time) count too
-          git add -A assets/header-*.svg assets/activity-*.svg assets/card-*.svg README.md data/
+          git add -A assets/stats-*.svg assets/snake/contributions-static-*.svg README.md data/
           if git diff --cached --quiet; then echo "nothing changed"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

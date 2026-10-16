@@ -1,0 +1,54 @@
+name: Snake
+
+# Draws my contribution graph as an animated snake (Platane/snk, SVG only) and stores it in
+# assets/snake/. The palette matches the static grid in scripts/build_profile.py (GRID).
+# If generation fails, nothing is committed and the last good SVGs stay in place.
+
+on:
+  schedule:
+    - cron: "37 4 * * *"   # daily, off the full hour
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: snake
+  cancel-in-progress: false
+
+jobs:
+  snake:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write   # commit the two SVGs
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Generate the snake
+        uses: Platane/snk/svg-only@d8f6715049803e982ee5ff501b6b9b7d5deeb09b # v3.5.0
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            dist/github-snake.svg?color_snake=#1F2328&color_dots=#EBEDF0,#CDE88A,#9FCB45,#6E9424,#3F5A0E
+            dist/github-snake-dark.svg?color_snake=#F0F6FC&color_dots=#151B23,#2E4A12,#4F7A1C,#86B832,#C6F36B
+
+      - name: Check the output before replacing anything
+        run: |
+          for f in dist/github-snake.svg dist/github-snake-dark.svg; do
+            test -s "$f" || { echo "::error::$f is missing or empty"; exit 1; }
+            head -c 200 "$f" | grep -q '<svg' || { echo "::error::$f is not an SVG"; exit 1; }
+            if grep -qiE '<script|<foreignObject|href="https?:' "$f"; then echo "::error::$f has external or active content"; exit 1; fi
+          done
+          mkdir -p assets/snake
+          cp dist/github-snake.svg dist/github-snake-dark.svg assets/snake/
+
+      - name: Commit if something changed
+        run: |
+          git add assets/snake/github-snake.svg assets/snake/github-snake-dark.svg
+          if git diff --cached --quiet; then echo "nothing changed"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update contribution snake"
+          # the profile workflow may have pushed meanwhile; it never touches these two files
+          git pull --rebase
+          git push

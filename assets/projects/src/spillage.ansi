@@ -1,0 +1,33 @@
+
+  [1mspillage[0m [2mscanned[0m 3 files [2m(1 KB)[0m [2mfrom[0m Claude Code, Codex CLI [2min[0m 0.0s
+
+  [91m●[0m [1m3 secrets spilled[0m   [91;1m3 critical[0m[2m · [0m[2m0 high[0m[2m · [0m[2m0 medium[0m[2m · [0m[2m0 low[0m
+  [2m────────────────────────────────────────────────────────────────────────────────────────[0m
+
+  [41;1m CRITICAL[0m [1mGitHub token[0m  [36mghp_N7…(40 chars)[0m  [90mdfd5fe8c9655[0m
+             [2mseen 2× in 2 sessions[0m [2m·[0m Claude Code [2m·[0m [2m2026-09-02 → 2026-09-24[0m
+             [2mhow:[0m    you pasted it into a prompt
+             [2mwhere:[0m  ~/.claude/projects/-Users-y…2c41d0-6a1e-4c55-9d0e-5b7e2a91c3f4.jsonl:1
+             [2m        +1 more (--verbose)[0m
+             [2mrotate:[0m [4mhttps://github.com/settings/tokens[0m
+
+  [41;1m CRITICAL[0m [1mStripe secret key[0m  [36msk_liv…(32 chars)[0m  [90ma51887eac2a0[0m
+             [2mseen 2× in 1 session[0m [2m·[0m Claude Code [2m·[0m [2m2026-09-02[0m
+             [2mhow:[0m    a tool printed it (a file read or a command), the model repeated it in an answer
+             [2mwhere:[0m  ~/.claude/projects/-Users-y…2c41d0-6a1e-4c55-9d0e-5b7e2a91c3f4.jsonl:2
+             [2m        +1 more (--verbose)[0m
+             [2mrotate:[0m [4mhttps://dashboard.stripe.com/apikeys[0m
+
+  [41;1m CRITICAL[0m [1mAnthropic API key[0m  [36msk-ant…(108 chars)[0m  [90m0c88b50f6f71[0m
+             [2mseen 1× in 1 session[0m [2m·[0m Codex CLI [2m·[0m [2m2026-09-19[0m
+             [2mhow:[0m    a tool printed it (a file read or a command)
+             [2mwhere:[0m  ~/.codex/sessions/2026/09/19/rollout-2026-09-19T16-02-11-4c1e.jsonl:2
+             [2mrotate:[0m [4mhttps://console.anthropic.com/settings/keys[0m
+
+[1m  Next steps[0m
+    1. [1mRotate these keys.[0m They were sent to the model provider when the conversation happened;
+       deleting them locally does not undo that. The rotate links are above.
+    2. [36mspillage scrub[0m           removes them from the logs on disk
+    3. [36mspillage guard install[0m   blocks prompts and file reads that would leak the next one
+    [2mFalse alarm?[0m [36mspillage ignore <fingerprint>[0m
+
