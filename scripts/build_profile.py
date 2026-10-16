@@ -1,20 +1,23 @@
 #!/usr/bin/env python3
 """Build the dynamic parts of the profile.
 
-- assets/header-dark.svg / header-light.svg: banner with the latest releases of the four projects
-- assets/card-<repo>.svg: featured project cards, a real screenshot plus a few facts
-- assets/activity-dark.svg / activity-light.svg: releases, contributions, stars and languages
+- assets/stats-dark.svg / stats-light.svg: four numbers about my public work
+- assets/snake/contributions-static-{light,dark}.svg: the contribution grid without animation,
+  shown instead of the snake when the viewer asks for reduced motion
 - data/metrics.json: the last valid value of every version and download figure, with source and fetch time
 - data/downloads.csv: one dated row per successful download fetch, so growth can be shown later
 - data/badges/*.json: Shields endpoint badges made from data/metrics.json
-- README.md: badge rows, "Recent releases" and "About the numbers" between their markers
+- README.md: badge rows, "Recently shipped" and the notes on the numbers, between their markers
+
+The snake itself comes from .github/workflows/snake.yml (Platane/snk).
 
 Only public data is used. Runs in GitHub Actions (see .github/workflows/profile.yml),
 works locally too: `pip install -r scripts/requirements.txt`, then
-`GITHUB_TOKEN=$(gh auth token) python3 scripts/build_profile.py`.
+`GITHUB_TOKEN=$(gh auth token) EXCLUDE_OWNERS=… python3 scripts/build_profile.py`.
 
 Rules for the numbers: a failed fetch never becomes 0 and never overwrites the last valid value,
 which keeps the time it was fetched; download figures are fetched at most once per REFRESH.
+Anything else that fails stops the run, so the files from the last good run stay in place.
 """
 
 from __future__ import annotations
@@ -42,9 +45,10 @@ DATA = ROOT / "data"
 METRICS = DATA / "metrics.json"
 HISTORY = DATA / "downloads.csv"
 BADGES = DATA / "badges"
+SNAKE = ROOT / "assets" / "snake"
 REFRESH = timedelta(hours=20)  # npm and PyPI publish daily figures; no need to ask more often
-
-STACK = ["TypeScript", "Node.js", "Python", "Go", "Linux"]
+# Releases from these repositories can appear under "Recently shipped"
+SHIPPED_FROM = ["hexvero", "proxy-scraper", "spillage", "dockdu", "repoville", "kuerzel", "repoatlas"]
 
 
 @dataclass
@@ -100,7 +104,10 @@ def gql(query: str) -> dict:
     req = urllib.request.Request("https://api.github.com/graphql", data=json.dumps({"query": query}).encode(),
                                  headers={"User-Agent": USER, "Authorization": f"Bearer {os.environ['GITHUB_TOKEN']}"})
     with urllib.request.urlopen(req, timeout=30) as resp:
-        return json.load(resp)["data"]
+        body = json.load(resp)
+    if body.get("errors"):  # GraphQL answers 200 with partial data; partial data must not become a number
+        raise RuntimeError("GraphQL errors: " + "; ".join(e.get("message", "?") for e in body["errors"]))
+    return body["data"]
 
 
 def iso(dt: datetime) -> str:
@@ -109,6 +116,10 @@ def iso(dt: datetime) -> str:
 
 def parse(ts: str) -> datetime:
     return datetime.fromisoformat(ts.replace("Z", "+00:00"))
+
+
+def fmt_day(ts: str) -> str:
+    return parse(ts).strftime("%-d %b %Y")
 
 
 # ---------------------------------------------------------------- versions and downloads
@@ -274,11 +285,7 @@ def render_badges(m: dict, pr: Project) -> str:
     src = (f"https://img.shields.io/github/actions/workflow/status/{USER}/{pr.slug}/{pr.ci}?branch=main&label=CI"
            f"&{style}&labelColor={BADGE_LABEL[1:]}")
     out.append(f'<a href="{wf}"><img src="{src}" alt="CI status on main"></a>')
-    return "<p>" + " ".join(out) + "</p>"
-
-
-def fmt_day(ts: str) -> str:
-    return parse(ts).strftime("%-d %b %Y")
+    return " ".join(out)
 
 
 def render_data(m: dict) -> str:
@@ -305,13 +312,17 @@ def render_data(m: dict) -> str:
 @dataclass
 class Profile:
     stars: int = 0
-    code_prs: int = 0  # merged in other people's projects, list entries left out
-    list_prs: int = 0  # entries for my projects in "awesome" lists
-    code_repos: int = 0
-    releases: int = 0
-    languages: list = field(default_factory=list)  # (name, share of bytes in percent), largest first
+    prs: int = 0  # merged in other people's public repositories, list entries left out
+    list_prs: int = 0  # entries for my own projects in "awesome" lists
+    repos: int = 0  # distinct other people's public repositories with such a PR
+    releases_year: int = 0  # published (non-draft) releases of my public repositories in the last 365 days
+    search_complete: bool = True
+    grid: list = field(default_factory=list)  # weeks of (date, level 0..4)
     shipped: list = field(default_factory=list)
     now: datetime = field(default_factory=lambda: datetime.now(timezone.utc))
+
+
+LEVELS = {"NONE": 0, "FIRST_QUARTILE": 1, "SECOND_QUARTILE": 2, "THIRD_QUARTILE": 3, "FOURTH_QUARTILE": 4}
 
 
 def collect() -> Profile:
@@ -320,54 +331,65 @@ def collect() -> Profile:
              if not r["fork"] and not r["private"] and r["name"] not in SKIP_REPOS]
     p.stars = sum(r["stargazers_count"] for r in repos)
 
-    items = []
+    year_ago = p.now - timedelta(days=365)
+    latest: dict = {}
     for r in repos:
-        for rel in get(f"https://api.github.com/repos/{USER}/{r['name']}/releases?per_page=5"):
-            if not rel["draft"] and not rel["prerelease"]:
-                items.append((rel["published_at"], r["name"], rel["tag_name"], rel["html_url"]))
-    items.sort(reverse=True)
-    per_repo: dict = {}
-    for item in items:  # the newest release per repo, so one busy project doesn't fill the list
-        per_repo[item[1]] = per_repo.get(item[1], 0) + 1
-        if per_repo[item[1]] == 1 and len(p.shipped) < 5:
-            p.shipped.append(item)
+        seen = set()
+        for rel in get_pages(f"https://api.github.com/repos/{USER}/{r['name']}/releases?per_page=100"):
+            if rel["draft"] or rel["id"] in seen or not rel["published_at"]:
+                continue
+            seen.add(rel["id"])
+            if parse(rel["published_at"]) >= year_ago:
+                p.releases_year += 1
+            if r["name"] in SHIPPED_FROM and not rel["prerelease"]:
+                if r["name"] not in latest or rel["published_at"] > latest[r["name"]][0]:
+                    latest[r["name"]] = (rel["published_at"], r["name"], rel["tag_name"], rel["html_url"])
+    p.shipped = sorted(latest.values(), reverse=True)[:3]  # the newest release of the three latest projects
 
-    # merged pull requests in other people's public projects
-    code_repos = set()
+    # merged pull requests in other people's public repositories
+    seen_prs: set = set()
+    per_repo: dict = {}
     query = f"is:pr+is:merged+author:{USER}+-user:{USER}"
     for page in range(1, 11):  # the search API stops at 1,000 results
-        found = get(f"https://api.github.com/search/issues?q={query}&per_page=100&page={page}")["items"]
-        for pr in found:
+        res = get(f"https://api.github.com/search/issues?q={query}&per_page=100&page={page}")
+        if res.get("incomplete_results"):
+            p.search_complete = False
+        for pr in res["items"]:
             name = pr["repository_url"].split("/repos/", 1)[1]
-            if name.split("/")[0].lower() in OWN:
+            if name.split("/")[0].lower() in OWN or pr["html_url"] in seen_prs:
                 continue
-            if "awesome" in name.split("/")[1].lower():
-                p.list_prs += 1
-            else:
-                p.code_prs += 1
-                code_repos.add(name)
-        if len(found) < 100:
+            seen_prs.add(pr["html_url"])
+            per_repo.setdefault(name, []).append(pr)
+        if len(res["items"]) < 100:
             break
-    p.code_repos = len(code_repos)
-
-    nodes = gql(f'''{{ user(login: "{USER}") {{ repositories(ownerAffiliations: OWNER, isFork: false,
-        privacy: PUBLIC, first: 100) {{ nodes {{ name releases {{ totalCount }}
-        languages(first: 10, orderBy: {{field: SIZE, direction: DESC}}) {{ edges {{ size node {{ name }} }} }}
-        }} }} }} }}''')["user"]["repositories"]["nodes"]
-    sizes: dict = {}
-    for r in nodes:
-        if r["name"] in SKIP_REPOS:
+    if res["total_count"] > 1000:
+        p.search_complete = False
+    for name, prs in per_repo.items():
+        try:
+            repo = get(f"https://api.github.com/repos/{name}")
+        except urllib.error.HTTPError as e:
+            if e.code in (403, 404):  # not visible to this token, so not public
+                continue
+            raise
+        if repo["private"] or repo.get("visibility", "public") != "public":
+            continue  # a token can see private repositories; they never count here
+        if "awesome" in repo["name"].lower():
+            p.list_prs += len(prs)
             continue
-        p.releases += r["releases"]["totalCount"]
-        for e in r["languages"]["edges"]:
-            sizes[e["node"]["name"]] = sizes.get(e["node"]["name"], 0) + e["size"]
-    total = sum(sizes.values()) or 1
-    p.languages = sorted(((n, v / total * 100) for n, v in sizes.items()), key=lambda l: -l[1])
+        p.prs += len(prs)
+        p.repos += 1
+
+    cal = gql(f'''{{ user(login: "{USER}") {{ contributionsCollection {{ contributionCalendar {{
+        weeks {{ contributionDays {{ date weekday contributionLevel }} }} }} }} }} }}''')
+    for week in cal["user"]["contributionsCollection"]["contributionCalendar"]["weeks"]:
+        p.grid.append([(d["date"], d["weekday"], LEVELS[d["contributionLevel"]]) for d in week["contributionDays"]])
+    if not p.grid:
+        raise RuntimeError("empty contribution calendar")
     return p
 
 
 # ---------------------------------------------------------------- typesetting
-# Text is shaped with HarfBuzz and written out as outlines, so the banner looks the
+# Text is shaped with HarfBuzz and written out as outlines, so the panel looks the
 # same everywhere: GitHub serves SVGs as images, which can't load web fonts reliably.
 
 FONTS = ROOT / "fonts"
@@ -419,223 +441,78 @@ def text(s: str, x: float, y: float, font: str, size: float, fill: str,
     return f'<path fill="{fill}" d="{d}"><title>{escape(s)}</title></path>' if d else ""
 
 
-# ---------------------------------------------------------------- header
+# ---------------------------------------------------------------- stats panel and static grid
 
+# One accent: the lime of the contribution levels. Text in GitHub's own ink colours.
 THEMES = {
-    # text colours on GitHub's own page colour; the banner adds its SURFACE on top
-    "light": dict(ink="#121113", muted="#57564F", faint="#7E7D77", rule="#D0D7DE", signal="#3F5A00"),
-    "dark": dict(ink="#EDEBE6", muted="#A6A59F", faint="#7D7C77", rule="#30363D", signal="#D4F77A"),
+    "light": dict(ink="#1F2328", muted="#59636E", rule="#D1D9E0", accent="#3F5A0E"),
+    "dark": dict(ink="#F0F6FC", muted="#9198A1", rule="#3D444D", accent="#C6F36B"),
 }
-DISPLAY, SANS, SANS_B = "Geist-SemiBold", "Geist-Regular", "Geist-SemiBold"
-MONO = "GeistMono-Regular"
+# Same five colours as the snake (.github/workflows/snake.yml): no contributions, then four levels
+GRID = {
+    "light": ["#EBEDF0", "#CDE88A", "#9FCB45", "#6E9424", "#3F5A0E"],
+    "dark": ["#151B23", "#2E4A12", "#4F7A1C", "#86B832", "#C6F36B"],
+}
+DISPLAY, MONO = "Geist-SemiBold", "GeistMono-Regular"
 
 
 def fmt_int(n: int) -> str:
     return f"{n:,}"
 
 
-# the banner is a card of its own, like the project cards below it
-SURFACE = {
-    "light": dict(bg="#F4F3EE", panel="#FFFFFF", line="#DEDCD4", dot="#CFCDC4", glow="#B9E34F", glow_a=0.42),
-    "dark": dict(bg="#0E0E10", panel="#16161A", line="#2A2A2F", dot="#34343A", glow="#C6F36B", glow_a=0.17),
-}
-POSITIONING = "Backend and infrastructure at a hosting company in Germany."
+def tiles(p: Profile) -> list[tuple[str, str]]:
+    return [(fmt_int(p.stars), "stars on my repos"),
+            (fmt_int(p.prs), "PRs merged elsewhere"),
+            (fmt_int(p.repos), "projects patched"),
+            (fmt_int(p.releases_year), "releases in 12 months")]
 
 
-def render_header(p: Profile, m: dict, theme: str) -> str:
-    c = {**THEMES[theme], **SURFACE[theme]}
-    W, H, PAD = 1200, 400, 56
-    out = []
-
-    out.append(f"""<defs>
-<clipPath id="card"><rect width="{W}" height="{H}" rx="20"/></clipPath>
-<pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.2" fill="{c["dot"]}"/></pattern>
-<linearGradient id="fade" x1="0" x2="1" y1="0" y2="0"><stop offset=".3" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff"/></linearGradient>
-<mask id="right"><rect width="{W}" height="{H}" fill="url(#fade)"/></mask>
-<radialGradient id="glow" cx="{W - 190}" cy="-40" r="560" gradientUnits="userSpaceOnUse"><stop stop-color="{c["glow"]}" stop-opacity="{c["glow_a"]}"/><stop offset="1" stop-color="{c["glow"]}" stop-opacity="0"/></radialGradient>
-</defs>
-<g clip-path="url(#card)">
-<rect width="{W}" height="{H}" fill="{c["bg"]}"/>
-<rect width="{W}" height="{H}" fill="url(#dots)" mask="url(#right)"/>
-<rect width="{W}" height="{H}" fill="url(#glow)"/>""")
-
-    # left: what I do, who I am, what I build
-    out.append(f'<rect x="{PAD}" y="70" width="28" height="3" rx="1.5" fill="{c["signal"]}"/>')
-    out.append(text("BACKEND  /  INFRASTRUCTURE  /  DEVELOPER TOOLS", PAD + 42, 77, MONO, 15, c["muted"], tracking=1.6))
-
-    name, size, track = "Maximilian Feix", 100, -4.2
-    out.append(text(name, PAD - 4, 186, DISPLAY, size, c["ink"], tracking=track))
-    out.append(text(".", PAD - 4 + text_width(name, DISPLAY, size, track) + 1, 186, DISPLAY, size, c["signal"]))
-
-    out.append(text(POSITIONING, PAD, 240, SANS, 23, c["muted"]))
-    out.append(text("Developer tools that show their evidence.", PAD, 274, SANS, 23, c["muted"]))
-
-    x = PAD
-    for tech in STACK:  # the stack as quiet chips along the bottom edge
-        w = text_width(tech, MONO, 15) + 28
-        out.append(f'<rect x="{x}" y="314" width="{w:.1f}" height="32" rx="16" fill="none" stroke="{c["line"]}"/>')
-        out.append(text(tech, x + 14, 335.5, MONO, 15, c["muted"]))
-        x += w + 10
-
-    # right: the latest version of each featured project, as the registries report it
-    px, py, pw, ph = 800, PAD, W - PAD - 800, H - 2 * PAD
-    out.append(f'<rect x="{px}" y="{py}" width="{pw}" height="{ph}" rx="14" fill="{c["panel"]}" stroke="{c["line"]}"/>')
-    out.append(f'<circle cx="{px + 27}" cy="{py + 30}" r="4.5" fill="{c["signal"]}"/>')
-    out.append(text("LATEST RELEASES", px + 42, py + 35, MONO, 14, c["ink"], tracking=1.4))
-    out.append(f'<rect x="{px}" y="{py + 58}" width="{pw}" height="1" fill="{c["line"]}"/>')
-    rows = [(pr.title, valid(m, f"{pr.slug}/version")) for pr in PROJECTS]
-    rows = [(t, e) for t, e in rows if e]  # a project without a known version gets no row
-    for i, (title, e) in enumerate(rows):
-        y = py + 104 + i * 44
-        out.append(text(title, px + 22, y, SANS, 19, c["ink"]))
-        out.append(text(f"v{e['value']}", px + pw - 22, y, MONO, 16, c["muted"], anchor="end"))
-    out.append(text(f"as of {p.now.strftime('%-d %b %Y')}", px + 22, py + ph - 22, MONO, 13, c["faint"]))
-
-    out.append(f'</g>\n<rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="20" fill="none" stroke="{c["line"]}"/>')
-
-    label = (f"Maximilian Feix. {POSITIONING} Developer tools that show their evidence. Latest releases: "
-             + ", ".join(f"{t} v{e['value']}" for t, e in rows) + ".")
-    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
-            f'role="img" aria-label="{escape(label)}">\n' + "\n".join(out) + "\n</svg>\n")
-
-
-# ---------------------------------------------------------------- activity
-# Same masthead treatment as the header: no background, four numbers, then the languages
-# as bars in a single hue. Only public repositories are counted.
-
-def render_activity(p: Profile, theme: str) -> str:
+def render_stats(p: Profile, theme: str) -> str:
     c = THEMES[theme]
-    W, H = 1200, 318
+    W, H = 1200, 132
     out = []
-
-    tiles = [(fmt_int(p.releases), "releases on GitHub"), (fmt_int(p.code_prs), "PRs merged upstream"),
-             (fmt_int(p.code_repos), "projects patched"), (fmt_int(p.stars), "stars on my repos")]
-    for i, (value, label) in enumerate(tiles):
+    for i, (value, label) in enumerate(tiles(p)):
         x = i * 300
-        out.append(text(value, x - 2, 62, DISPLAY, 68, c["ink"], tracking=-2.4))
-        out.append(text(label, x, 100, MONO, 17, c["muted"]))
-
-    out.append(f'<rect y="134" width="{W}" height="1" fill="{c["rule"]}"/>')
-    out.append(text("languages, by share of code in my public repositories", 0, 172, MONO, 17, c["faint"]))
-
-    langs = p.languages[:6]
-    top = langs[0][1] if langs else 1
-    for i, (name, share) in enumerate(langs):
-        x, y = (i // 3) * 640, 216 + (i % 3) * 40
-        out.append(text(name, x, y, SANS, 21, c["ink"]))
-        out.append(f'<rect x="{x + 150}" y="{y - 12}" width="320" height="8" rx="4" fill="{c["rule"]}"/>')
-        out.append(f'<rect x="{x + 150}" y="{y - 12}" width="{max(8, round(320 * share / top))}" height="8" rx="4" '
-                   f'fill="{c["signal"]}"/>')
-        pct = f"{share:.1f}%" if share >= 1 else "<1%"
-        out.append(text(pct, x + 560, y, MONO, 17, c["muted"], anchor="end"))
-
-    label = (", ".join(f"{v} {l}" for v, l in tiles) + ". Languages: "
-             + ", ".join(f"{n} {s:.0f}%" for n, s in langs) + ".")
+        if i:
+            out.append(f'<rect x="{x - 24}" y="14" width="1" height="104" fill="{c["rule"]}"/>')
+        out.append(text(value, x - 2, 70, DISPLAY, 64, c["ink"], tracking=-2.2))
+        out.append(f'<rect x="{x}" y="90" width="22" height="3" rx="1.5" fill="{c["accent"]}"/>')
+        out.append(text(label, x, 122, MONO, 19, c["muted"]))
+    label = ", ".join(f"{v} {l}" for v, l in tiles(p)) + "."
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
             f'role="img" aria-label="{escape(label)}">\n' + "\n".join(out) + "\n</svg>\n")
 
 
-# ---------------------------------------------------------------- project cards
-# Each card wears its project's own colours and shows a real screenshot of it.
-
-@dataclass
-class Card:
-    slug: str
-    title: str
-    lang: str
-    tagline: str
-    facts: list  # (text, emphasised)
-    shot: str  # raw URL of a screenshot in the project's repo
-    crop: tuple  # left, top, right, bottom as fractions of the screenshot
-    colors: dict
-    fit: bool = False  # letterbox instead of trimming, padded with the screenshot's own background
+def render_grid(p: Profile, theme: str) -> str:
+    """The contribution grid in the snake's geometry (16 px pitch, 12 px cells), without motion."""
+    colors = GRID[theme]
+    out = []
+    for x, week in enumerate(p.grid):
+        for day, weekday, level in week:
+            out.append(f'<rect x="{x * 16 + 2}" y="{weekday * 16 + 2}" width="12" height="12" rx="2" '
+                       f'fill="{colors[level]}"><title>{day}</title></rect>')
+    days = sum(len(w) for w in p.grid)
+    label = f"My GitHub contribution graph for the last {days} days, without animation."
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="-16 -32 880 192" width="880" height="192" '
+            f'role="img" aria-label="{escape(label)}">\n' + "\n".join(out) + "\n</svg>\n")
 
 
-def cards(m: dict) -> list[Card]:
-    raw = f"https://raw.githubusercontent.com/{USER}"
-
-    def version(slug: str) -> list:
-        e = valid(m, f"{slug}/version")
-        return [("   ·   ", False), (f"v{e['value']}", False)] if e else []
-
-    return [
-        Card("hexvero", "hexvero", "TypeScript",
-             "Static analysis of binaries and app bundles, every fact with its source.",
-             [("npx hexvero", True), (" · CLI, MCP server, web UI", False)] + version("hexvero"),
-             f"{raw}/hexvero/main/docs/screenshots/ui-overview.png", (0.185, 0.06, 0.70, 0.62),
-             dict(bg="#1B1D21", ink="#ECEAE4", muted="#9C9A94", accent="#F2B84B", rule="#2C2F35")),
-        Card("proxy-scraper", "proxy-scraper", "Python",
-             "Public proxies from 700+ sources, kept only if they pass every check.",
-             [("hourly", True), (" list · rotating proxy · MCP", False)] + version("proxy-scraper"),
-             f"{raw}/proxy-scraper/main/docs/website.png", (0.055, 0.17, 0.96, 0.785),
-             dict(bg="#141416", ink="#EDEBE4", muted="#9C9B96", accent="#C6F36B", rule="#2A2A2E")),
-        Card("spillage", "spillage", "Python",
-             "Keeps API keys out of coding agents and finds the ones that leaked.",
-             [("0", True), (" dependencies, no network", False)] + version("spillage"),
-             f"{raw}/spillage/main/docs/social-preview.png", (0, 0, 1, 1),
-             dict(bg="#0E0F13", ink="#EAE5DA", muted="#9A988F", accent="#FF6B4A", rule="#26272D"), fit=True),
-        Card("dockdu", "dockdu", "Go",
-             "Where Docker's disk space went, and what prune won't give back.",
-             [("read-only", True), (", one command", False)] + version("dockdu"),
-             f"{raw}/dockdu/main/docs/demo.png", (0, 0, 0.5, 0.425),
-             dict(bg="#141E27", ink="#E6EEF2", muted="#8FA1AD", accent="#36B6C5", rule="#22323F")),
-    ]
-
-
-def screenshot(card: Card, w: int, h: int) -> str:
-    """Fetch, crop to the frame's aspect ratio and embed as JPEG (SVG images can't load URLs)."""
-    import base64
-    import io
-    from PIL import Image
-    with urllib.request.urlopen(card.shot, timeout=30) as resp:
-        img = Image.open(io.BytesIO(resp.read())).convert("RGB")
-    l, t, r, b = card.crop
-    box = [img.width * l, img.height * t, img.width * r, img.height * b]
-    want = w / h
-    bw, bh = box[2] - box[0], box[3] - box[1]
-    if card.fit:
-        img = img.crop(tuple(round(v) for v in box))
-        scale = min(w / bw, h / bh)
-        img = img.resize((round(bw * scale), round(bh * scale)), Image.LANCZOS)
-        canvas = Image.new("RGB", (w, h), img.getpixel((0, 0)))
-        canvas.paste(img, ((w - img.width) // 2, (h - img.height) // 2))
-        img = canvas
-    elif bw / bh > want:  # too wide: trim the sides evenly
-        cut = (bw - bh * want) / 2
-        box[0] += cut; box[2] -= cut
-    else:  # too tall: keep the top
-        box[3] = box[1] + bw / want
-    if not card.fit:
-        img = img.crop(tuple(round(v) for v in box)).resize((w, h), Image.LANCZOS)
-    buf = io.BytesIO()
-    img.save(buf, "JPEG", quality=84, optimize=True, progressive=True)
-    return "data:image/jpeg;base64," + base64.b64encode(buf.getvalue()).decode()
-
-
-def render_card(card: Card) -> str:
-    c = card.colors
-    W, IH, CH = 960, 540, 190
-    H = IH + CH
-    href = screenshot(card, W, IH)
-    y = IH
-    facts, x = [], 40
-    for s, strong in card.facts:
-        facts.append(text(s, x, y + 150, MONO, 19, c["accent"] if strong else c["muted"]))
-        x += text_width(s, MONO, 19)
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="{escape(card.title)}: {escape(card.tagline)}">
-<defs><clipPath id="r"><rect width="{W}" height="{H}" rx="12"/></clipPath></defs>
-<g clip-path="url(#r)">
-<rect width="{W}" height="{H}" fill="{c["bg"]}"/>
-<image href="{href}" width="{W}" height="{IH}" preserveAspectRatio="xMidYMin slice"/>
-<rect y="{IH}" width="{W}" height="1" fill="{c["rule"]}"/>
-{text(card.title, 40, y + 62, SANS_B, 36, c["ink"], tracking=-0.3)}
-{text(card.lang, W - 40, y + 60, MONO, 17, c["muted"], anchor="end")}
-{text(card.tagline, 40, y + 104, SANS, 21, c["muted"])}
-{"".join(facts)}
-</g>
-<rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="12" fill="none" stroke="{c["rule"]}"/>
-</svg>
-"""
+def render_snake() -> str:
+    """The snake only once the snake workflow has produced it; until then the static grid alone."""
+    static = ('<source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" '
+              'srcset="./assets/snake/contributions-static-dark.svg">\n'
+              '  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/snake/contributions-static-light.svg">')
+    if all((SNAKE / f).is_file() and (SNAKE / f).stat().st_size > 1000 for f in ("github-snake.svg", "github-snake-dark.svg")):
+        return (f"<picture>\n  {static}\n"
+                '  <source media="(prefers-color-scheme: dark)" srcset="./assets/snake/github-snake-dark.svg">\n'
+                '  <img src="./assets/snake/github-snake.svg" alt="Animation of my GitHub contribution graph from the '
+                'last year: a snake moves across the grid and eats the days with contributions." width="100%">\n'
+                "</picture>\n\n<sub>My contribution graph as an animated snake, redrawn daily with "
+                "[Platane/snk](https://github.com/Platane/snk). It's an animation, not a game you can play here.</sub>")
+    return ("<picture>\n"
+            '  <source media="(prefers-color-scheme: dark)" srcset="./assets/snake/contributions-static-dark.svg">\n'
+            '  <img src="./assets/snake/contributions-static-light.svg" alt="My GitHub contribution graph from the last year" width="100%">\n'
+            "</picture>")
 
 
 def render_shipped(p: Profile) -> str:
@@ -647,9 +524,11 @@ def render_shipped(p: Profile) -> str:
 def render_numbers_note(p: Profile, m: dict) -> str:
     fetched = [parse(e["fetched_at"]) for k, e in m.items() if k.endswith("/downloads") and "value" in e]
     since = f"downloads fetched {max(fetched).strftime('%-d %b %Y')}" if fetched else "no download figures yet"
-    return (f"<sub>Figures as of {p.now.strftime('%-d %b %Y')} ({since}), updated regularly by this repository's workflow. "
-            f"Upstream counts leave out my own accounts and {p.list_prs} entries for my projects in awesome lists. "
-            "Downloads are downloads, not users or unique installs.</sub>")
+    partial = "" if p.search_complete else " The PR search reported incomplete results, so the PR numbers are a lower bound."
+    return (f"<sub>As of {p.now.strftime('%-d %b %Y')} ({since}), updated regularly by this repository's workflows. "
+            "Public repositories only. PRs count merged pull requests in repositories I don't own; "
+            f"{p.list_prs} entries for my own projects in awesome lists are left out. "
+            f"Downloads are downloads, not users or unique installs.{partial}</sub>")
 
 
 def replace_section(text: str, name: str, body: str) -> str:
@@ -661,27 +540,27 @@ def replace_section(text: str, name: str, body: str) -> str:
 
 def main() -> int:
     DATA.mkdir(exist_ok=True)
+    SNAKE.mkdir(parents=True, exist_ok=True)
     p = collect()
     log: list = []
     m = update_metrics(p.now, log)
     write_badges(m)
     for theme in THEMES:
-        (ROOT / "assets" / f"header-{theme}.svg").write_text(render_header(p, m, theme), encoding="utf-8")
-        (ROOT / "assets" / f"activity-{theme}.svg").write_text(render_activity(p, theme), encoding="utf-8")
-    for card in cards(m):
-        (ROOT / "assets" / f"card-{card.slug}.svg").write_text(render_card(card), encoding="utf-8")
+        (ROOT / "assets" / f"stats-{theme}.svg").write_text(render_stats(p, theme), encoding="utf-8")
+        (SNAKE / f"contributions-static-{theme}.svg").write_text(render_grid(p, theme), encoding="utf-8")
 
     readme = ROOT / "README.md"
     body = readme.read_text(encoding="utf-8")
     for pr in PROJECTS:
         body = replace_section(body, f"BADGES:{pr.slug}", render_badges(m, pr))
     body = replace_section(body, "SHIPPED", render_shipped(p))
+    body = replace_section(body, "SNAKE", render_snake())
     body = replace_section(body, "NUMBERS", render_numbers_note(p, m))
     body = replace_section(body, "DATA", render_data(m))
     readme.write_text(body, encoding="utf-8")
 
-    print(f"stars={p.stars} releases={p.releases} code_prs={p.code_prs} code_repos={p.code_repos} "
-          f"list_prs={p.list_prs} shipped={len(p.shipped)}")
+    print(f"stars={p.stars} prs={p.prs} repos={p.repos} list_prs={p.list_prs} releases_12m={p.releases_year} "
+          f"search_complete={p.search_complete} weeks={len(p.grid)} shipped={[s[1] + ' ' + s[2] for s in p.shipped]}")
     for key in sorted(m):
         e = m[key]
         print(f"- {key}: {e.get('value', '—')} ({e.get('status')}, fetched {e.get('fetched_at', 'never')})")

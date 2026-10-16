@@ -1,0 +1,35 @@
+notesdesk-1.4.0.asar
+  asar · 6.1 KiB (6222 bytes) · sha256 875c2bb7fb7eebcd… · 88 ms
+
+Summary
+  Electron ASAR: 4 JavaScript modules, 6 IPC channels
+
+Findings
+  ○ nodeIntegration: true in a BrowserWindow  @ main.js:14
+      contextIsolation is on for the same window, so page scripts do not get require(). Node integration keeps the renderer out of the Chromium sandbox.
+  ○ sandbox: false in a BrowserWindow  @ main.js:15
+      The renderer process runs without the Chromium sandbox.
+  ● 6 IPC channels  @ main.js:25
+      app:quit, notes:list, notes:save, settings:get, settings:set, shell:open (collections ipcChannels, ipc)
+  ● 6 members exposed to pages as window.notesdesk  @ preload.js:4
+      getSetting, setSetting, listNotes, saveNote, quit, openInShell (collection contextBridge)
+  ○ 1 preload script  @ main.js:12
+      preload.js
+  ○ 2 network endpoints read from the code  @ renderer/app.bundle.js:11
+      https://api.notesdesk.example/v1/notes/sync, https://telemetry.notesdesk.example/collect (collection endpoints)
+  ● 1 storage key read from the code  @ renderer/app.bundle.js:10
+      notesdesk.token (collection storage)
+
+Collections
+  findings (7), modules (4), edges (1), externals (3), ipcChannels (6), webPreferences (4), windows (1), contextBridge (6), interfaces (6), ipc (13), endpoints (2), storage (1), urls (2)
+  hexvero collection <path> <name> to page through one
+
+Next
+  Which IPC channels can a page reach, and who handles them?
+    hexvero collection notesdesk-1.4.0.asar ipcChannels
+  What does the preload script expose to web content?
+    hexvero collection notesdesk-1.4.0.asar contextBridge
+  Which window settings are written, and where?
+    hexvero collection notesdesk-1.4.0.asar webPreferences
+  Which servers does the code talk to?
+    hexvero collection notesdesk-1.4.0.asar endpoints
