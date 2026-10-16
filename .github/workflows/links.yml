@@ -20,10 +20,12 @@ jobs:
       - name: Check links in the README
         uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2
         with:
+          # npmjs.com answers bots with 403; the npm package is checked by the profile workflow instead
           args: >-
             --no-progress
             --max-retries 3
             --accept 200,204,206,429
             --exclude "^https://github.com/.*/(stargazers|pulls\\?)"
+            --exclude "^https://www.npmjs.com/"
             README.md
           fail: true
