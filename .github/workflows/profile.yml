@@ -13,7 +13,7 @@ permissions: {}
 
 concurrency:
   group: profile
-  cancel-in-progress: true
+  cancel-in-progress: false   # a cancelled job may already have pushed; let it finish instead
 
 jobs:
   build:
@@ -44,5 +44,6 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "Update profile figures"
-          git pull --rebase   # another push may have landed while this job ran
+          # another run may have pushed meanwhile; these files are all generated, so the fresh ones win
+          git pull --rebase -X theirs
           git push
