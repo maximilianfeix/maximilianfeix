@@ -131,8 +131,8 @@ Try it on real projects: [**Zustand**](https://maximilianfeix.github.io/repoatla
 **Recently shipped**
 
 <!--SHIPPED:start-->
-- Merged [Progress: v0.10.0](https://github.com/maximilianfeix/repoville/pull/91) in **repoville** <sub>· 16 Oct 2026</sub>
-- Released **[repoville v0.10.0](https://github.com/maximilianfeix/repoville/releases/tag/v0.10.0)** <sub>· 16 Oct 2026</sub>
+- Merged [Progress: v0.13.0](https://github.com/maximilianfeix/repoville/pull/104) in **repoville** <sub>· 16 Oct 2026</sub>
+- Released **[repoville v0.13.0](https://github.com/maximilianfeix/repoville/releases/tag/v0.13.0)** <sub>· 16 Oct 2026</sub>
 - Merged [Delete docs/growth directory](https://github.com/maximilianfeix/dockdu/pull/50) in **dockdu** <sub>· 16 Oct 2026</sub>
 - Released **[hexvero v0.7.5](https://github.com/maximilianfeix/hexvero/releases/tag/v0.7.5)** <sub>· 15 Oct 2026</sub>
 - Released **[hexvero v0.7.4](https://github.com/maximilianfeix/hexvero/releases/tag/v0.7.4)** <sub>· 15 Oct 2026</sub>
@@ -149,7 +149,7 @@ Try it on real projects: [**Zustand**](https://maximilianfeix.github.io/repoatla
 - **[semantica-agi/semantica](https://github.com/semantica-agi/semantica)** <sub>★ 14.1k</sub><br><sub>[6 merged PRs](https://github.com/semantica-agi/semantica/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
 - **[MakazhanAlpamys/Soup](https://github.com/MakazhanAlpamys/Soup)** <sub>★ 9.1k</sub><br><sub>[6 merged PRs](https://github.com/MakazhanAlpamys/Soup/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
 - **[mthcht/awesome-lists](https://github.com/mthcht/awesome-lists)** <sub>★ 1.9k</sub><br><sub>[1 merged PR](https://github.com/mthcht/awesome-lists/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
-- **[TensorBlock/awesome-mcp-servers](https://github.com/TensorBlock/awesome-mcp-servers)** <sub>★ 909</sub><br><sub>[2 merged PRs](https://github.com/TensorBlock/awesome-mcp-servers/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
+- **[TensorBlock/awesome-mcp-servers](https://github.com/TensorBlock/awesome-mcp-servers)** <sub>★ 912</sub><br><sub>[2 merged PRs](https://github.com/TensorBlock/awesome-mcp-servers/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
 - **[conda-forge/staged-recipes](https://github.com/conda-forge/staged-recipes)** <sub>★ 848</sub><br><sub>[1 merged PR](https://github.com/conda-forge/staged-recipes/pulls?q=is%3Apr+is%3Amerged+author%3Amaximilianfeix)</sub>
 <!--CONTRIB:end-->
 
