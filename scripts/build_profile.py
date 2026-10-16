@@ -467,17 +467,19 @@ def tiles(p: Profile) -> list[tuple[str, str]]:
             (fmt_int(p.releases_year), "releases in 12 months")]
 
 
-def render_stats(p: Profile, theme: str) -> str:
+def render_stats(p: Profile, theme: str, cols: int = 4) -> str:
+    """One row of four on wide screens; two rows of two for phones (assets/stats-*-narrow.svg)."""
     c = THEMES[theme]
-    W, H = 1200, 132
+    cell_w, cell_h = 300, 150
+    W, H = cell_w * cols, 132 + cell_h * (4 // cols - 1)
     out = []
     for i, (value, label) in enumerate(tiles(p)):
-        x = i * 300
-        if i:
-            out.append(f'<rect x="{x - 24}" y="14" width="1" height="104" fill="{c["rule"]}"/>')
-        out.append(text(value, x - 2, 70, DISPLAY, 64, c["ink"], tracking=-2.2))
-        out.append(f'<rect x="{x}" y="90" width="22" height="3" rx="1.5" fill="{c["accent"]}"/>')
-        out.append(text(label, x, 122, MONO, 19, c["muted"]))
+        x, y = (i % cols) * cell_w, (i // cols) * cell_h
+        if i % cols:
+            out.append(f'<rect x="{x - 24}" y="{y + 14}" width="1" height="104" fill="{c["rule"]}"/>')
+        out.append(text(value, x - 2, y + 70, DISPLAY, 64, c["ink"], tracking=-2.2))
+        out.append(f'<rect x="{x}" y="{y + 90}" width="22" height="3" rx="1.5" fill="{c["accent"]}"/>')
+        out.append(text(label, x, y + 122, MONO, 19, c["muted"]))
     label = ", ".join(f"{v} {l}" for v, l in tiles(p)) + "."
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
             f'role="img" aria-label="{escape(label)}">\n' + "\n".join(out) + "\n</svg>\n")
@@ -547,6 +549,7 @@ def main() -> int:
     write_badges(m)
     for theme in THEMES:
         (ROOT / "assets" / f"stats-{theme}.svg").write_text(render_stats(p, theme), encoding="utf-8")
+        (ROOT / "assets" / f"stats-{theme}-narrow.svg").write_text(render_stats(p, theme, cols=2), encoding="utf-8")
         (SNAKE / f"contributions-static-{theme}.svg").write_text(render_grid(p, theme), encoding="utf-8")
 
     readme = ROOT / "README.md"

@@ -94,6 +94,8 @@ Shows where Docker's disk space went, including the container logs `docker syste
 ## Activity
 
 <picture>
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="./assets/stats-dark-narrow.svg">
+  <source media="(max-width: 600px)" srcset="./assets/stats-light-narrow.svg">
   <source media="(prefers-color-scheme: dark)" srcset="./assets/stats-dark.svg">
   <img src="./assets/stats-light.svg" alt="Stars on my public repositories, pull requests merged in other people's public repositories, the number of those repositories, and releases published in the last 12 months" width="100%">
 </picture>
