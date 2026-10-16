@@ -1,0 +1,4 @@
+fetched_at,project,source,package,period,window_start,window_end,value
+2026-10-16T20:04:46Z,proxy-scraper,pypi,proxy-scraper-cli,30 days,2026-09-16,2026-10-15,3268
+2026-10-16T20:04:46Z,spillage,pypi,spillage,30 days,2026-09-16,2026-10-15,478
+2026-10-16T20:04:46Z,dockdu,github,maximilianfeix/dockdu,all time,,,45
