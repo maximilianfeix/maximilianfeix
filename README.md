@@ -100,9 +100,13 @@ Shows where Docker's disk space went, including the container logs `docker syste
 
 <!--SNAKE:start-->
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/snake/contributions-static-dark.svg">
-  <img src="./assets/snake/contributions-static-light.svg" alt="My GitHub contribution graph from the last year" width="100%">
+  <source media="(prefers-reduced-motion: reduce) and (prefers-color-scheme: dark)" srcset="./assets/snake/contributions-static-dark.svg">
+  <source media="(prefers-reduced-motion: reduce)" srcset="./assets/snake/contributions-static-light.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/snake/github-snake-dark.svg">
+  <img src="./assets/snake/github-snake.svg" alt="Animation of my GitHub contribution graph from the last year: a snake moves across the grid and eats the days with contributions." width="100%">
 </picture>
+
+<sub>My contribution graph as an animated snake, redrawn daily with [Platane/snk](https://github.com/Platane/snk). It's an animation, not a game you can play here.</sub>
 <!--SNAKE:end-->
 
 <!--NUMBERS:start-->
