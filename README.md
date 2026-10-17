@@ -112,7 +112,7 @@ Shows where Docker's disk space went, including the container logs `docker syste
 <!--SNAKE:end-->
 
 <!--NUMBERS:start-->
-<sub>As of 17 Oct 2026 (downloads fetched 16 Oct 2026), updated regularly by this repository's workflows. Public repositories only. PRs count merged pull requests in repositories I don't own; 6 entries for my own projects in awesome lists are left out. Downloads are downloads, not users or unique installs.</sub>
+<sub>As of 17 Oct 2026 (downloads fetched 17 Oct 2026), updated regularly by this repository's workflows. Public repositories only. PRs count merged pull requests in repositories I don't own; 6 entries for my own projects in awesome lists are left out. Downloads are downloads, not users or unique installs.</sub>
 <!--NUMBERS:end-->
 
 <details>
@@ -123,9 +123,9 @@ Shows where Docker's disk space went, including the container logs `docker syste
 <!--DATA:start-->
 | Figure | Value | Window | Definition | Source | Fetched |
 |---|---|---|---|---|---|
-| proxy-scraper · PyPI downloads | 3,268 | 2026-09-16 – 2026-10-15 | Sum of the daily PyPI downloads without mirrors (pypistats.org, from PyPI's public BigQuery data) over the 30 days up to the last day with figures. The package's figures start on 2026-09-26. | [pypistats.org/api/packages/proxy-scraper-cli/overall?mirrors=false](https://pypistats.org/packages/proxy-scraper-cli) | 16 Oct 2026 |
-| spillage · PyPI downloads | 478 | 2026-09-16 – 2026-10-15 | Sum of the daily PyPI downloads without mirrors (pypistats.org, from PyPI's public BigQuery data) over the 30 days up to the last day with figures. The package's figures start on 2026-10-10. | [pypistats.org/api/packages/spillage/overall?mirrors=false](https://pypistats.org/packages/spillage) | 16 Oct 2026 |
-| dockdu · GitHub downloads | 45 | all time | Sum of download_count of the 32 program archives (one per OS and CPU) across all 8 releases; checksums and other files are not counted. Homebrew cask installs fetch these archives and are included; go install, container image pulls and git clones are not. | [GitHub API, releases and assets of maximilianfeix/dockdu (all pages)](https://github.com/maximilianfeix/dockdu/releases) | 16 Oct 2026 |
+| proxy-scraper · PyPI downloads | 3,366 | 2026-09-17 – 2026-10-16 | Sum of the daily PyPI downloads without mirrors (pypistats.org, from PyPI's public BigQuery data) over the 30 days up to the last day with figures. The package's figures start on 2026-09-26. | [pypistats.org/api/packages/proxy-scraper-cli/overall?mirrors=false](https://pypistats.org/packages/proxy-scraper-cli) | 17 Oct 2026 |
+| spillage · PyPI downloads | 485 | 2026-09-17 – 2026-10-16 | Sum of the daily PyPI downloads without mirrors (pypistats.org, from PyPI's public BigQuery data) over the 30 days up to the last day with figures. The package's figures start on 2026-10-10. | [pypistats.org/api/packages/spillage/overall?mirrors=false](https://pypistats.org/packages/spillage) | 17 Oct 2026 |
+| dockdu · GitHub downloads | 45 | all time | Sum of download_count of the 32 program archives (one per OS and CPU) across all 8 releases; checksums and other files are not counted. Homebrew cask installs fetch these archives and are included; go install, container image pulls and git clones are not. | [GitHub API, releases and assets of maximilianfeix/dockdu (all pages)](https://github.com/maximilianfeix/dockdu/releases) | 17 Oct 2026 |
 
 No figure shown for **hexvero**: no data: npm has no download figures for this package yet.
 <!--DATA:end-->
@@ -143,7 +143,7 @@ A failed fetch keeps the last valid figure with its original date; it never show
 ## Recently shipped
 
 <!--SHIPPED:start-->
-- **[hexvero v0.9.2](https://github.com/maximilianfeix/hexvero/releases/tag/v0.9.2)** <sub>· 17 Oct 2026</sub>
+- **[hexvero v0.9.6](https://github.com/maximilianfeix/hexvero/releases/tag/v0.9.6)** <sub>· 17 Oct 2026</sub>
 - **[proxy-scraper v1.30.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.30.0)** <sub>· 16 Oct 2026</sub>
 - **[repoville v0.14.3](https://github.com/maximilianfeix/repoville/releases/tag/v0.14.3)** <sub>· 16 Oct 2026</sub>
 <!--SHIPPED:end-->
