@@ -13,24 +13,24 @@
     "value": 45
   },
   "dockdu/version": {
-    "fetched_at": "2026-10-17T12:37:52Z",
-    "last_attempt": "2026-10-17T12:37:52Z",
+    "fetched_at": "2026-10-17T15:29:39Z",
+    "last_attempt": "2026-10-17T15:29:39Z",
     "source": "GitHub API, latest release of maximilianfeix/dockdu",
     "status": "ok",
     "url": "https://github.com/maximilianfeix/dockdu/releases/tag/v0.5.0",
     "value": "0.5.0"
   },
   "hexvero/downloads": {
-    "last_attempt": "2026-10-17T12:37:52Z",
+    "last_attempt": "2026-10-17T15:29:39Z",
     "status": "no data: npm has no download figures for this package yet"
   },
   "hexvero/version": {
-    "fetched_at": "2026-10-17T12:37:52Z",
-    "last_attempt": "2026-10-17T12:37:52Z",
+    "fetched_at": "2026-10-17T15:29:39Z",
+    "last_attempt": "2026-10-17T15:29:39Z",
     "source": "registry.npmjs.org/hexvero (dist-tag latest)",
     "status": "ok",
     "url": "https://www.npmjs.com/package/hexvero",
-    "value": "0.9.1"
+    "value": "0.9.2"
   },
   "proxy-scraper/downloads": {
     "definition": "Sum of the daily PyPI downloads without mirrors (pypistats.org, from PyPI's public BigQuery data) over the 30 days up to the last day with figures. The package's figures start on 2026-09-26.",
@@ -46,8 +46,8 @@
     "value": 3268
   },
   "proxy-scraper/version": {
-    "fetched_at": "2026-10-17T12:37:52Z",
-    "last_attempt": "2026-10-17T12:37:52Z",
+    "fetched_at": "2026-10-17T15:29:39Z",
+    "last_attempt": "2026-10-17T15:29:39Z",
     "source": "pypi.org/pypi/proxy-scraper-cli/json",
     "status": "ok",
     "url": "https://pypi.org/project/proxy-scraper-cli/",
@@ -67,8 +67,8 @@
     "value": 478
   },
   "spillage/version": {
-    "fetched_at": "2026-10-17T12:37:52Z",
-    "last_attempt": "2026-10-17T12:37:52Z",
+    "fetched_at": "2026-10-17T15:29:39Z",
+    "last_attempt": "2026-10-17T15:29:39Z",
     "source": "pypi.org/pypi/spillage/json",
     "status": "ok",
     "url": "https://pypi.org/project/spillage/",
