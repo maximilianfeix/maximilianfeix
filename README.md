@@ -143,8 +143,8 @@ A failed fetch keeps the last valid figure with its original date; it never show
 ## Recently shipped
 
 <!--SHIPPED:start-->
+- **[hexvero v0.9.1](https://github.com/maximilianfeix/hexvero/releases/tag/v0.9.1)** <sub>· 17 Oct 2026</sub>
 - **[proxy-scraper v1.30.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.30.0)** <sub>· 16 Oct 2026</sub>
-- **[hexvero v0.8.0](https://github.com/maximilianfeix/hexvero/releases/tag/v0.8.0)** <sub>· 16 Oct 2026</sub>
 - **[repoville v0.14.3](https://github.com/maximilianfeix/repoville/releases/tag/v0.14.3)** <sub>· 16 Oct 2026</sub>
 <!--SHIPPED:end-->
 
