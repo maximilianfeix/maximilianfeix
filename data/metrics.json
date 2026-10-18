@@ -13,24 +13,33 @@
     "value": 45
   },
   "dockdu/version": {
-    "fetched_at": "2026-10-17T21:29:25Z",
-    "last_attempt": "2026-10-17T21:29:25Z",
+    "fetched_at": "2026-10-18T01:06:23Z",
+    "last_attempt": "2026-10-18T01:06:23Z",
     "source": "GitHub API, latest release of maximilianfeix/dockdu",
     "status": "ok",
     "url": "https://github.com/maximilianfeix/dockdu/releases/tag/v0.5.0",
     "value": "0.5.0"
   },
   "hexvero/downloads": {
-    "last_attempt": "2026-10-17T21:29:25Z",
-    "status": "no data: npm has no download figures for this package yet"
+    "definition": "Sum of the daily npm downloads of the CLI package in the 30-day window npm reports; the workspace packages it depends on are not added.",
+    "end": "2026-10-16",
+    "fetched_at": "2026-10-18T01:06:23Z",
+    "label": "npm downloads",
+    "last_attempt": "2026-10-18T01:06:23Z",
+    "period": "30 days",
+    "source": "api.npmjs.org/downloads/range/last-month/hexvero",
+    "start": "2026-09-17",
+    "status": "ok",
+    "url": "https://www.npmjs.com/package/hexvero",
+    "value": 364
   },
   "hexvero/version": {
-    "fetched_at": "2026-10-17T21:29:25Z",
-    "last_attempt": "2026-10-17T21:29:25Z",
+    "fetched_at": "2026-10-18T01:06:23Z",
+    "last_attempt": "2026-10-18T01:06:23Z",
     "source": "registry.npmjs.org/hexvero (dist-tag latest)",
     "status": "ok",
     "url": "https://www.npmjs.com/package/hexvero",
-    "value": "0.9.7"
+    "value": "0.9.8"
   },
   "proxy-scraper/downloads": {
     "definition": "Sum of the daily PyPI downloads without mirrors (pypistats.org, from PyPI's public BigQuery data) over the 30 days up to the last day with figures. The package's figures start on 2026-09-26.",
@@ -46,8 +55,8 @@
     "value": 3366
   },
   "proxy-scraper/version": {
-    "fetched_at": "2026-10-17T21:29:25Z",
-    "last_attempt": "2026-10-17T21:29:25Z",
+    "fetched_at": "2026-10-18T01:06:23Z",
+    "last_attempt": "2026-10-18T01:06:23Z",
     "source": "pypi.org/pypi/proxy-scraper-cli/json",
     "status": "ok",
     "url": "https://pypi.org/project/proxy-scraper-cli/",
@@ -67,8 +76,8 @@
     "value": 485
   },
   "spillage/version": {
-    "fetched_at": "2026-10-17T21:29:25Z",
-    "last_attempt": "2026-10-17T21:29:25Z",
+    "fetched_at": "2026-10-18T01:06:23Z",
+    "last_attempt": "2026-10-18T01:06:23Z",
     "source": "pypi.org/pypi/spillage/json",
     "status": "ok",
     "url": "https://pypi.org/project/spillage/",
