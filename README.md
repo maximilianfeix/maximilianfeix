@@ -112,7 +112,7 @@ Shows where Docker's disk space went, including the container logs `docker syste
 <!--SNAKE:end-->
 
 <!--NUMBERS:start-->
-<sub>As of 19 Oct 2026 (downloads fetched 19 Oct 2026), updated regularly by this repository's workflows. Public repositories only. PRs count merged pull requests in repositories I don't own; 6 entries for my own projects in awesome lists are left out. Downloads are downloads, not users or unique installs.</sub>
+<sub>As of 20 Oct 2026 (downloads fetched 19 Oct 2026), updated regularly by this repository's workflows. Public repositories only. PRs count merged pull requests in repositories I don't own; 6 entries for my own projects in awesome lists are left out. Downloads are downloads, not users or unique installs.</sub>
 <!--NUMBERS:end-->
 
 <details>
