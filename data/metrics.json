@@ -13,8 +13,8 @@
     "value": 45
   },
   "dockdu/version": {
-    "fetched_at": "2026-10-23T03:38:14Z",
-    "last_attempt": "2026-10-23T03:38:14Z",
+    "fetched_at": "2026-10-23T06:49:08Z",
+    "last_attempt": "2026-10-23T06:49:08Z",
     "source": "GitHub API, latest release of maximilianfeix/dockdu",
     "status": "ok",
     "url": "https://github.com/maximilianfeix/dockdu/releases/tag/v0.5.0",
@@ -23,9 +23,9 @@
   "hexvero/downloads": {
     "definition": "Sum of the daily npm downloads of the CLI package in the 30-day window npm reports; the workspace packages it depends on are not added.",
     "end": "2026-10-18",
-    "fetched_at": "2026-10-22T09:35:30Z",
+    "fetched_at": "2026-10-23T06:49:08Z",
     "label": "npm downloads",
-    "last_attempt": "2026-10-22T09:35:30Z",
+    "last_attempt": "2026-10-23T06:49:08Z",
     "period": "30 days",
     "source": "api.npmjs.org/downloads/range/last-month/hexvero",
     "start": "2026-09-19",
@@ -34,8 +34,8 @@
     "value": 3140
   },
   "hexvero/version": {
-    "fetched_at": "2026-10-23T03:38:14Z",
-    "last_attempt": "2026-10-23T03:38:14Z",
+    "fetched_at": "2026-10-23T06:49:08Z",
+    "last_attempt": "2026-10-23T06:49:08Z",
     "source": "registry.npmjs.org/hexvero (dist-tag latest)",
     "status": "ok",
     "url": "https://www.npmjs.com/package/hexvero",
@@ -55,8 +55,8 @@
     "value": 3675
   },
   "proxy-scraper/version": {
-    "fetched_at": "2026-10-23T03:38:14Z",
-    "last_attempt": "2026-10-23T03:38:14Z",
+    "fetched_at": "2026-10-23T06:49:08Z",
+    "last_attempt": "2026-10-23T06:49:08Z",
     "source": "pypi.org/pypi/proxy-scraper-cli/json",
     "status": "ok",
     "url": "https://pypi.org/project/proxy-scraper-cli/",
@@ -76,8 +76,8 @@
     "value": 506
   },
   "spillage/version": {
-    "fetched_at": "2026-10-23T03:38:14Z",
-    "last_attempt": "2026-10-23T03:38:14Z",
+    "fetched_at": "2026-10-23T06:49:08Z",
+    "last_attempt": "2026-10-23T06:49:08Z",
     "source": "pypi.org/pypi/spillage/json",
     "status": "ok",
     "url": "https://pypi.org/project/spillage/",
