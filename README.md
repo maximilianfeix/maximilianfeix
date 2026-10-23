@@ -1,5 +1,9 @@
 # Hey, I'm Maxi 👋
-
+<h2 align="center">🏆 Github Trophies</h2>
+<img align="center"
+  src="https://github-profile-repo.vercel.app?username=maximilianfeix&theme=juicyfresh&&title=Stars,Followers,Commit,PR,Repo,Issues&no-frame=true"
+  width="100%" />
+<br />
 Apprentice at Hetzner by day; in my own time I build open-source developer tools for backend and infrastructure work. Each of them shows its evidence: what it checked, where an answer comes from, and what it couldn't find out.
 
 [Projects](#projects) · [Portfolio](https://maximilianfeix.github.io) · [Say hello](https://github.com/maximilianfeix/proxy-scraper/discussions)
