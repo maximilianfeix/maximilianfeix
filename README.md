@@ -4,6 +4,17 @@
   src="https://github-profile-repo.vercel.app?username=maximilianfeix&theme=juicyfresh&&title=Stars,Followers,Commit,PR,Repo,Issues&no-frame=true"
   width="100%" />
 <br />
+
+<a href="https://github.com/maximilianfeix"><img alt="maximilianfeix's Github Stats"
+    src="https://github-readme-stats.vercel.app/api?username=maximilianfeix&show_icons=true&count_private=true&theme=react&bg_color=151515" /></a>
+
+<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=maximilianfeix&theme=black-ice"
+    alt="maximilianfeix" /></p>
+
+<br />
+
+<a href="https://github.com/maximilianfeix"><img alt="maximilianfeix's Activity Graph"
+    src="https://activity-graph.herokuapp.com/graph?username=maximilianfeix&bg_color=0D1117&color=5BCDEC&line=5BCDEC&point=FFFFFF&hide_border=true" /></a>
 Apprentice at Hetzner by day; in my own time I build open-source developer tools for backend and infrastructure work. Each of them shows its evidence: what it checked, where an answer comes from, and what it couldn't find out.
 
 [Projects](#projects) · [Portfolio](https://maximilianfeix.github.io) · [Say hello](https://github.com/maximilianfeix/proxy-scraper/discussions)
