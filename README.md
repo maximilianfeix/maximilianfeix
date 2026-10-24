@@ -127,7 +127,7 @@ Shows where Docker's disk space went, including the container logs `docker syste
 <!--SNAKE:end-->
 
 <!--NUMBERS:start-->
-<sub>As of 24 Oct 2026 (downloads fetched 23 Oct 2026), updated regularly by this repository's workflows. Public repositories only. PRs count merged pull requests in repositories I don't own; 6 entries for my own projects in awesome lists are left out. Downloads are downloads, not users or unique installs.</sub>
+<sub>As of 24 Oct 2026 (downloads fetched 24 Oct 2026), updated regularly by this repository's workflows. Public repositories only. PRs count merged pull requests in repositories I don't own; 6 entries for my own projects in awesome lists are left out. Downloads are downloads, not users or unique installs.</sub>
 <!--NUMBERS:end-->
 
 <details>
@@ -138,7 +138,7 @@ Shows where Docker's disk space went, including the container logs `docker syste
 <!--DATA:start-->
 | Figure | Value | Window | Definition | Source | Fetched |
 |---|---|---|---|---|---|
-| hexvero · npm downloads | 3,140 | 2026-09-19 – 2026-10-18 | Sum of the daily npm downloads of the CLI package in the 30-day window npm reports; the workspace packages it depends on are not added. | [api.npmjs.org/downloads/range/last-month/hexvero](https://www.npmjs.com/package/hexvero) | 23 Oct 2026 |
+| hexvero · npm downloads | 3,164 | 2026-09-23 – 2026-10-22 | Sum of the daily npm downloads of the CLI package in the 30-day window npm reports; the workspace packages it depends on are not added. | [api.npmjs.org/downloads/range/last-month/hexvero](https://www.npmjs.com/package/hexvero) | 24 Oct 2026 |
 | proxy-scraper · PyPI downloads | 3,710 | 2026-09-23 – 2026-10-22 | Sum of the daily PyPI downloads without mirrors (pypistats.org, from PyPI's public BigQuery data) over the 30 days up to the last day with figures. The package's figures start on 2026-09-26. | [pypistats.org/api/packages/proxy-scraper-cli/overall?mirrors=false](https://pypistats.org/packages/proxy-scraper-cli) | 23 Oct 2026 |
 | spillage · PyPI downloads | 507 | 2026-09-23 – 2026-10-22 | Sum of the daily PyPI downloads without mirrors (pypistats.org, from PyPI's public BigQuery data) over the 30 days up to the last day with figures. The package's figures start on 2026-10-10. | [pypistats.org/api/packages/spillage/overall?mirrors=false](https://pypistats.org/packages/spillage) | 23 Oct 2026 |
 | dockdu · GitHub downloads | 45 | all time | Sum of download_count of the 32 program archives (one per OS and CPU) across all 8 releases; checksums and other files are not counted. Homebrew cask installs fetch these archives and are included; go install, container image pulls and git clones are not. | [GitHub API, releases and assets of maximilianfeix/dockdu (all pages)](https://github.com/maximilianfeix/dockdu/releases) | 23 Oct 2026 |
