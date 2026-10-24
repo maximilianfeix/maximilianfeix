@@ -127,7 +127,7 @@ Shows where Docker's disk space went, including the container logs `docker syste
 <!--SNAKE:end-->
 
 <!--NUMBERS:start-->
-<sub>As of 23 Oct 2026 (downloads fetched 23 Oct 2026), updated regularly by this repository's workflows. Public repositories only. PRs count merged pull requests in repositories I don't own; 6 entries for my own projects in awesome lists are left out. Downloads are downloads, not users or unique installs.</sub>
+<sub>As of 24 Oct 2026 (downloads fetched 23 Oct 2026), updated regularly by this repository's workflows. Public repositories only. PRs count merged pull requests in repositories I don't own; 6 entries for my own projects in awesome lists are left out. Downloads are downloads, not users or unique installs.</sub>
 <!--NUMBERS:end-->
 
 <details>
@@ -157,8 +157,8 @@ A failed fetch keeps the last valid figure with its original date; it never show
 ## Recently shipped
 
 <!--SHIPPED:start-->
+- **[proxy-scraper v1.31.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.31.0)** <sub>· 23 Oct 2026</sub>
 - **[hexvero v0.11.1](https://github.com/maximilianfeix/hexvero/releases/tag/v0.11.1)** <sub>· 18 Oct 2026</sub>
-- **[proxy-scraper v1.30.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.30.0)** <sub>· 16 Oct 2026</sub>
 - **[repoville v0.14.3](https://github.com/maximilianfeix/repoville/releases/tag/v0.14.3)** <sub>· 16 Oct 2026</sub>
 <!--SHIPPED:end-->
 
