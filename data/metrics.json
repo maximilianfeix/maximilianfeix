@@ -2,9 +2,9 @@
   "dockdu/downloads": {
     "definition": "Sum of download_count of the 32 program archives (one per OS and CPU) across all 8 releases; checksums and other files are not counted. Homebrew cask installs fetch these archives and are included; go install, container image pulls and git clones are not.",
     "end": null,
-    "fetched_at": "2026-10-23T21:30:43Z",
+    "fetched_at": "2026-10-24T18:34:19Z",
     "label": "GitHub downloads",
-    "last_attempt": "2026-10-23T21:30:43Z",
+    "last_attempt": "2026-10-24T18:34:19Z",
     "period": "all time",
     "source": "GitHub API, releases and assets of maximilianfeix/dockdu (all pages)",
     "start": null,
@@ -13,8 +13,8 @@
     "value": 45
   },
   "dockdu/version": {
-    "fetched_at": "2026-10-24T15:30:49Z",
-    "last_attempt": "2026-10-24T15:30:49Z",
+    "fetched_at": "2026-10-24T18:34:19Z",
+    "last_attempt": "2026-10-24T18:34:19Z",
     "source": "GitHub API, latest release of maximilianfeix/dockdu",
     "status": "ok",
     "url": "https://github.com/maximilianfeix/dockdu/releases/tag/v0.5.0",
@@ -34,8 +34,8 @@
     "value": 3164
   },
   "hexvero/version": {
-    "fetched_at": "2026-10-24T15:30:49Z",
-    "last_attempt": "2026-10-24T15:30:49Z",
+    "fetched_at": "2026-10-24T18:34:19Z",
+    "last_attempt": "2026-10-24T18:34:19Z",
     "source": "registry.npmjs.org/hexvero (dist-tag latest)",
     "status": "ok",
     "url": "https://www.npmjs.com/package/hexvero",
@@ -43,20 +43,20 @@
   },
   "proxy-scraper/downloads": {
     "definition": "Sum of the daily PyPI downloads without mirrors (pypistats.org, from PyPI's public BigQuery data) over the 30 days up to the last day with figures. The package's figures start on 2026-09-26.",
-    "end": "2026-10-22",
-    "fetched_at": "2026-10-23T21:30:43Z",
+    "end": "2026-10-23",
+    "fetched_at": "2026-10-24T18:34:19Z",
     "label": "PyPI downloads",
-    "last_attempt": "2026-10-23T21:30:43Z",
+    "last_attempt": "2026-10-24T18:34:19Z",
     "period": "30 days",
     "source": "pypistats.org/api/packages/proxy-scraper-cli/overall?mirrors=false",
-    "start": "2026-09-23",
+    "start": "2026-09-24",
     "status": "ok",
     "url": "https://pypistats.org/packages/proxy-scraper-cli",
-    "value": 3710
+    "value": 3810
   },
   "proxy-scraper/version": {
-    "fetched_at": "2026-10-24T15:30:49Z",
-    "last_attempt": "2026-10-24T15:30:49Z",
+    "fetched_at": "2026-10-24T18:34:19Z",
+    "last_attempt": "2026-10-24T18:34:19Z",
     "source": "pypi.org/pypi/proxy-scraper-cli/json",
     "status": "ok",
     "url": "https://pypi.org/project/proxy-scraper-cli/",
@@ -65,9 +65,9 @@
   "spillage/downloads": {
     "definition": "Sum of the daily PyPI downloads without mirrors (pypistats.org, from PyPI's public BigQuery data) over the 30 days up to the last day with figures. The package's figures start on 2026-10-10.",
     "end": "2026-10-22",
-    "fetched_at": "2026-10-23T21:30:43Z",
+    "fetched_at": "2026-10-24T18:34:19Z",
     "label": "PyPI downloads",
-    "last_attempt": "2026-10-23T21:30:43Z",
+    "last_attempt": "2026-10-24T18:34:19Z",
     "period": "30 days",
     "source": "pypistats.org/api/packages/spillage/overall?mirrors=false",
     "start": "2026-09-23",
@@ -76,8 +76,8 @@
     "value": 507
   },
   "spillage/version": {
-    "fetched_at": "2026-10-24T15:30:49Z",
-    "last_attempt": "2026-10-24T15:30:49Z",
+    "fetched_at": "2026-10-24T18:34:19Z",
+    "last_attempt": "2026-10-24T18:34:19Z",
     "source": "pypi.org/pypi/spillage/json",
     "status": "ok",
     "url": "https://pypi.org/project/spillage/",
