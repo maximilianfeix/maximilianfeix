@@ -38,3 +38,6 @@ fetched_at,project,source,package,period,window_start,window_end,value
 2026-10-24T18:34:19Z,spillage,pypi,spillage,30 days,2026-09-23,2026-10-22,507
 2026-10-24T18:34:19Z,dockdu,github,maximilianfeix/dockdu,all time,,,45
 2026-10-25T01:06:37Z,hexvero,npm,hexvero,30 days,2026-09-23,2026-10-22,3164
+2026-10-25T15:31:00Z,proxy-scraper,pypi,proxy-scraper-cli,30 days,2026-09-25,2026-10-24,3850
+2026-10-25T15:31:00Z,spillage,pypi,spillage,30 days,2026-09-25,2026-10-24,543
+2026-10-25T15:31:00Z,dockdu,github,maximilianfeix/dockdu,all time,,,45
