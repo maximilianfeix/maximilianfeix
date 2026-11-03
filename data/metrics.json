@@ -13,8 +13,8 @@
     "value": 45
   },
   "dockdu/version": {
-    "fetched_at": "2026-11-02T21:26:58Z",
-    "last_attempt": "2026-11-02T21:26:58Z",
+    "fetched_at": "2026-11-03T00:42:30Z",
+    "last_attempt": "2026-11-03T00:42:30Z",
     "source": "GitHub API, latest release of maximilianfeix/dockdu",
     "status": "ok",
     "url": "https://github.com/maximilianfeix/dockdu/releases/tag/v0.5.0",
@@ -34,8 +34,8 @@
     "value": 3796
   },
   "hexvero/version": {
-    "fetched_at": "2026-11-02T21:26:58Z",
-    "last_attempt": "2026-11-02T21:26:58Z",
+    "fetched_at": "2026-11-03T00:42:30Z",
+    "last_attempt": "2026-11-03T00:42:30Z",
     "source": "registry.npmjs.org/hexvero (dist-tag latest)",
     "status": "ok",
     "url": "https://www.npmjs.com/package/hexvero",
@@ -55,8 +55,8 @@
     "value": 1934
   },
   "proxy-scraper/version": {
-    "fetched_at": "2026-11-02T21:26:58Z",
-    "last_attempt": "2026-11-02T21:26:58Z",
+    "fetched_at": "2026-11-03T00:42:30Z",
+    "last_attempt": "2026-11-03T00:42:30Z",
     "source": "pypi.org/pypi/proxy-scraper-cli/json",
     "status": "ok",
     "url": "https://pypi.org/project/proxy-scraper-cli/",
@@ -76,8 +76,8 @@
     "value": 559
   },
   "spillage/version": {
-    "fetched_at": "2026-11-02T21:26:58Z",
-    "last_attempt": "2026-11-02T21:26:58Z",
+    "fetched_at": "2026-11-03T00:42:30Z",
+    "last_attempt": "2026-11-03T00:42:30Z",
     "source": "pypi.org/pypi/spillage/json",
     "status": "ok",
     "url": "https://pypi.org/project/spillage/",
