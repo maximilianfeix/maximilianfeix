@@ -127,7 +127,7 @@ Shows where Docker's disk space went, including the container logs `docker syste
 <!--SNAKE:end-->
 
 <!--NUMBERS:start-->
-<sub>As of 6 Nov 2026 (downloads fetched 5 Nov 2026), updated regularly by this repository's workflows. Public repositories only. PRs count merged pull requests in repositories I don't own; 6 entries for my own projects in awesome lists are left out. Downloads are downloads, not users or unique installs.</sub>
+<sub>As of 6 Nov 2026 (downloads fetched 6 Nov 2026), updated regularly by this repository's workflows. Public repositories only. PRs count merged pull requests in repositories I don't own; 6 entries for my own projects in awesome lists are left out. Downloads are downloads, not users or unique installs.</sub>
 <!--NUMBERS:end-->
 
 <details>
@@ -139,9 +139,9 @@ Shows where Docker's disk space went, including the container logs `docker syste
 | Figure | Value | Window | Definition | Source | Fetched |
 |---|---|---|---|---|---|
 | hexvero · npm downloads | 3,898 | 2026-10-05 – 2026-11-03 | Sum of the daily npm downloads of the CLI package in the 30-day window npm reports; the workspace packages it depends on are not added. | [api.npmjs.org/downloads/range/last-month/hexvero](https://www.npmjs.com/package/hexvero) | 5 Nov 2026 |
-| proxy-scraper · PyPI downloads | 1,576 | 2026-10-06 – 2026-11-04 | Sum of the daily PyPI downloads without mirrors (pypistats.org, from PyPI's public BigQuery data) over the 30 days up to the last day with figures. | [pypistats.org/api/packages/proxy-scraper-cli/overall?mirrors=false](https://pypistats.org/packages/proxy-scraper-cli) | 5 Nov 2026 |
-| spillage · PyPI downloads | 563 | 2026-10-06 – 2026-11-04 | Sum of the daily PyPI downloads without mirrors (pypistats.org, from PyPI's public BigQuery data) over the 30 days up to the last day with figures. The package's figures start on 2026-10-10. | [pypistats.org/api/packages/spillage/overall?mirrors=false](https://pypistats.org/packages/spillage) | 5 Nov 2026 |
-| dockdu · GitHub downloads | 45 | all time | Sum of download_count of the 32 program archives (one per OS and CPU) across all 8 releases; checksums and other files are not counted. Homebrew cask installs fetch these archives and are included; go install, container image pulls and git clones are not. | [GitHub API, releases and assets of maximilianfeix/dockdu (all pages)](https://github.com/maximilianfeix/dockdu/releases) | 5 Nov 2026 |
+| proxy-scraper · PyPI downloads | 1,331 | 2026-10-07 – 2026-11-05 | Sum of the daily PyPI downloads without mirrors (pypistats.org, from PyPI's public BigQuery data) over the 30 days up to the last day with figures. | [pypistats.org/api/packages/proxy-scraper-cli/overall?mirrors=false](https://pypistats.org/packages/proxy-scraper-cli) | 6 Nov 2026 |
+| spillage · PyPI downloads | 563 | 2026-10-06 – 2026-11-04 | Sum of the daily PyPI downloads without mirrors (pypistats.org, from PyPI's public BigQuery data) over the 30 days up to the last day with figures. The package's figures start on 2026-10-10. | [pypistats.org/api/packages/spillage/overall?mirrors=false](https://pypistats.org/packages/spillage) | 6 Nov 2026 |
+| dockdu · GitHub downloads | 45 | all time | Sum of download_count of the 32 program archives (one per OS and CPU) across all 8 releases; checksums and other files are not counted. Homebrew cask installs fetch these archives and are included; go install, container image pulls and git clones are not. | [GitHub API, releases and assets of maximilianfeix/dockdu (all pages)](https://github.com/maximilianfeix/dockdu/releases) | 6 Nov 2026 |
 <!--DATA:end-->
 
 A failed fetch keeps the last valid figure with its original date; it never shows up as zero. Each successful fetch is appended to [`data/downloads.csv`](data/downloads.csv). How the profile is built and maintained: [`docs/MAINTAINING.md`](docs/MAINTAINING.md).
