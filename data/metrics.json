@@ -13,8 +13,8 @@
     "value": 77
   },
   "dockdu/version": {
-    "fetched_at": "2026-11-10T15:26:58Z",
-    "last_attempt": "2026-11-10T15:26:58Z",
+    "fetched_at": "2026-11-10T18:27:12Z",
+    "last_attempt": "2026-11-10T18:27:12Z",
     "source": "GitHub API, latest release of maximilianfeix/dockdu",
     "status": "ok",
     "url": "https://github.com/maximilianfeix/dockdu/releases/tag/v0.5.0",
@@ -22,20 +22,20 @@
   },
   "hexvero/downloads": {
     "definition": "Sum of the daily npm downloads of the CLI package in the 30-day window npm reports; the workspace packages it depends on are not added.",
-    "end": "2026-11-08",
-    "fetched_at": "2026-11-09T21:26:35Z",
+    "end": "2026-11-09",
+    "fetched_at": "2026-11-10T18:27:12Z",
     "label": "npm downloads",
-    "last_attempt": "2026-11-09T21:26:35Z",
+    "last_attempt": "2026-11-10T18:27:12Z",
     "period": "30 days",
     "source": "api.npmjs.org/downloads/range/last-month/hexvero",
-    "start": "2026-10-10",
+    "start": "2026-10-11",
     "status": "ok",
     "url": "https://www.npmjs.com/package/hexvero",
-    "value": 4397
+    "value": 4506
   },
   "hexvero/version": {
-    "fetched_at": "2026-11-10T15:26:58Z",
-    "last_attempt": "2026-11-10T15:26:58Z",
+    "fetched_at": "2026-11-10T18:27:12Z",
+    "last_attempt": "2026-11-10T18:27:12Z",
     "source": "registry.npmjs.org/hexvero (dist-tag latest)",
     "status": "ok",
     "url": "https://www.npmjs.com/package/hexvero",
@@ -55,8 +55,8 @@
     "value": 1274
   },
   "proxy-scraper/version": {
-    "fetched_at": "2026-11-10T15:26:58Z",
-    "last_attempt": "2026-11-10T15:26:58Z",
+    "fetched_at": "2026-11-10T18:27:12Z",
+    "last_attempt": "2026-11-10T18:27:12Z",
     "source": "pypi.org/pypi/proxy-scraper-cli/json",
     "status": "ok",
     "url": "https://pypi.org/project/proxy-scraper-cli/",
@@ -76,8 +76,8 @@
     "value": 221
   },
   "spillage/version": {
-    "fetched_at": "2026-11-10T15:26:58Z",
-    "last_attempt": "2026-11-10T15:26:58Z",
+    "fetched_at": "2026-11-10T18:27:12Z",
+    "last_attempt": "2026-11-10T18:27:12Z",
     "source": "pypi.org/pypi/spillage/json",
     "status": "ok",
     "url": "https://pypi.org/project/spillage/",
