@@ -127,7 +127,7 @@ Shows where Docker's disk space went, including the container logs `docker syste
 <!--SNAKE:end-->
 
 <!--NUMBERS:start-->
-<sub>As of 11 Nov 2026 (downloads fetched 10 Nov 2026), updated regularly by this repository's workflows. Public repositories only. PRs count merged pull requests in repositories I don't own; 6 entries for my own projects in awesome lists are left out. Downloads are downloads, not users or unique installs.</sub>
+<sub>As of 11 Nov 2026 (downloads fetched 11 Nov 2026), updated regularly by this repository's workflows. Public repositories only. PRs count merged pull requests in repositories I don't own; 6 entries for my own projects in awesome lists are left out. Downloads are downloads, not users or unique installs.</sub>
 <!--NUMBERS:end-->
 
 <details>
@@ -139,9 +139,9 @@ Shows where Docker's disk space went, including the container logs `docker syste
 | Figure | Value | Window | Definition | Source | Fetched |
 |---|---|---|---|---|---|
 | hexvero · npm downloads | 4,506 | 2026-10-11 – 2026-11-09 | Sum of the daily npm downloads of the CLI package in the 30-day window npm reports; the workspace packages it depends on are not added. | [api.npmjs.org/downloads/range/last-month/hexvero](https://www.npmjs.com/package/hexvero) | 10 Nov 2026 |
-| proxy-scraper · PyPI downloads | 1,274 | 2026-10-11 – 2026-11-09 | Sum of the daily PyPI downloads without mirrors (pypistats.org, from PyPI's public BigQuery data) over the 30 days up to the last day with figures. | [pypistats.org/api/packages/proxy-scraper-cli/overall?mirrors=false](https://pypistats.org/packages/proxy-scraper-cli) | 10 Nov 2026 |
-| spillage · PyPI downloads | 221 | 2026-10-11 – 2026-11-09 | Sum of the daily PyPI downloads without mirrors (pypistats.org, from PyPI's public BigQuery data) over the 30 days up to the last day with figures. | [pypistats.org/api/packages/spillage/overall?mirrors=false](https://pypistats.org/packages/spillage) | 10 Nov 2026 |
-| dockdu · GitHub downloads | 77 | all time | Sum of download_count of the 32 program archives (one per OS and CPU) across all 8 releases; checksums and other files are not counted. Homebrew cask installs fetch these archives and are included; go install, container image pulls and git clones are not. | [GitHub API, releases and assets of maximilianfeix/dockdu (all pages)](https://github.com/maximilianfeix/dockdu/releases) | 10 Nov 2026 |
+| proxy-scraper · PyPI downloads | 1,373 | 2026-10-12 – 2026-11-10 | Sum of the daily PyPI downloads without mirrors (pypistats.org, from PyPI's public BigQuery data) over the 30 days up to the last day with figures. | [pypistats.org/api/packages/proxy-scraper-cli/overall?mirrors=false](https://pypistats.org/packages/proxy-scraper-cli) | 11 Nov 2026 |
+| spillage · PyPI downloads | 167 | 2026-10-12 – 2026-11-10 | Sum of the daily PyPI downloads without mirrors (pypistats.org, from PyPI's public BigQuery data) over the 30 days up to the last day with figures. | [pypistats.org/api/packages/spillage/overall?mirrors=false](https://pypistats.org/packages/spillage) | 11 Nov 2026 |
+| dockdu · GitHub downloads | 77 | all time | Sum of download_count of the 32 program archives (one per OS and CPU) across all 8 releases; checksums and other files are not counted. Homebrew cask installs fetch these archives and are included; go install, container image pulls and git clones are not. | [GitHub API, releases and assets of maximilianfeix/dockdu (all pages)](https://github.com/maximilianfeix/dockdu/releases) | 11 Nov 2026 |
 <!--DATA:end-->
 
 A failed fetch keeps the last valid figure with its original date; it never shows up as zero. Each successful fetch is appended to [`data/downloads.csv`](data/downloads.csv). How the profile is built and maintained: [`docs/MAINTAINING.md`](docs/MAINTAINING.md).
@@ -157,7 +157,7 @@ A failed fetch keeps the last valid figure with its original date; it never show
 ## Recently shipped
 
 <!--SHIPPED:start-->
-- **[proxy-scraper v1.32.1](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.32.1)** <sub>· 10 Nov 2026</sub>
+- **[proxy-scraper v1.33.0](https://github.com/maximilianfeix/proxy-scraper/releases/tag/v1.33.0)** <sub>· 11 Nov 2026</sub>
 - **[hexvero v0.12.0](https://github.com/maximilianfeix/hexvero/releases/tag/v0.12.0)** <sub>· 24 Oct 2026</sub>
 - **[repoville v0.14.3](https://github.com/maximilianfeix/repoville/releases/tag/v0.14.3)** <sub>· 16 Oct 2026</sub>
 <!--SHIPPED:end-->
